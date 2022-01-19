@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.cpp
+utility.h
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
+cmath
+-
+
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
+limits
+-
+
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.cpp
+vec3.h
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h
+utility.h
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
+
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h
+iostream
+-
+
