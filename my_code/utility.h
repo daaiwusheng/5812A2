@@ -6,6 +6,8 @@
 #define RAYTRACERENDERWINDOWRELEASE_UTILITY_H
 
 #include <limits>
+
+
 // Constants
 
 const double infinity = std::numeric_limits<double>::infinity();

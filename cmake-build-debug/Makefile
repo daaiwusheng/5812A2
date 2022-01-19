@@ -502,6 +502,270 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+my_code/aabb.o: my_code/aabb.cpp.o
+.PHONY : my_code/aabb.o
+
+# target to build an object file
+my_code/aabb.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.o
+.PHONY : my_code/aabb.cpp.o
+
+my_code/aabb.i: my_code/aabb.cpp.i
+.PHONY : my_code/aabb.i
+
+# target to preprocess a source file
+my_code/aabb.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.i
+.PHONY : my_code/aabb.cpp.i
+
+my_code/aabb.s: my_code/aabb.cpp.s
+.PHONY : my_code/aabb.s
+
+# target to generate assembly for a file
+my_code/aabb.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.s
+.PHONY : my_code/aabb.cpp.s
+
+my_code/aarect.o: my_code/aarect.cpp.o
+.PHONY : my_code/aarect.o
+
+# target to build an object file
+my_code/aarect.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o
+.PHONY : my_code/aarect.cpp.o
+
+my_code/aarect.i: my_code/aarect.cpp.i
+.PHONY : my_code/aarect.i
+
+# target to preprocess a source file
+my_code/aarect.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.i
+.PHONY : my_code/aarect.cpp.i
+
+my_code/aarect.s: my_code/aarect.cpp.s
+.PHONY : my_code/aarect.s
+
+# target to generate assembly for a file
+my_code/aarect.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.s
+.PHONY : my_code/aarect.cpp.s
+
+my_code/box.o: my_code/box.cpp.o
+.PHONY : my_code/box.o
+
+# target to build an object file
+my_code/box.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o
+.PHONY : my_code/box.cpp.o
+
+my_code/box.i: my_code/box.cpp.i
+.PHONY : my_code/box.i
+
+# target to preprocess a source file
+my_code/box.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.i
+.PHONY : my_code/box.cpp.i
+
+my_code/box.s: my_code/box.cpp.s
+.PHONY : my_code/box.s
+
+# target to generate assembly for a file
+my_code/box.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.s
+.PHONY : my_code/box.cpp.s
+
+my_code/camera.o: my_code/camera.cpp.o
+.PHONY : my_code/camera.o
+
+# target to build an object file
+my_code/camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o
+.PHONY : my_code/camera.cpp.o
+
+my_code/camera.i: my_code/camera.cpp.i
+.PHONY : my_code/camera.i
+
+# target to preprocess a source file
+my_code/camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.i
+.PHONY : my_code/camera.cpp.i
+
+my_code/camera.s: my_code/camera.cpp.s
+.PHONY : my_code/camera.s
+
+# target to generate assembly for a file
+my_code/camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.s
+.PHONY : my_code/camera.cpp.s
+
+my_code/color.o: my_code/color.cpp.o
+.PHONY : my_code/color.o
+
+# target to build an object file
+my_code/color.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o
+.PHONY : my_code/color.cpp.o
+
+my_code/color.i: my_code/color.cpp.i
+.PHONY : my_code/color.i
+
+# target to preprocess a source file
+my_code/color.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.i
+.PHONY : my_code/color.cpp.i
+
+my_code/color.s: my_code/color.cpp.s
+.PHONY : my_code/color.s
+
+# target to generate assembly for a file
+my_code/color.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.s
+.PHONY : my_code/color.cpp.s
+
+my_code/hittable.o: my_code/hittable.cpp.o
+.PHONY : my_code/hittable.o
+
+# target to build an object file
+my_code/hittable.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.o
+.PHONY : my_code/hittable.cpp.o
+
+my_code/hittable.i: my_code/hittable.cpp.i
+.PHONY : my_code/hittable.i
+
+# target to preprocess a source file
+my_code/hittable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.i
+.PHONY : my_code/hittable.cpp.i
+
+my_code/hittable.s: my_code/hittable.cpp.s
+.PHONY : my_code/hittable.s
+
+# target to generate assembly for a file
+my_code/hittable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.s
+.PHONY : my_code/hittable.cpp.s
+
+my_code/hittable_list.o: my_code/hittable_list.cpp.o
+.PHONY : my_code/hittable_list.o
+
+# target to build an object file
+my_code/hittable_list.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.o
+.PHONY : my_code/hittable_list.cpp.o
+
+my_code/hittable_list.i: my_code/hittable_list.cpp.i
+.PHONY : my_code/hittable_list.i
+
+# target to preprocess a source file
+my_code/hittable_list.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.i
+.PHONY : my_code/hittable_list.cpp.i
+
+my_code/hittable_list.s: my_code/hittable_list.cpp.s
+.PHONY : my_code/hittable_list.s
+
+# target to generate assembly for a file
+my_code/hittable_list.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.s
+.PHONY : my_code/hittable_list.cpp.s
+
+my_code/material.o: my_code/material.cpp.o
+.PHONY : my_code/material.o
+
+# target to build an object file
+my_code/material.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/material.cpp.o
+.PHONY : my_code/material.cpp.o
+
+my_code/material.i: my_code/material.cpp.i
+.PHONY : my_code/material.i
+
+# target to preprocess a source file
+my_code/material.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/material.cpp.i
+.PHONY : my_code/material.cpp.i
+
+my_code/material.s: my_code/material.cpp.s
+.PHONY : my_code/material.s
+
+# target to generate assembly for a file
+my_code/material.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/material.cpp.s
+.PHONY : my_code/material.cpp.s
+
+my_code/onb.o: my_code/onb.cpp.o
+.PHONY : my_code/onb.o
+
+# target to build an object file
+my_code/onb.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.o
+.PHONY : my_code/onb.cpp.o
+
+my_code/onb.i: my_code/onb.cpp.i
+.PHONY : my_code/onb.i
+
+# target to preprocess a source file
+my_code/onb.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.i
+.PHONY : my_code/onb.cpp.i
+
+my_code/onb.s: my_code/onb.cpp.s
+.PHONY : my_code/onb.s
+
+# target to generate assembly for a file
+my_code/onb.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.s
+.PHONY : my_code/onb.cpp.s
+
+my_code/ray.o: my_code/ray.cpp.o
+.PHONY : my_code/ray.o
+
+# target to build an object file
+my_code/ray.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ray.cpp.o
+.PHONY : my_code/ray.cpp.o
+
+my_code/ray.i: my_code/ray.cpp.i
+.PHONY : my_code/ray.i
+
+# target to preprocess a source file
+my_code/ray.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ray.cpp.i
+.PHONY : my_code/ray.cpp.i
+
+my_code/ray.s: my_code/ray.cpp.s
+.PHONY : my_code/ray.s
+
+# target to generate assembly for a file
+my_code/ray.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ray.cpp.s
+.PHONY : my_code/ray.cpp.s
+
+my_code/texture.o: my_code/texture.cpp.o
+.PHONY : my_code/texture.o
+
+# target to build an object file
+my_code/texture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/texture.cpp.o
+.PHONY : my_code/texture.cpp.o
+
+my_code/texture.i: my_code/texture.cpp.i
+.PHONY : my_code/texture.i
+
+# target to preprocess a source file
+my_code/texture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/texture.cpp.i
+.PHONY : my_code/texture.cpp.i
+
+my_code/texture.s: my_code/texture.cpp.s
+.PHONY : my_code/texture.s
+
+# target to generate assembly for a file
+my_code/texture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/texture.cpp.s
+.PHONY : my_code/texture.cpp.s
+
 my_code/utility.o: my_code/utility.cpp.o
 .PHONY : my_code/utility.o
 
@@ -629,6 +893,39 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... my_code/aabb.o"
+	@echo "... my_code/aabb.i"
+	@echo "... my_code/aabb.s"
+	@echo "... my_code/aarect.o"
+	@echo "... my_code/aarect.i"
+	@echo "... my_code/aarect.s"
+	@echo "... my_code/box.o"
+	@echo "... my_code/box.i"
+	@echo "... my_code/box.s"
+	@echo "... my_code/camera.o"
+	@echo "... my_code/camera.i"
+	@echo "... my_code/camera.s"
+	@echo "... my_code/color.o"
+	@echo "... my_code/color.i"
+	@echo "... my_code/color.s"
+	@echo "... my_code/hittable.o"
+	@echo "... my_code/hittable.i"
+	@echo "... my_code/hittable.s"
+	@echo "... my_code/hittable_list.o"
+	@echo "... my_code/hittable_list.i"
+	@echo "... my_code/hittable_list.s"
+	@echo "... my_code/material.o"
+	@echo "... my_code/material.i"
+	@echo "... my_code/material.s"
+	@echo "... my_code/onb.o"
+	@echo "... my_code/onb.i"
+	@echo "... my_code/onb.s"
+	@echo "... my_code/ray.o"
+	@echo "... my_code/ray.i"
+	@echo "... my_code/ray.s"
+	@echo "... my_code/texture.o"
+	@echo "... my_code/texture.i"
+	@echo "... my_code/texture.s"
 	@echo "... my_code/utility.o"
 	@echo "... my_code/utility.i"
 	@echo "... my_code/utility.s"

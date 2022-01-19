@@ -61,6 +61,20 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RaytraceRenderWidget.cpp.o: \
  ../RaytraceRenderWidget.h \
  ../RenderParameters.h \
  ../TexturedObject.h \
+ ../my_code/aabb.h \
+ ../my_code/aarect.h \
+ ../my_code/box.h \
+ ../my_code/camera.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/hittable_list.h \
+ ../my_code/material.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/utility.h \
+ ../my_code/vec3.h \
+ /usr/local/include/omp.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/QOpenGLWidget \
@@ -182,6 +196,104 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o: \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qapplication.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qopenglwidget.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/QtWidgets
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.o: \
+ ../my_code/aabb.cpp \
+ ../my_code/aabb.h \
+ ../my_code/ray.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o: \
+ ../RGBAValue.h \
+ ../my_code/aabb.h \
+ ../my_code/aarect.cpp \
+ ../my_code/aarect.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/material.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o: \
+ ../RGBAValue.h \
+ ../my_code/aabb.h \
+ ../my_code/aarect.h \
+ ../my_code/box.cpp \
+ ../my_code/box.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/hittable_list.h \
+ ../my_code/material.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o: \
+ ../my_code/camera.cpp \
+ ../my_code/camera.h \
+ ../my_code/ray.h \
+ ../my_code/utility.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o: \
+ ../RGBAValue.h \
+ ../my_code/color.cpp \
+ ../my_code/color.h \
+ ../my_code/utility.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.o: \
+ ../RGBAValue.h \
+ ../my_code/aabb.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.cpp \
+ ../my_code/hittable.h \
+ ../my_code/material.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/utility.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.o: \
+ ../RGBAValue.h \
+ ../my_code/aabb.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/hittable_list.cpp \
+ ../my_code/hittable_list.h \
+ ../my_code/material.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/material.cpp.o: \
+ ../RGBAValue.h \
+ ../my_code/aabb.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/material.cpp \
+ ../my_code/material.h \
+ ../my_code/onb.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/utility.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.o: \
+ ../my_code/onb.cpp \
+ ../my_code/onb.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ray.cpp.o: \
+ ../my_code/ray.cpp \
+ ../my_code/ray.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/texture.cpp.o: \
+ ../RGBAValue.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/rtw_stb_image.h \
+ ../my_code/texture.cpp \
+ ../my_code/texture.h \
+ ../my_code/utility.h \
+ ../my_code/vec3.h \
+ /Users/wangyu/myownlibs/stb-master/stb_image.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/utility.cpp.o: \
  ../my_code/utility.cpp \
  ../my_code/utility.h

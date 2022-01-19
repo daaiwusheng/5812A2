@@ -66,7 +66,7 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	
     // routine that generates the image
     void Raytrace();
-
+    void raytracer();
 	// mouse-handling
 	virtual void mousePressEvent(QMouseEvent *event);
 	virtual void mouseMoveEvent(QMouseEvent *event);
