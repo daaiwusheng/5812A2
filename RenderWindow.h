@@ -93,6 +93,9 @@ class RenderWindow : public QWidget
     QLabel                      *ambientLightLabel;
     QLabel                      *specularLightLabel;
 
+    // button for raytracing
+    QPushButton                 *generateRayTraceImageButton;
+
     public:
     // constructor
     RenderWindow

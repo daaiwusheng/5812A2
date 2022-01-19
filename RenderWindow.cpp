@@ -93,7 +93,11 @@ RenderWindow::RenderWindow
     emissiveLightLabel          = new QLabel                    ("                                    Emissive",            this);
     ambientLightLabel           = new QLabel                    ("Ambient                      Diffuse",            this);
     specularLightLabel          = new QLabel                    ("Specular                     Exponent",           this);
-    
+
+
+    // button for raytracing
+    generateRayTraceImageButton         = new QPushButton               ("Generate Raytracing image", this);
+
     // add all of the widgets to the grid               Row         Column      Row Span    Column Span
     
     // the top two widgets have to fit to the widgets stack between them
@@ -118,7 +122,7 @@ RenderWindow::RenderWindow
     windowLayout->addWidget(lightingBox,                10,         3,          1,          1           );
     windowLayout->addWidget(texturedRenderingBox,       11,         3,          1,          1           );
     windowLayout->addWidget(textureModulationBox,       12,         3,          1,          1           );
-
+    windowLayout->addWidget(generateRayTraceImageButton, 13, 3, 1, 1           );
     // Translate Slider Row
     windowLayout->addWidget(xTranslateSlider,           nStacked,   1,          1,          1           );
     windowLayout->addWidget(yTranslateLabel,            nStacked,   2,          1,          1           );

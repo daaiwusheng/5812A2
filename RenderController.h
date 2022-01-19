@@ -60,6 +60,7 @@ class RenderController : public QObject
         );
     
     public slots:
+    void raytraceButtonClick();
     // slot for responding to arcball rotation for object
     void objectRotationChanged();
     void lightRotationChanged();

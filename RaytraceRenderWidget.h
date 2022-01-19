@@ -55,7 +55,9 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	
 	// destructor
 	~RaytraceRenderWidget();
-			
+
+    // routine that generates the image
+    void Raytrace();
 	protected:
 	// called when OpenGL context is set up
 	void initializeGL();
@@ -63,9 +65,8 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	void resizeGL(int w, int h);
 	// called every time the widget needs painting
 	void paintGL();
-	
-    // routine that generates the image
-    void Raytrace();
+
+
     void raytracer();
 	// mouse-handling
 	virtual void mousePressEvent(QMouseEvent *event);

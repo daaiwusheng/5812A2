@@ -131,10 +131,17 @@ RenderController::RenderController
     QObject::connect(   renderWindow->scaleObjectBox,               SIGNAL(stateChanged(int)),
                         this,                                       SLOT(scaleObjectCheckChanged(int)));
 
+    QObject::connect(renderWindow->generateRayTraceImageButton, SIGNAL(pressed()),
+                     this, SLOT(raytraceButtonClick()));
     // copy the rotation matrix from the widgets to the model
     renderParameters->rotationMatrix = renderWindow->modelRotator->RotationMatrix();
     renderParameters->lightMatrix = renderWindow->lightRotator->RotationMatrix();
     } // RenderController::RenderController()
+
+void RenderController::raytraceButtonClick() {
+    renderWindow->raytraceRenderWidget->Raytrace();
+    renderWindow->ResetInterface();
+}
 
 // slot for responding to arcball rotation for object
 void RenderController::objectRotationChanged()
