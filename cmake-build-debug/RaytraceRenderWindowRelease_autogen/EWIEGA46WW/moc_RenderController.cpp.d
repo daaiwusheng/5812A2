@@ -193,6 +193,8 @@
   /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderWidget.h \
   /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderWindow.h \
   /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/TexturedObject.h \
+  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h \
+  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h \
   /usr/local/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qalgorithms.h \
   /usr/local/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qarraydata.h \
   /usr/local/Cellar/qt@5/5.15.2/lib/QtCore.framework/Versions/5/Headers/qatomic.h \

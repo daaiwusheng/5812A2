@@ -443,6 +443,19 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.cpp -o CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.s
 
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: CMakeFiles/RaytraceRenderWindowRelease.dir/flags.make
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: ../my_code/Raytracer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o -c /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.cpp
+
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.cpp > CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.i
+
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.cpp -o CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.s
+
 # Object files for target RaytraceRenderWindowRelease
 RaytraceRenderWindowRelease_OBJECTS = \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/RaytraceRenderWindowRelease_autogen/mocs_compilation.cpp.o" \
@@ -473,7 +486,8 @@ RaytraceRenderWindowRelease_OBJECTS = \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.o" \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o" \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o" \
-"CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o"
+"CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o" \
+"CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o"
 
 # External object files for target RaytraceRenderWindowRelease
 RaytraceRenderWindowRelease_EXTERNAL_OBJECTS =
@@ -507,6 +521,7 @@ RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o
+RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/build.make
 RaytraceRenderWindowRelease: /usr/local/Cellar/glew/2.2.0_1/lib/libGLEW.2.2.0.dylib
 RaytraceRenderWindowRelease: /usr/local/Cellar/glfw/3.3.4/lib/libglfw.3.3.dylib
@@ -514,7 +529,7 @@ RaytraceRenderWindowRelease: /usr/local/opt/qt@5/lib/QtWidgets.framework/QtWidge
 RaytraceRenderWindowRelease: /usr/local/opt/qt@5/lib/QtGui.framework/QtGui
 RaytraceRenderWindowRelease: /usr/local/opt/qt@5/lib/QtCore.framework/QtCore
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Linking CXX executable RaytraceRenderWindowRelease"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking CXX executable RaytraceRenderWindowRelease"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RaytraceRenderWindowRelease.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

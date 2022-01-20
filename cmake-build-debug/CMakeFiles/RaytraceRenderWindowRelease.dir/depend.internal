@@ -61,20 +61,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RaytraceRenderWidget.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RaytraceRenderWidget.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderParameters.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/TexturedObject.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/box.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/headers.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/hittable.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/hittable_list.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/material.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ray.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/texture.h
- /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h
- /usr/local/include/omp.h
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/QOpenGLWidget
@@ -99,6 +87,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RaytraceRenderWindowRelease_autogen/m
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/cmake-build-debug/RaytraceRenderWindowRelease_autogen/EWIEGA46WW/moc_RenderController.cpp
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/cmake-build-debug/RaytraceRenderWindowRelease_autogen/EWIEGA46WW/moc_RenderWidget.cpp
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/cmake-build-debug/RaytraceRenderWindowRelease_autogen/mocs_compilation.cpp
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui
@@ -121,6 +111,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RenderController.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderWidget.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderWindow.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/TexturedObject.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui
@@ -157,6 +149,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RenderWindow.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderWindow.cpp
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderWindow.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/TexturedObject.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/QOpenGLWidget
@@ -188,6 +182,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderWindow.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/TexturedObject.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/main.cpp
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui
@@ -196,6 +192,25 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qapplication.h
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qopenglwidget.h
  /usr/local/opt/qt@5/lib/QtWidgets.framework/QtWidgets
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RGBAImage.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RGBAValue.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.cpp
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/box.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/headers.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/hittable.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/hittable_list.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/material.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ray.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/texture.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h
+ /usr/local/include/omp.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.cpp
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.h

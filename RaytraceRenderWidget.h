@@ -26,6 +26,7 @@
 // and include all of our own headers that we need
 #include "TexturedObject.h"
 #include "RenderParameters.h"
+#include "my_code/Raytracer.h"
 
 // class for a render widget with arcball linked to an external arcball widget
 class RaytraceRenderWidget : public QOpenGLWidget										
@@ -39,7 +40,9 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	RenderParameters *renderParameters;
 
 	// An image to use as a framebuffer
-	RGBAImage frameBuffer;
+    RGBAImage frameBuffer;
+
+    std::shared_ptr<Raytracer> raytracer;
 
 	public:
 	// constructor
@@ -67,7 +70,6 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	void paintGL();
 
 
-    void raytracer();
 	// mouse-handling
 	virtual void mousePressEvent(QMouseEvent *event);
 	virtual void mouseMoveEvent(QMouseEvent *event);

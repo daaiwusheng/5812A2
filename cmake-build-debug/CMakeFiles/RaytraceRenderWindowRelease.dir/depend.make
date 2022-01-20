@@ -61,20 +61,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RaytraceRenderWidget.cpp.o: \
  ../RaytraceRenderWidget.h \
  ../RenderParameters.h \
  ../TexturedObject.h \
- ../my_code/aabb.h \
- ../my_code/aarect.h \
- ../my_code/box.h \
- ../my_code/camera.h \
- ../my_code/color.h \
- ../my_code/headers.h \
- ../my_code/hittable.h \
- ../my_code/hittable_list.h \
- ../my_code/material.h \
- ../my_code/ray.h \
- ../my_code/texture.h \
- ../my_code/utility.h \
+ ../my_code/Raytracer.h \
  ../my_code/vec3.h \
- /usr/local/include/omp.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/QOpenGLWidget \
@@ -99,6 +87,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RaytraceRenderWindowRelease_autogen/m
  RaytraceRenderWindowRelease_autogen/EWIEGA46WW/moc_RenderController.cpp \
  RaytraceRenderWindowRelease_autogen/EWIEGA46WW/moc_RenderWidget.cpp \
  RaytraceRenderWindowRelease_autogen/mocs_compilation.cpp \
+ ../my_code/Raytracer.h \
+ ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui \
@@ -121,6 +111,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RenderController.cpp.o: \
  ../RenderWidget.h \
  ../RenderWindow.h \
  ../TexturedObject.h \
+ ../my_code/Raytracer.h \
+ ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui \
@@ -157,6 +149,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RenderWindow.cpp.o: \
  ../RenderWindow.cpp \
  ../RenderWindow.h \
  ../TexturedObject.h \
+ ../my_code/Raytracer.h \
+ ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/QOpenGLWidget \
@@ -188,6 +182,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o: \
  ../RenderWindow.h \
  ../TexturedObject.h \
  ../main.cpp \
+ ../my_code/Raytracer.h \
+ ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui \
@@ -196,6 +192,25 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o: \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qapplication.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qopenglwidget.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/QtWidgets
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
+ ../RGBAImage.h \
+ ../RGBAValue.h \
+ ../my_code/Raytracer.cpp \
+ ../my_code/Raytracer.h \
+ ../my_code/aabb.h \
+ ../my_code/aarect.h \
+ ../my_code/box.h \
+ ../my_code/camera.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/hittable_list.h \
+ ../my_code/material.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/utility.h \
+ ../my_code/vec3.h \
+ /usr/local/include/omp.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.o: \
  ../my_code/aabb.cpp \
  ../my_code/aabb.h \

@@ -502,6 +502,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+my_code/Raytracer.o: my_code/Raytracer.cpp.o
+.PHONY : my_code/Raytracer.o
+
+# target to build an object file
+my_code/Raytracer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o
+.PHONY : my_code/Raytracer.cpp.o
+
+my_code/Raytracer.i: my_code/Raytracer.cpp.i
+.PHONY : my_code/Raytracer.i
+
+# target to preprocess a source file
+my_code/Raytracer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.i
+.PHONY : my_code/Raytracer.cpp.i
+
+my_code/Raytracer.s: my_code/Raytracer.cpp.s
+.PHONY : my_code/Raytracer.s
+
+# target to generate assembly for a file
+my_code/Raytracer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.s
+.PHONY : my_code/Raytracer.cpp.s
+
 my_code/aabb.o: my_code/aabb.cpp.o
 .PHONY : my_code/aabb.o
 
@@ -893,6 +917,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... my_code/Raytracer.o"
+	@echo "... my_code/Raytracer.i"
+	@echo "... my_code/Raytracer.s"
 	@echo "... my_code/aabb.o"
 	@echo "... my_code/aabb.i"
 	@echo "... my_code/aabb.s"
