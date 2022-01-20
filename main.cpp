@@ -70,7 +70,7 @@ int main(int argc, char **argv)
     RenderController renderController(&texturedObject, &renderParameters, &renderWindow);
 
     //  set the initial size
-    renderWindow.resize(1274, 664);
+    renderWindow.resize(1530, 760);
 
     // show the window
     renderWindow.show();
