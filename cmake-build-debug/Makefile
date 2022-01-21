@@ -502,6 +502,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+my_code/CornellBox.o: my_code/CornellBox.cpp.o
+.PHONY : my_code/CornellBox.o
+
+# target to build an object file
+my_code/CornellBox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o
+.PHONY : my_code/CornellBox.cpp.o
+
+my_code/CornellBox.i: my_code/CornellBox.cpp.i
+.PHONY : my_code/CornellBox.i
+
+# target to preprocess a source file
+my_code/CornellBox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.i
+.PHONY : my_code/CornellBox.cpp.i
+
+my_code/CornellBox.s: my_code/CornellBox.cpp.s
+.PHONY : my_code/CornellBox.s
+
+# target to generate assembly for a file
+my_code/CornellBox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.s
+.PHONY : my_code/CornellBox.cpp.s
+
 my_code/Raytracer.o: my_code/Raytracer.cpp.o
 .PHONY : my_code/Raytracer.o
 
@@ -917,6 +941,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... my_code/CornellBox.o"
+	@echo "... my_code/CornellBox.i"
+	@echo "... my_code/CornellBox.s"
 	@echo "... my_code/Raytracer.o"
 	@echo "... my_code/Raytracer.i"
 	@echo "... my_code/Raytracer.s"

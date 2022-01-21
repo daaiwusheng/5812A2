@@ -8,47 +8,102 @@
 #include "../RGBAValue.h"
 #include "../RGBAImage.h"
 #include "color.h"
-#include "hittable_list.h"
 #include "hittable.h"
 #include "utility.h"
 #include "vec3.h"
-#include "aarect.h"
-#include "box.h"
-
-
-hittable_list cornell_box() {
-    hittable_list objects;
-
-    auto red   = make_shared<lambertian>(color(.65, .05, .05));
-    auto white = make_shared<lambertian>(color(.73, .73, .73));
-    auto green = make_shared<lambertian>(color(.12, .45, .15));
-    auto light = make_shared<diffuse_light>(color(15, 15, 15));
-
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
-    objects.add(make_shared<flip_face>(make_shared<xz_rect>(213, 343, 227, 332, 554, light)));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
-    objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
-
-    shared_ptr<hittable> box1 = make_shared<box>(point3(0,0,0), point3(165,330,165), white);
-    box1 = make_shared<rotate_y>(box1, 15);
-    box1 = make_shared<translate>(box1, vec3(265,0,295));
-    objects.add(box1);
-
-    shared_ptr<hittable> box2 = make_shared<box>(point3(0,0,0), point3(165,165,165), white);
-    box2 = make_shared<rotate_y>(box2, -18);
-    box2 = make_shared<translate>(box2, vec3(130,0,65));
-    objects.add(box2);
-
-    return objects;
-}
+#include "CornellBox.h"
 
 Raytracer::Raytracer() {
     //keep empty
 }
 
 void Raytracer::render()
+{
+    //康奈尔box
+    cornellBox cornel_box = cornellBox();
+
+    // World
+    auto world = cornel_box.cornell_box();
+
+    camera cam(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
+               cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
+    // Render
+
+    omp_set_num_threads(8);
+    frameBuffer.Resize(cornel_box.image_width,cornel_box.image_height);
+//#pragma omp parallel
+    {
+//#pragma omp for
+        for (int j = cornel_box.image_height - 1; j >= 0; --j) {
+            std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
+            for (int i = 0; i < cornel_box.image_width; ++i) {
+                color pixel_color(0, 0, 0);
+                for (int s = 0; s < cornel_box.samples_per_pixel; ++s) {
+                    auto u = (i + random_double()) / (cornel_box.image_width - 1);
+                    auto v = (j + random_double()) / (cornel_box.image_height - 1);
+                    ray r = cam.get_ray(u, v);
+                    pixel_color += ray_color(r, cornel_box.background, world, cornel_box.max_depth);
+                }
+                RGBAValue current_color = get_color(pixel_color, cornel_box.samples_per_pixel);
+                frameBuffer[j][i] = current_color;
+            }
+        }
+    }
+    std::cerr << "\nDone.\n";
+}
+
+color Raytracer::ray_color(const ray& r, const color& background, const hittable& world, int depth) {
+    hit_record rec;
+
+    // If we've exceeded the ray bounce limit, no more light is gathered.
+    if (depth <= 0)
+        return color(0,0,0);
+    // If the ray hits nothing, return the background color.
+    if (!world.hit(r, 0.001, infinity, rec))
+        return background;
+
+    ray scattered;
+    color attenuation;
+    color emitted = rec.mat_ptr->emitted(r,rec,rec.u,rec.v,rec.p);
+
+    double pdf;
+    color albedo;
+
+    if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf))
+        return emitted;
+
+    auto on_light = point3(random_double(213,343), 554, random_double(227,332));
+    auto to_light = on_light - rec.p;
+    auto distance_squared = to_light.length_squared();
+    to_light = unit_vector(to_light);
+
+    if (dot(to_light, rec.normal) < 0)
+        return emitted;
+
+    double light_area = (343-213)*(332-227);
+    auto light_cosine = fabs(to_light.y());
+    if (light_cosine < 0.000001)
+        return emitted;
+
+    pdf = distance_squared / (light_cosine * light_area);
+    scattered = ray(rec.p, to_light, r.time());
+
+
+    return emitted
+           + albedo * rec.mat_ptr->scattering_pdf(r, rec, scattered)
+             * ray_color(scattered, background, world, depth-1) / pdf;
+
+}
+
+
+
+
+
+
+
+
+/*
+void Raytracer::test_render()
 {
 
     std::ofstream fileTextureMap;
@@ -116,48 +171,4 @@ void Raytracer::render()
     fileTextureMap.close();
     std::cerr << "\nDone.\n";
 }
-
-color Raytracer::ray_color(const ray& r, const color& background, const hittable& world, int depth) {
-    hit_record rec;
-
-    // If we've exceeded the ray bounce limit, no more light is gathered.
-    if (depth <= 0)
-        return color(0,0,0);
-    // If the ray hits nothing, return the background color.
-    if (!world.hit(r, 0.001, infinity, rec))
-        return background;
-
-    ray scattered;
-    color attenuation;
-    color emitted = rec.mat_ptr->emitted(r,rec,rec.u,rec.v,rec.p);
-
-    double pdf;
-    color albedo;
-
-    if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf))
-        return emitted;
-
-    auto on_light = point3(random_double(213,343), 554, random_double(227,332));
-    auto to_light = on_light - rec.p;
-    auto distance_squared = to_light.length_squared();
-    to_light = unit_vector(to_light);
-
-    if (dot(to_light, rec.normal) < 0)
-        return emitted;
-
-    double light_area = (343-213)*(332-227);
-    auto light_cosine = fabs(to_light.y());
-    if (light_cosine < 0.000001)
-        return emitted;
-
-    pdf = distance_squared / (light_cosine * light_area);
-    scattered = ray(rec.p, to_light, r.time());
-
-
-    return emitted
-           + albedo * rec.mat_ptr->scattering_pdf(r, rec, scattered)
-             * ray_color(scattered, background, world, depth-1) / pdf;
-
-}
-
-
+ */

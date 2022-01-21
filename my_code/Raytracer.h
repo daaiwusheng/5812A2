@@ -19,7 +19,7 @@ public:
     RGBAImage frameBuffer;
 private:
     color ray_color(const ray& r, const color& background, const hittable& world, int depth);
-
+    void test_render();
 };
 
 

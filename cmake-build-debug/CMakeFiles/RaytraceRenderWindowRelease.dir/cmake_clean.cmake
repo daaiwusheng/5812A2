@@ -17,6 +17,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/RaytraceRenderWindowRelease.dir/RenderWindow.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/TexturedObject.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o"
+  "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o"

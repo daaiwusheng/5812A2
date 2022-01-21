@@ -192,14 +192,28 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o: \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qapplication.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qopenglwidget.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/QtWidgets
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
- ../RGBAImage.h \
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
  ../RGBAValue.h \
- ../my_code/Raytracer.cpp \
- ../my_code/Raytracer.h \
+ ../my_code/CornellBox.cpp \
+ ../my_code/CornellBox.h \
  ../my_code/aabb.h \
  ../my_code/aarect.h \
  ../my_code/box.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/hittable_list.h \
+ ../my_code/material.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/vec3.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
+ ../RGBAImage.h \
+ ../RGBAValue.h \
+ ../my_code/CornellBox.h \
+ ../my_code/Raytracer.cpp \
+ ../my_code/Raytracer.h \
+ ../my_code/aabb.h \
  ../my_code/camera.h \
  ../my_code/color.h \
  ../my_code/headers.h \
