@@ -31,9 +31,9 @@ void Raytracer::render()
 
     omp_set_num_threads(8);
     frameBuffer.Resize(cornel_box.image_width,cornel_box.image_height);
-//#pragma omp parallel
+#pragma omp parallel
     {
-//#pragma omp for
+#pragma omp for
         for (int j = cornel_box.image_height - 1; j >= 0; --j) {
             std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
             for (int i = 0; i < cornel_box.image_width; ++i) {
