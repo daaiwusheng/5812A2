@@ -40,7 +40,7 @@ RaytraceRenderWidget::RaytraceRenderWidget
     texturedObject(newTexturedObject),
     renderParameters(newRenderParameters)
     { // constructor
-        raytracer = std::shared_ptr<Raytracer>(new Raytracer());
+        raytracer = std::shared_ptr<Raytracer>(new Raytracer(renderParameters));
     } // constructor    
 
 // destructor

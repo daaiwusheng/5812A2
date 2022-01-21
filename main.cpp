@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     QApplication renderApp(argc, argv);
 
     // check the args to make sure there's an input file
-    if (argc != 3) 
+    if (argc < 3)
         { // bad arg count
         // print an error message
         std::cout << "Usage: " << argv[0] << " geometry texture" << std::endl; 
@@ -62,6 +62,11 @@ int main(int argc, char **argv)
 
     // create some default render parameters
     RenderParameters renderParameters;
+
+    if (argc > 3){
+        //拿到第四个参数,并且存起来
+        renderParameters.sceneType = argv[3];
+    }
 
     // use the object & parameters to create a window
     RenderWindow renderWindow(&texturedObject, &renderParameters, argv[1]);

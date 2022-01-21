@@ -63,6 +63,7 @@ class RenderParameters
     bool scaleObject;
     bool mapUVWToRGB;
 
+    std::string sceneType = "";
     // constructor
     RenderParameters()
         :

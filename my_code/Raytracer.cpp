@@ -12,39 +12,60 @@
 #include "utility.h"
 #include "vec3.h"
 #include "CornellBox.h"
+#include "headers.h"
+#include "hittable_list.h"
 
-Raytracer::Raytracer() {
-    //keep empty
+Raytracer::Raytracer(RenderParameters *renderParameters) {
+    this->renderParameters = renderParameters;
 }
 
 void Raytracer::render()
 {
+    auto world = hittable_list();
+    auto cam = camera(point3(278, 278, -800), point3(278, 278, 0), vec3(0, 1, 0), 40,
+                     1.0, 0.0, 10.0, 0, 0);
+    int image_width = 0;
+    int image_height = 0;
+    color background = color(0,0,0);
+    int max_depth = 1;
+    int samples_per_pixel = 10;
     //康奈尔box
-    cornellBox cornel_box = cornellBox();
+    if (renderParameters->sceneType == CORNEL_BOX)
+    {
+        //渲染康奈尔box
+        cornellBox cornel_box = cornellBox();
+        image_width = cornel_box.image_width;
+        image_height = cornel_box.image_height;
 
-    // World
-    auto world = cornel_box.cornell_box();
+        background = cornel_box.background;
+        max_depth = cornel_box.max_depth;
+        samples_per_pixel = cornel_box.max_depth;
+        world = cornel_box.cornell_box();
+        cam = camera(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
+                  cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
+    }
 
-    camera cam(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
-               cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
+
+//    camera cam(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
+//               cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
     // Render
 
     omp_set_num_threads(8);
-    frameBuffer.Resize(cornel_box.image_width,cornel_box.image_height);
+    frameBuffer.Resize(image_width,image_height);
 #pragma omp parallel
     {
 #pragma omp for
-        for (int j = cornel_box.image_height - 1; j >= 0; --j) {
+        for (int j = image_height - 1; j >= 0; --j) {
             std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
-            for (int i = 0; i < cornel_box.image_width; ++i) {
+            for (int i = 0; i < image_width; ++i) {
                 color pixel_color(0, 0, 0);
-                for (int s = 0; s < cornel_box.samples_per_pixel; ++s) {
-                    auto u = (i + random_double()) / (cornel_box.image_width - 1);
-                    auto v = (j + random_double()) / (cornel_box.image_height - 1);
+                for (int s = 0; s < samples_per_pixel; ++s) {
+                    auto u = (i + random_double()) / (image_width - 1);
+                    auto v = (j + random_double()) / (image_height - 1);
                     ray r = cam.get_ray(u, v);
-                    pixel_color += ray_color(r, cornel_box.background, world, cornel_box.max_depth);
+                    pixel_color += ray_color(r, background, world, max_depth);
                 }
-                RGBAValue current_color = get_color(pixel_color, cornel_box.samples_per_pixel);
+                RGBAValue current_color = get_color(pixel_color, samples_per_pixel);
                 frameBuffer[j][i] = current_color;
             }
         }

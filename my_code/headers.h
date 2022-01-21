@@ -9,4 +9,8 @@
 using std::shared_ptr;
 using std::make_shared;
 
+//scene type
+const std::string CORNEL_BOX = "cornell_box";
+const std::string BALLS = "balls";
+
 #endif //RAYTRACERENDERWINDOWRELEASE_HEADERS_H

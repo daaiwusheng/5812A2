@@ -208,8 +208,13 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
  ../my_code/texture.h \
  ../my_code/vec3.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
+ ../Cartesian3.h \
+ ../Homogeneous4.h \
+ ../Matrix4.h \
+ ../Quaternion.h \
  ../RGBAImage.h \
  ../RGBAValue.h \
+ ../RenderParameters.h \
  ../my_code/CornellBox.h \
  ../my_code/Raytracer.cpp \
  ../my_code/Raytracer.h \
