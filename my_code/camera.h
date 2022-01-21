@@ -5,15 +5,16 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_CAMERA_H
 #define RAYTRACERENDERWINDOWRELEASE_CAMERA_H
 
-#include "vec3.h"
+//#include "vec3.h"
+#include "../Cartesian3.h"
 #include "ray.h"
 
 class camera {
 public:
     camera(
-            point3 lookfrom,
-            point3 lookat,
-            vec3   vup,
+            Cartesian3 lookfrom,
+            Cartesian3 lookat,
+            Cartesian3   vup,
             double vfov, // vertical field-of-view in degrees
             double aspect_ratio,
             double aperture,
@@ -25,12 +26,12 @@ public:
     ray get_ray(double s, double t) const;
 
 private:
-    point3 origin;
-    point3 lower_left_corner;
-    vec3 horizontal;
-    vec3 vertical;
+    Cartesian3 origin;
+    Cartesian3 lower_left_corner;
+    Cartesian3 horizontal;
+    Cartesian3 vertical;
 
-    vec3 u, v, w;
+    Cartesian3 u, v, w;
     double lens_radius;
     double time0, time1;  // shutter open/close times
 };

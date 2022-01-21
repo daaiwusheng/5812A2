@@ -7,21 +7,22 @@
 
 #include "ray.h"
 #include "headers.h"
-#include "material.h"
+#include "Material.h"
 #include "aabb.h"
+#include "../Cartesian3.h"
 
 struct hit_record {
-    point3 p;
-    vec3 normal;
-    shared_ptr<material> mat_ptr;
+    Cartesian3 p;
+    Cartesian3 normal;
+    shared_ptr<Material> mat_ptr;
     double t;
     double u;
     double v;
     bool front_face;
 
-    inline void set_face_normal(const ray& r, const vec3& outward_normal) {
+    inline void set_face_normal(const ray& r, const Cartesian3& outward_normal) {
         front_face = dot(r.direction(), outward_normal) < 0;
-        normal = front_face ? outward_normal :-outward_normal;
+        normal = front_face ? outward_normal :-1*outward_normal;
     }
 };
 
@@ -33,7 +34,7 @@ public:
 
 class translate : public hittable {
 public:
-    translate(shared_ptr<hittable> p, const vec3& displacement)
+    translate(shared_ptr<hittable> p, const Cartesian3& displacement)
             : ptr(p), offset(displacement) {}
 
     virtual bool hit(
@@ -43,7 +44,7 @@ public:
 
 public:
     shared_ptr<hittable> ptr;
-    vec3 offset;
+    Cartesian3 offset;
 };
 
 

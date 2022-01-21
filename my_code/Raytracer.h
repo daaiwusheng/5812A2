@@ -5,7 +5,8 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_RAYTRACER_H
 #define RAYTRACERENDERWINDOWRELEASE_RAYTRACER_H
 
-#include "vec3.h"
+//#include "vec3.h"
+#include "../Cartesian3.h"
 #include "../RGBAImage.h"
 #include "../RenderParameters.h"
 #include "../TexturedObject.h"
@@ -22,7 +23,7 @@ public:
     RenderParameters *renderParameters;
     TexturedObject *texturedObject;
 private:
-    color ray_color(const ray& r, const color& background, const hittable& world, int depth);
+    Cartesian3 ray_color(const ray& r, const Cartesian3& background, const hittable& world, int depth);
     void test_render();
 };
 

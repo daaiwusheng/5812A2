@@ -180,9 +180,21 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Material.h",
+			"MU",
+			"3GW5QA7T5Y/moc_Material.cpp",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h",
 			"MU",
 			"3GW5QA7T5Y/moc_Raytracer.cpp",
+			null
+		],
+		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TriangleMesh.h",
+			"MU",
+			"3GW5QA7T5Y/moc_TriangleMesh.cpp",
 			null
 		],
 		[
@@ -234,12 +246,6 @@
 			null
 		],
 		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/material.h",
-			"MU",
-			"3GW5QA7T5Y/moc_material.cpp",
-			null
-		],
-		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/onb.h",
 			"MU",
 			"3GW5QA7T5Y/moc_onb.cpp",
@@ -267,12 +273,6 @@
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h",
 			"MU",
 			"3GW5QA7T5Y/moc_utility.cpp",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.h",
-			"MU",
-			"3GW5QA7T5Y/moc_vec3.cpp",
 			null
 		]
 	],
@@ -408,7 +408,17 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Material.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TriangleMesh.cpp",
 			"MU",
 			null
 		],
@@ -448,11 +458,6 @@
 			null
 		],
 		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/material.cpp",
-			"MU",
-			null
-		],
-		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/onb.cpp",
 			"MU",
 			null
@@ -469,11 +474,6 @@
 		],
 		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/vec3.cpp",
 			"MU",
 			null
 		],

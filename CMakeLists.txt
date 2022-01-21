@@ -95,7 +95,7 @@ add_executable(RaytraceRenderWindowRelease main.cpp
         TexturedObject.cpp
         TexturedObject.h
         src/glad.c
-        my_code/vec3.cpp my_code/vec3.h my_code/utility.cpp my_code/utility.h my_code/ray.cpp my_code/ray.h my_code/hittable_list.cpp my_code/hittable_list.h my_code/hittable.cpp my_code/hittable.h my_code/headers.h my_code/material.cpp my_code/material.h my_code/texture.cpp my_code/texture.h my_code/color.cpp my_code/color.h my_code/aabb.cpp my_code/aabb.h my_code/onb.cpp my_code/onb.h my_code/rtw_stb_image.h my_code/aarect.cpp my_code/aarect.h my_code/box.cpp my_code/box.h my_code/camera.cpp my_code/camera.h my_code/Raytracer.cpp my_code/Raytracer.h my_code/CornellBox.cpp my_code/CornellBox.h)
+        my_code/utility.cpp my_code/utility.h my_code/ray.cpp my_code/ray.h my_code/hittable_list.cpp my_code/hittable_list.h my_code/hittable.cpp my_code/hittable.h my_code/headers.h my_code/Material.cpp my_code/Material.h my_code/texture.cpp my_code/texture.h my_code/color.cpp my_code/color.h my_code/aabb.cpp my_code/aabb.h my_code/onb.cpp my_code/onb.h my_code/rtw_stb_image.h my_code/aarect.cpp my_code/aarect.h my_code/box.cpp my_code/box.h my_code/camera.cpp my_code/camera.h my_code/Raytracer.cpp my_code/Raytracer.h my_code/CornellBox.cpp my_code/CornellBox.h my_code/TriangleMesh.cpp my_code/TriangleMesh.h)
 
 
 

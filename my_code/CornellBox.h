@@ -6,7 +6,8 @@
 #define RAYTRACERENDERWINDOWRELEASE_CORNELLBOX_H
 
 #include "hittable_list.h"
-#include "vec3.h"
+//#include "vec3.h"
+#include "../Cartesian3.h"
 
 class cornellBox{
 public:
@@ -16,11 +17,11 @@ public:
     const int samples_per_pixel = 100;
     const int max_depth = 50;
 
-    color background;
+    Cartesian3 background;
     // Camera
-    point3 lookfrom;
-    point3 lookat;
-    vec3 vup;
+    Cartesian3 lookfrom;
+    Cartesian3 lookat;
+    Cartesian3 vup;
     double dist_to_focus = 10.0;
     double aperture = 0.0;
     double vfov = 40.0;

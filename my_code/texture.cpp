@@ -7,27 +7,46 @@
 #include "rtw_stb_image.h"
 #include "utility.h"
 
-solid_color::solid_color() {}
+solid_color::solid_color()
+{
 
-solid_color::solid_color(color c) : color_value(c) {}
+}
+
+solid_color::solid_color(Cartesian3 c) : color_value(c)
+{
+
+}
 
 solid_color::solid_color(double red, double green, double blue)
-        : solid_color(color(red,green,blue)) {}
+        : solid_color(Cartesian3(red,green,blue))
+        {
 
-color solid_color::value(double u, double v, const vec3 &p) const {
+        }
+
+Cartesian3 solid_color::value(double u, double v, const Cartesian3 &p) const
+{
     return color_value;
 }
 
-checker_texture::checker_texture() {}
+checker_texture::checker_texture()
+{
+
+}
 
 checker_texture::checker_texture(shared_ptr<texture> _even, shared_ptr<texture> _odd)
-        : even(_even), odd(_odd) {}
+        : even(_even), odd(_odd)
+        {
 
-checker_texture::checker_texture(color c1, color c2)
-        : even(make_shared<solid_color>(c1)) , odd(make_shared<solid_color>(c2)) {}
+        }
 
-color checker_texture::value(double u, double v, const point3 &p) const {
-    auto sines = sin(10*p.x())*sin(10*p.y())*sin(10*p.z());
+checker_texture::checker_texture(Cartesian3 c1, Cartesian3 c2)
+        : even(make_shared<solid_color>(c1)) , odd(make_shared<solid_color>(c2))
+        {
+
+        }
+
+Cartesian3 checker_texture::value(double u, double v, const Cartesian3 &p) const {
+    auto sines = sin(10*p.x)*sin(10*p.y)*sin(10*p.z);
     if (sines < 0)
         return odd->value(u, v, p);
     else
@@ -36,7 +55,8 @@ color checker_texture::value(double u, double v, const point3 &p) const {
 
 
 image_texture::image_texture()
-        : data(nullptr), width(0), height(0), bytes_per_scanline(0) {}
+        : data(nullptr), width(0), height(0), bytes_per_scanline(0)
+        {}
 
 image_texture::image_texture(const char *filename) {
     auto components_per_pixel = bytes_per_pixel;
@@ -56,10 +76,10 @@ image_texture::~image_texture() {
     delete data;
 }
 
-color image_texture::value(double u, double v, const vec3 &p) const {
+Cartesian3 image_texture::value(double u, double v, const Cartesian3 &p) const {
     // If we have no texture data, then return solid cyan as a debugging aid.
     if (data == nullptr)
-        return color(0,1,1);
+        return Cartesian3(0,1,1);
 
     // Clamp input texture coordinates to [0,1] x [1,0]
     u = clamp(u, 0.0, 1.0);
@@ -75,5 +95,5 @@ color image_texture::value(double u, double v, const vec3 &p) const {
     const auto color_scale = 1.0 / 255.0;
     auto pixel = data + j*bytes_per_scanline + i*bytes_per_pixel;
 
-    return color(color_scale*pixel[0], color_scale*pixel[1], color_scale*pixel[2]);
+    return Cartesian3(color_scale*pixel[0], color_scale*pixel[1], color_scale*pixel[2]);
 }

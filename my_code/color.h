@@ -5,7 +5,8 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_COLOR_H
 #define RAYTRACERENDERWINDOWRELEASE_COLOR_H
 
-#include "vec3.h"
+//#include "vec3.h"
+#include "../Cartesian3.h"
 #include <fstream>
 #include <iostream>
 #include "../RGBAValue.h"
@@ -18,12 +19,12 @@ struct color_record {
 };
 
 
-void write_color(std::ostream &out, color pixel_color);
+void write_color(std::ostream &out, Cartesian3 pixel_color);
 
-void write_color(std::ofstream &out, color pixel_color);
+void write_color(std::ofstream &out, Cartesian3 pixel_color);
 
-void write_color(std::ofstream &out, color pixel_color, int samples_per_pixel);
+void write_color(std::ofstream &out, Cartesian3 pixel_color, int samples_per_pixel);
 
-RGBAValue get_color(color pixel_color, int samples_per_pixel);
+RGBAValue get_color(Cartesian3 pixel_color, int samples_per_pixel);
 
 #endif //RAYTRACERENDERWINDOWRELEASE_COLOR_H

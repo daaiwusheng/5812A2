@@ -141,7 +141,7 @@ void RenderWidget::paintGL()
         glPopMatrix();
         
        
-        //The light color. The material says each channel responds differently, but
+        //The light color. The Material says each channel responds differently, but
         //light will not have different components. Just a single color.
         //Material code is on TexturedObject
         glLightfv(GL_LIGHT0, GL_AMBIENT,    renderParameters->lightColor);
@@ -155,7 +155,7 @@ void RenderWidget::paintGL()
 
         float globalAmbientColour[4] = {0.0f,0.0f,0.0f,1.0f};
         glLightModelfv(GL_LIGHT_MODEL_AMBIENT, globalAmbientColour);
-        // notice that emission and the specular exponent belong to the material
+        // notice that emission and the specular exponent belong to the Material
         // not to the light. So, even though we are treating them as global, 
         // they belong in the TexturedObject render code
         

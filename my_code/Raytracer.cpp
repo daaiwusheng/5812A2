@@ -10,7 +10,8 @@
 #include "color.h"
 #include "hittable.h"
 #include "utility.h"
-#include "vec3.h"
+//#include "vec3.h"
+#include "../Cartesian3.h"
 #include "CornellBox.h"
 #include "headers.h"
 #include "hittable_list.h"
@@ -23,11 +24,12 @@ Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *textured
 void Raytracer::render()
 {
     auto world = hittable_list();
-    std::shared_ptr<camera> cam = std::make_shared<camera>(point3(278, 278, -800), point3(278, 278, 0), vec3(0, 1, 0), 40,
-                     1.0, 0.0, 10.0, 0, 0);
+    std::shared_ptr<camera> cam = std::make_shared<camera>(Cartesian3(278, 278, -800),
+                                                           Cartesian3(278, 278, 0), Cartesian3(0, 1, 0), 40,
+                                                           1.0, 0.0, 10.0, 0, 0);
     int image_width = 0;
     int image_height = 0;
-    color background = color(0,0,0);
+    Cartesian3 background = Cartesian3(0,0,0);
     int max_depth = 1;
     int samples_per_pixel = 10;
     //康奈尔box
@@ -45,6 +47,11 @@ void Raytracer::render()
         cam = std::make_shared<camera>(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
                   cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
     }
+    else{
+        //渲染默认的mesh 和 纹理
+
+    }
+
 
     omp_set_num_threads(8);
     frameBuffer.Resize(image_width,image_height);
@@ -54,7 +61,7 @@ void Raytracer::render()
         for (int j = image_height - 1; j >= 0; --j) {
             std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
             for (int i = 0; i < image_width; ++i) {
-                color pixel_color(0, 0, 0);
+                Cartesian3 pixel_color(0, 0, 0);
                 for (int s = 0; s < samples_per_pixel; ++s) {
                     auto u = (i + random_double()) / (image_width - 1);
                     auto v = (j + random_double()) / (image_height - 1);
@@ -69,27 +76,27 @@ void Raytracer::render()
     std::cerr << "\nDone.\n";
 }
 
-color Raytracer::ray_color(const ray& r, const color& background, const hittable& world, int depth) {
+Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, const hittable& world, int depth) {
     hit_record rec;
 
     // If we've exceeded the ray bounce limit, no more light is gathered.
     if (depth <= 0)
-        return color(0,0,0);
+        return Cartesian3(0,0,0);
     // If the ray hits nothing, return the background color.
     if (!world.hit(r, 0.001, infinity, rec))
         return background;
 
     ray scattered;
-    color attenuation;
-    color emitted = rec.mat_ptr->emitted(r,rec,rec.u,rec.v,rec.p);
+    Cartesian3 attenuation;
+    Cartesian3 emitted = rec.mat_ptr->emitted(r,rec,rec.u,rec.v,rec.p);
 
     double pdf;
-    color albedo;
+    Cartesian3 albedo;
 
     if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf))
         return emitted;
 
-    auto on_light = point3(random_double(213,343), 554, random_double(227,332));
+    auto on_light = Cartesian3(random_double(213,343), 554, random_double(227,332));
     auto to_light = on_light - rec.p;
     auto distance_squared = to_light.length_squared();
     to_light = unit_vector(to_light);
@@ -98,7 +105,7 @@ color Raytracer::ray_color(const ray& r, const color& background, const hittable
         return emitted;
 
     double light_area = (343-213)*(332-227);
-    auto light_cosine = fabs(to_light.y());
+    auto light_cosine = fabs(to_light.y);
     if (light_cosine < 0.000001)
         return emitted;
 
@@ -106,9 +113,10 @@ color Raytracer::ray_color(const ray& r, const color& background, const hittable
     scattered = ray(rec.p, to_light, r.time());
 
 
-    return emitted
+    return
+           emitted
            + albedo * rec.mat_ptr->scattering_pdf(r, rec, scattered)
-             * ray_color(scattered, background, world, depth-1) / pdf;
+           * ray_color(scattered, background, world, depth-1) / pdf;
 
 }
 

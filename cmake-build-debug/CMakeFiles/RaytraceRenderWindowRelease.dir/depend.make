@@ -26,7 +26,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/ArcBallWidget.cpp.o: \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qopenglwidget.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/Cartesian3.cpp.o: \
  ../Cartesian3.cpp \
- ../Cartesian3.h
+ ../Cartesian3.h \
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/Homogeneous4.cpp.o: \
  ../Cartesian3.h \
  ../Homogeneous4.cpp \
@@ -62,7 +63,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RaytraceRenderWidget.cpp.o: \
  ../RenderParameters.h \
  ../TexturedObject.h \
  ../my_code/Raytracer.h \
- ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/QOpenGLWidget \
@@ -88,7 +88,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RaytraceRenderWindowRelease_autogen/m
  RaytraceRenderWindowRelease_autogen/EWIEGA46WW/moc_RenderWidget.cpp \
  RaytraceRenderWindowRelease_autogen/mocs_compilation.cpp \
  ../my_code/Raytracer.h \
- ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui \
@@ -112,7 +111,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RenderController.cpp.o: \
  ../RenderWindow.h \
  ../TexturedObject.h \
  ../my_code/Raytracer.h \
- ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui \
@@ -150,7 +148,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/RenderWindow.cpp.o: \
  ../RenderWindow.h \
  ../TexturedObject.h \
  ../my_code/Raytracer.h \
- ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/QOpenGLWidget \
@@ -183,7 +180,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o: \
  ../TexturedObject.h \
  ../main.cpp \
  ../my_code/Raytracer.h \
- ../my_code/vec3.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/QMouseEvent \
  /usr/local/opt/qt@5/lib/QtGui.framework/Headers/qevent.h \
  /usr/local/opt/qt@5/lib/QtGui.framework/QtGui \
@@ -193,9 +189,11 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o: \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qopenglwidget.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/QtWidgets
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
+ ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/CornellBox.cpp \
  ../my_code/CornellBox.h \
+ ../my_code/Material.h \
  ../my_code/aabb.h \
  ../my_code/aarect.h \
  ../my_code/box.h \
@@ -203,10 +201,21 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
  ../my_code/headers.h \
  ../my_code/hittable.h \
  ../my_code/hittable_list.h \
- ../my_code/material.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o: \
+ ../Cartesian3.h \
+ ../RGBAValue.h \
+ ../my_code/Material.cpp \
+ ../my_code/Material.h \
+ ../my_code/aabb.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/onb.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
- ../my_code/vec3.h
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../Cartesian3.h \
  ../Homogeneous4.h \
@@ -217,6 +226,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../RenderParameters.h \
  ../TexturedObject.h \
  ../my_code/CornellBox.h \
+ ../my_code/Material.h \
  ../my_code/Raytracer.cpp \
  ../my_code/Raytracer.h \
  ../my_code/aabb.h \
@@ -225,31 +235,49 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../my_code/headers.h \
  ../my_code/hittable.h \
  ../my_code/hittable_list.h \
- ../my_code/material.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
  ../my_code/utility.h \
- ../my_code/vec3.h \
  /usr/local/include/omp.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o: \
+ ../Cartesian3.h \
+ ../Homogeneous4.h \
+ ../Matrix4.h \
+ ../Quaternion.h \
+ ../RGBAImage.h \
+ ../RGBAValue.h \
+ ../RenderParameters.h \
+ ../TexturedObject.h \
+ ../my_code/Material.h \
+ ../my_code/TriangleMesh.cpp \
+ ../my_code/TriangleMesh.h \
+ ../my_code/aabb.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.o: \
+ ../Cartesian3.h \
  ../my_code/aabb.cpp \
  ../my_code/aabb.h \
- ../my_code/ray.h \
- ../my_code/vec3.h
+ ../my_code/ray.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o: \
+ ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/Material.h \
  ../my_code/aabb.h \
  ../my_code/aarect.cpp \
  ../my_code/aarect.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/hittable.h \
- ../my_code/material.h \
  ../my_code/ray.h \
- ../my_code/texture.h \
- ../my_code/vec3.h
+ ../my_code/texture.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o: \
+ ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/Material.h \
  ../my_code/aabb.h \
  ../my_code/aarect.h \
  ../my_code/box.cpp \
@@ -258,68 +286,54 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o: \
  ../my_code/headers.h \
  ../my_code/hittable.h \
  ../my_code/hittable_list.h \
- ../my_code/material.h \
  ../my_code/ray.h \
- ../my_code/texture.h \
- ../my_code/vec3.h
+ ../my_code/texture.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o: \
+ ../Cartesian3.h \
  ../my_code/camera.cpp \
  ../my_code/camera.h \
  ../my_code/ray.h \
- ../my_code/utility.h \
- ../my_code/vec3.h
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o: \
+ ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/color.cpp \
  ../my_code/color.h \
- ../my_code/utility.h \
- ../my_code/vec3.h
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.o: \
+ ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/Material.h \
  ../my_code/aabb.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/hittable.cpp \
  ../my_code/hittable.h \
- ../my_code/material.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
- ../my_code/utility.h \
- ../my_code/vec3.h
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.o: \
+ ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/Material.h \
  ../my_code/aabb.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/hittable.h \
  ../my_code/hittable_list.cpp \
  ../my_code/hittable_list.h \
- ../my_code/material.h \
  ../my_code/ray.h \
- ../my_code/texture.h \
- ../my_code/vec3.h
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/material.cpp.o: \
- ../RGBAValue.h \
- ../my_code/aabb.h \
- ../my_code/color.h \
- ../my_code/headers.h \
- ../my_code/hittable.h \
- ../my_code/material.cpp \
- ../my_code/material.h \
- ../my_code/onb.h \
- ../my_code/ray.h \
- ../my_code/texture.h \
- ../my_code/utility.h \
- ../my_code/vec3.h
+ ../my_code/texture.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.o: \
+ ../Cartesian3.h \
  ../my_code/onb.cpp \
- ../my_code/onb.h \
- ../my_code/vec3.h
+ ../my_code/onb.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ray.cpp.o: \
+ ../Cartesian3.h \
  ../my_code/ray.cpp \
- ../my_code/ray.h \
- ../my_code/vec3.h
+ ../my_code/ray.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/texture.cpp.o: \
+ ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/color.h \
  ../my_code/headers.h \
@@ -327,12 +341,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/texture.cpp.o: \
  ../my_code/texture.cpp \
  ../my_code/texture.h \
  ../my_code/utility.h \
- ../my_code/vec3.h \
  /Users/wangyu/myownlibs/stb-master/stb_image.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/utility.cpp.o: \
  ../my_code/utility.cpp \
  ../my_code/utility.h
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/vec3.cpp.o: \
- ../my_code/utility.h \
- ../my_code/vec3.cpp \
- ../my_code/vec3.h

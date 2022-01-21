@@ -360,7 +360,7 @@ void TexturedObject::Render(RenderParameters *renderParameters)
     // start rendering
     glBegin(GL_TRIANGLES);
 
-    // we assume a single material for the entire object
+    // we assume a single Material for the entire object
     glMaterialfv(GL_FRONT, GL_EMISSION, emissiveColour);
     glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColour);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColour);
@@ -393,14 +393,14 @@ void TexturedObject::Render(RenderParameters *renderParameters)
                     normals         [faceNormals    [face][faceVertex]  ].z
                     );
                     
-                // if we're using UVW colours, set both colour and material
+                // if we're using UVW colours, set both colour and Material
                 if (renderParameters->mapUVWToRGB)
-                    { // set colour and material
+                    { // set colour and Material
                     float *colourPointer = (float *) &(textureCoords[faceTexCoords[face][faceVertex]]);
                     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colourPointer);
                     glMaterialfv(GL_FRONT, GL_SPECULAR, colourPointer);
                     glColor3fv(colourPointer);
-                    } // set colour and material
+                    } // set colour and Material
                 // set the texture coordinate
                 glTexCoord2f
                     (

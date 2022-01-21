@@ -4,6 +4,11 @@
 
 #include "aabb.h"
 
+aabb::aabb()
+{
+
+}
+
 bool aabb::hit(const ray &r, double t_min, double t_max) const {
     for (int a = 0; a < 3; a++) {
         auto invD = 1.0f / r.direction()[a];
@@ -19,22 +24,30 @@ bool aabb::hit(const ray &r, double t_min, double t_max) const {
     return true;
 }
 
-aabb::aabb() {}
+aabb::aabb(const Cartesian3 &a, const Cartesian3 &b)
+{
+    minimum = a;
+    maximum = b;
+}
 
-aabb::aabb(const point3 &a, const point3 &b) { minimum = a; maximum = b;}
+Cartesian3 aabb::min() const
+{
+    return minimum;
+}
 
-point3 aabb::min() const {return minimum; }
-
-point3 aabb::max() const {return maximum; }
+Cartesian3 aabb::max() const
+{
+    return maximum;
+}
 
 aabb surrounding_box(aabb box0, aabb box1) {
-    point3 small(fmin(box0.min().x(), box1.min().x()),
-                 fmin(box0.min().y(), box1.min().y()),
-                 fmin(box0.min().z(), box1.min().z()));
+    Cartesian3 small(fmin(box0.min().get_x(), box1.min().get_x()),
+                 fmin(box0.min().get_y(), box1.min().get_y()),
+                 fmin(box0.min().get_z(), box1.min().get_z()));
 
-    point3 big(fmax(box0.max().x(), box1.max().x()),
-               fmax(box0.max().y(), box1.max().y()),
-               fmax(box0.max().z(), box1.max().z()));
+    Cartesian3 big(fmax(box0.max().get_x(), box1.max().get_x()),
+               fmax(box0.max().get_y(), box1.max().get_y()),
+               fmax(box0.max().get_z(), box1.max().get_z()));
 
     return aabb(small, big);
 }

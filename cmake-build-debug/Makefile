@@ -526,6 +526,30 @@ my_code/CornellBox.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.s
 .PHONY : my_code/CornellBox.cpp.s
 
+my_code/Material.o: my_code/Material.cpp.o
+.PHONY : my_code/Material.o
+
+# target to build an object file
+my_code/Material.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o
+.PHONY : my_code/Material.cpp.o
+
+my_code/Material.i: my_code/Material.cpp.i
+.PHONY : my_code/Material.i
+
+# target to preprocess a source file
+my_code/Material.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.i
+.PHONY : my_code/Material.cpp.i
+
+my_code/Material.s: my_code/Material.cpp.s
+.PHONY : my_code/Material.s
+
+# target to generate assembly for a file
+my_code/Material.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.s
+.PHONY : my_code/Material.cpp.s
+
 my_code/Raytracer.o: my_code/Raytracer.cpp.o
 .PHONY : my_code/Raytracer.o
 
@@ -549,6 +573,30 @@ my_code/Raytracer.s: my_code/Raytracer.cpp.s
 my_code/Raytracer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.s
 .PHONY : my_code/Raytracer.cpp.s
+
+my_code/TriangleMesh.o: my_code/TriangleMesh.cpp.o
+.PHONY : my_code/TriangleMesh.o
+
+# target to build an object file
+my_code/TriangleMesh.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o
+.PHONY : my_code/TriangleMesh.cpp.o
+
+my_code/TriangleMesh.i: my_code/TriangleMesh.cpp.i
+.PHONY : my_code/TriangleMesh.i
+
+# target to preprocess a source file
+my_code/TriangleMesh.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.i
+.PHONY : my_code/TriangleMesh.cpp.i
+
+my_code/TriangleMesh.s: my_code/TriangleMesh.cpp.s
+.PHONY : my_code/TriangleMesh.s
+
+# target to generate assembly for a file
+my_code/TriangleMesh.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.s
+.PHONY : my_code/TriangleMesh.cpp.s
 
 my_code/aabb.o: my_code/aabb.cpp.o
 .PHONY : my_code/aabb.o
@@ -718,30 +766,6 @@ my_code/hittable_list.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.s
 .PHONY : my_code/hittable_list.cpp.s
 
-my_code/material.o: my_code/material.cpp.o
-.PHONY : my_code/material.o
-
-# target to build an object file
-my_code/material.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/material.cpp.o
-.PHONY : my_code/material.cpp.o
-
-my_code/material.i: my_code/material.cpp.i
-.PHONY : my_code/material.i
-
-# target to preprocess a source file
-my_code/material.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/material.cpp.i
-.PHONY : my_code/material.cpp.i
-
-my_code/material.s: my_code/material.cpp.s
-.PHONY : my_code/material.s
-
-# target to generate assembly for a file
-my_code/material.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/material.cpp.s
-.PHONY : my_code/material.cpp.s
-
 my_code/onb.o: my_code/onb.cpp.o
 .PHONY : my_code/onb.o
 
@@ -838,30 +862,6 @@ my_code/utility.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/utility.cpp.s
 .PHONY : my_code/utility.cpp.s
 
-my_code/vec3.o: my_code/vec3.cpp.o
-.PHONY : my_code/vec3.o
-
-# target to build an object file
-my_code/vec3.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/vec3.cpp.o
-.PHONY : my_code/vec3.cpp.o
-
-my_code/vec3.i: my_code/vec3.cpp.i
-.PHONY : my_code/vec3.i
-
-# target to preprocess a source file
-my_code/vec3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/vec3.cpp.i
-.PHONY : my_code/vec3.cpp.i
-
-my_code/vec3.s: my_code/vec3.cpp.s
-.PHONY : my_code/vec3.s
-
-# target to generate assembly for a file
-my_code/vec3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/vec3.cpp.s
-.PHONY : my_code/vec3.cpp.s
-
 src/glad.o: src/glad.c.o
 .PHONY : src/glad.o
 
@@ -944,9 +944,15 @@ help:
 	@echo "... my_code/CornellBox.o"
 	@echo "... my_code/CornellBox.i"
 	@echo "... my_code/CornellBox.s"
+	@echo "... my_code/Material.o"
+	@echo "... my_code/Material.i"
+	@echo "... my_code/Material.s"
 	@echo "... my_code/Raytracer.o"
 	@echo "... my_code/Raytracer.i"
 	@echo "... my_code/Raytracer.s"
+	@echo "... my_code/TriangleMesh.o"
+	@echo "... my_code/TriangleMesh.i"
+	@echo "... my_code/TriangleMesh.s"
 	@echo "... my_code/aabb.o"
 	@echo "... my_code/aabb.i"
 	@echo "... my_code/aabb.s"
@@ -968,9 +974,6 @@ help:
 	@echo "... my_code/hittable_list.o"
 	@echo "... my_code/hittable_list.i"
 	@echo "... my_code/hittable_list.s"
-	@echo "... my_code/material.o"
-	@echo "... my_code/material.i"
-	@echo "... my_code/material.s"
 	@echo "... my_code/onb.o"
 	@echo "... my_code/onb.i"
 	@echo "... my_code/onb.s"
@@ -983,9 +986,6 @@ help:
 	@echo "... my_code/utility.o"
 	@echo "... my_code/utility.i"
 	@echo "... my_code/utility.s"
-	@echo "... my_code/vec3.o"
-	@echo "... my_code/vec3.i"
-	@echo "... my_code/vec3.s"
 	@echo "... src/glad.o"
 	@echo "... src/glad.i"
 	@echo "... src/glad.s"

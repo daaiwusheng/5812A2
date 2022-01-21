@@ -3,14 +3,14 @@
 //
 
 #include "camera.h"
-#include "vec3.h"
+//#include "vec3.h"
 #include "utility.h"
 
 ray camera::get_ray(double s, double t) const {
     //rd 是在镜头上面随机的点
-    vec3 rd = lens_radius * random_in_unit_disk();
+    Cartesian3 rd = lens_radius * random_in_unit_disk();
     //offset 是按rd进行的偏移量
-    vec3 offset = u * rd.x() + v * rd.y();
+    Cartesian3 offset = u * rd.x + v * rd.y;
 
     return ray(
             origin + offset, //同样,光线原点也要进行便宜
@@ -19,7 +19,7 @@ ray camera::get_ray(double s, double t) const {
     );
 }
 
-camera::camera(point3 lookfrom, point3 lookat, vec3 vup, double vfov, double aspect_ratio, double aperture,
+camera::camera(Cartesian3 lookfrom, Cartesian3 lookat, Cartesian3 vup, double vfov, double aspect_ratio, double aperture,
                double focus_dist, double _time0, double _time1) {
     auto theta = degrees_to_radians(vfov);
     auto h = tan(theta/2);
