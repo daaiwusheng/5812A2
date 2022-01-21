@@ -215,6 +215,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../RGBAImage.h \
  ../RGBAValue.h \
  ../RenderParameters.h \
+ ../TexturedObject.h \
  ../my_code/CornellBox.h \
  ../my_code/Raytracer.cpp \
  ../my_code/Raytracer.h \

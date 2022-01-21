@@ -8,6 +8,7 @@
 #include "vec3.h"
 #include "../RGBAImage.h"
 #include "../RenderParameters.h"
+#include "../TexturedObject.h"
 class ray;
 class hittable;
 
@@ -15,10 +16,11 @@ class hittable;
 class Raytracer
 {
 public:
-    Raytracer(RenderParameters *renderParameters);
+    Raytracer(RenderParameters *renderParameters,TexturedObject *texturedObject);
     void render();
     RGBAImage frameBuffer;
     RenderParameters *renderParameters;
+    TexturedObject *texturedObject;
 private:
     color ray_color(const ray& r, const color& background, const hittable& world, int depth);
     void test_render();

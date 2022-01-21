@@ -57,9 +57,6 @@ int main(int argc, char **argv)
         return 0;
         } // object read failed
 
-    // dump the file to out
-//      texturedObject.WriteObjectStream(std::cout, std::cout);
-
     // create some default render parameters
     RenderParameters renderParameters;
 

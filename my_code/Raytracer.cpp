@@ -15,14 +15,15 @@
 #include "headers.h"
 #include "hittable_list.h"
 
-Raytracer::Raytracer(RenderParameters *renderParameters) {
+Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *texturedObject) {
     this->renderParameters = renderParameters;
+    this->texturedObject = texturedObject;
 }
 
 void Raytracer::render()
 {
     auto world = hittable_list();
-    auto cam = camera(point3(278, 278, -800), point3(278, 278, 0), vec3(0, 1, 0), 40,
+    std::shared_ptr<camera> cam = std::make_shared<camera>(point3(278, 278, -800), point3(278, 278, 0), vec3(0, 1, 0), 40,
                      1.0, 0.0, 10.0, 0, 0);
     int image_width = 0;
     int image_height = 0;
@@ -41,20 +42,15 @@ void Raytracer::render()
         max_depth = cornel_box.max_depth;
         samples_per_pixel = cornel_box.max_depth;
         world = cornel_box.cornell_box();
-        cam = camera(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
+        cam = std::make_shared<camera>(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
                   cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
     }
 
-
-//    camera cam(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
-//               cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
-    // Render
-
     omp_set_num_threads(8);
     frameBuffer.Resize(image_width,image_height);
-#pragma omp parallel
+//#pragma omp parallel
     {
-#pragma omp for
+//#pragma omp for
         for (int j = image_height - 1; j >= 0; --j) {
             std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
             for (int i = 0; i < image_width; ++i) {
@@ -62,7 +58,7 @@ void Raytracer::render()
                 for (int s = 0; s < samples_per_pixel; ++s) {
                     auto u = (i + random_double()) / (image_width - 1);
                     auto v = (j + random_double()) / (image_height - 1);
-                    ray r = cam.get_ray(u, v);
+                    ray r = cam->get_ray(u, v);
                     pixel_color += ray_color(r, background, world, max_depth);
                 }
                 RGBAValue current_color = get_color(pixel_color, samples_per_pixel);
