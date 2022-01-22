@@ -19,7 +19,7 @@ box::box(const Cartesian3& p0, const Cartesian3& p1, shared_ptr<Material> ptr) {
     sides.add(make_shared<yz_rect>(p0.get_y(), p1.get_y(), p0.get_z(), p1.get_z(), p0.get_x(), ptr));
 }
 
-bool box::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
+bool box::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     return sides.hit(r, t_min, t_max, rec);
 }
 

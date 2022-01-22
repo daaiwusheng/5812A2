@@ -16,7 +16,7 @@ public:
             shared_ptr<Material> mat)
             : x0(_x0), x1(_x1), y0(_y0), y1(_y1), k(_k), mp(mat) {};
 
-    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const override;
+    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) override;
 
     virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
 
@@ -34,7 +34,7 @@ public:
             shared_ptr<Material> mat)
             : x0(_x0), x1(_x1), z0(_z0), z1(_z1), k(_k), mp(mat) {};
 
-    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const override;
+    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) override;
 
     virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
 
@@ -53,7 +53,7 @@ public:
             shared_ptr<Material> mat)
             : y0(_y0), y1(_y1), z0(_z0), z1(_z1), k(_k), mp(mat) {};
 
-    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const override;
+    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) override;
 
     virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
 

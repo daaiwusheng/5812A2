@@ -14,7 +14,7 @@ public:
     box() {}
     box(const Cartesian3& p0, const Cartesian3& p1, shared_ptr<Material> ptr);
 
-    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const override;
+    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) override;
 
     virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
 

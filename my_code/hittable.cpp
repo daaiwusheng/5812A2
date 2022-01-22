@@ -6,7 +6,7 @@
 #include "utility.h"
 #include "../Cartesian3.h"
 
-bool translate::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
+bool translate::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     ray moved_r(r.origin() - offset, r.direction(), r.time());
     if (!ptr->hit(moved_r, t_min, t_max, rec))
         return false;
@@ -60,7 +60,7 @@ rotate_y::rotate_y(shared_ptr<hittable> p, double angle) : ptr(p) {
     bbox = aabb(min, max);
 }
 
-bool rotate_y::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
+bool rotate_y::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
     auto origin = r.origin();
     auto direction = r.direction();
 
@@ -96,7 +96,7 @@ bool rotate_y::bounding_box(double time0, double time1, aabb &output_box) const 
 }
 
 
-bool flip_face::hit(const ray &r, double t_min, double t_max, hit_record &rec) const {
+bool flip_face::hit(const ray &r, double t_min, double t_max, hit_record &rec) {
 
     if (!ptr->hit(r, t_min, t_max, rec))
         return false;

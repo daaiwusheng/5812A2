@@ -90,6 +90,15 @@ class Matrix4
     void SetTranslation(const Cartesian3 &vector);
     void SetRotation(const Cartesian3 &axis, float theta);
     void SetScale(float xScale, float yScale, float zScale);
+
+    //--we need some new functions
+    Cartesian3 getScale();
+    Cartesian3 getTranslation();
+    Matrix4& operator*=(const Matrix4 &other) noexcept;
+    void multiply(const Matrix4 & matrix) noexcept;
+    void multiply(const Matrix4 & matrix,Matrix4 & dst) noexcept;
+    Matrix4 inverse() noexcept;
+    bool operator !=(const Matrix4 &other) const;
     }; // Matrix4
 
 // scalar operations

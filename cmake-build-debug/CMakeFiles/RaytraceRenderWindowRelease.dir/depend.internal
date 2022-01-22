@@ -239,6 +239,14 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/texture.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
  /usr/local/include/omp.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TransformTool.cpp.o
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Cartesian3.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Homogeneous4.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Matrix4.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Quaternion.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderParameters.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TransformTool.cpp
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TransformTool.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Cartesian3.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Homogeneous4.h
@@ -249,6 +257,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderParameters.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/TexturedObject.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Material.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TransformTool.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TriangleMesh.cpp
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TriangleMesh.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.h

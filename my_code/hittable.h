@@ -28,7 +28,7 @@ struct hit_record {
 
 class hittable {
 public:
-    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const = 0;
+    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) = 0;
     virtual bool bounding_box(double time0, double time1, aabb& output_box) const = 0;
 };
 
@@ -38,7 +38,7 @@ public:
             : ptr(p), offset(displacement) {}
 
     virtual bool hit(
-            const ray& r, double t_min, double t_max, hit_record& rec) const override;
+            const ray& r, double t_min, double t_max, hit_record& rec) override;
 
     virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
 
@@ -53,7 +53,7 @@ public:
     rotate_y(shared_ptr<hittable> p, double angle);
 
     virtual bool hit(
-            const ray& r, double t_min, double t_max, hit_record& rec) const override;
+            const ray& r, double t_min, double t_max, hit_record& rec) override;
 
     virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
 
@@ -71,7 +71,7 @@ public:
     flip_face(shared_ptr<hittable> p) : ptr(p) {}
 
     virtual bool hit(
-            const ray& r, double t_min, double t_max, hit_record& rec) const override;
+            const ray& r, double t_min, double t_max, hit_record& rec)  override;
 
     virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
 

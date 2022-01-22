@@ -22,7 +22,7 @@ Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *textured
 
 void Raytracer::render()
 {
-    auto world = hittable_list();
+    hittable_list world = hittable_list();
     std::shared_ptr<camera> cam = std::make_shared<camera>(Cartesian3(278, 278, -800),
                                                            Cartesian3(278, 278, 0), Cartesian3(0, 1, 0), 40,
                                                            1.0, 0.0, 10.0, 0, 0);
@@ -53,17 +53,18 @@ void Raytracer::render()
 
 
     omp_set_num_threads(8);
-
+    image_width = frameBuffer.width;
+    image_height = frameBuffer.height;
 #pragma omp parallel
     {
 #pragma omp for
-        for (int j = frameBuffer.height - 1; j >= 0; --j) {
+        for (int j = image_height - 1; j >= 0; --j) {
             std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
-            for (int i = 0; i < frameBuffer.width; ++i) {
+            for (int i = 0; i < image_width; ++i) {
                 Cartesian3 pixel_color(0, 0, 0);
                 for (int s = 0; s < samples_per_pixel; ++s) {
-                    auto u = (i + random_double()) / (frameBuffer.width - 1);
-                    auto v = (j + random_double()) / (frameBuffer.height - 1);
+                    auto u = (i + random_double()) / (image_width - 1);
+                    auto v = (j + random_double()) / (image_height - 1);
                     ray r = cam->get_ray(u, v);
                     pixel_color += ray_color(r, background, world, max_depth);
                 }
@@ -75,7 +76,7 @@ void Raytracer::render()
     std::cerr << "\nDone.\n";
 }
 
-Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, const hittable& world, int depth) {
+Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, hittable_list world, int depth) {
     hit_record rec;
 
     // If we've exceeded the ray bounce limit, no more light is gathered.

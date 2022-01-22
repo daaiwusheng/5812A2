@@ -34,7 +34,7 @@ class RenderParameters
 
     // and a zoom scale
     float zoomScale;
-    
+    float realScale; //set it in TextureObject.app
     // we have the position of the light
     float lightPosition[4];
     //and its colour
@@ -62,6 +62,8 @@ class RenderParameters
     bool centreObject;
     bool scaleObject;
     bool mapUVWToRGB;
+
+    bool transformHasUpdated = true;
 
     std::string sceneType = "";
     // constructor

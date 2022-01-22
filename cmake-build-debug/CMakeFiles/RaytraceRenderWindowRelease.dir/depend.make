@@ -239,6 +239,14 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../my_code/texture.h \
  ../my_code/utility.h \
  /usr/local/include/omp.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TransformTool.cpp.o: \
+ ../Cartesian3.h \
+ ../Homogeneous4.h \
+ ../Matrix4.h \
+ ../Quaternion.h \
+ ../RenderParameters.h \
+ ../my_code/TransformTool.cpp \
+ ../my_code/TransformTool.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o: \
  ../Cartesian3.h \
  ../Homogeneous4.h \
@@ -249,6 +257,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o: \
  ../RenderParameters.h \
  ../TexturedObject.h \
  ../my_code/Material.h \
+ ../my_code/TransformTool.h \
  ../my_code/TriangleMesh.cpp \
  ../my_code/TriangleMesh.h \
  ../my_code/aabb.h \

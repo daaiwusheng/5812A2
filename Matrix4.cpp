@@ -22,6 +22,7 @@
 #include <iomanip>
 #include "Matrix4.h"
 #include "Quaternion.h"
+#include <cmath>
 
 // constructor - default to the zero matrix
 Matrix4::Matrix4()
@@ -230,6 +231,103 @@ void Matrix4::SetScale(float xScale, float yScale, float zScale)
     coordinates[3][3] = 1.0;
 
     } // SetScale()
+Cartesian3 Matrix4::getScale()
+{
+    return {coordinates[0][0],coordinates[1][1],coordinates[2][2]};
+}
+
+Cartesian3 Matrix4::getTranslation()
+{
+    return {coordinates[0][3],coordinates[1][3],coordinates[2][3]};
+}
+
+Matrix4& Matrix4::operator*=(const Matrix4 &other) noexcept
+{
+    multiply(other,*this);
+    return *this;
+}
+
+
+void Matrix4::multiply(const Matrix4 & other) noexcept
+{
+    multiply(other,*this);
+}
+
+void Matrix4::multiply(const Matrix4 & other,Matrix4 & dst) noexcept
+{
+
+    Matrix4 productMatrix;
+
+    for (int32_t row = 0; row < 4; row++)
+        for (int32_t col = 0; col < 4; col++)
+            for (int32_t entry = 0; entry < 4; entry++)
+                productMatrix.coordinates[row][col] += coordinates[row][entry] * other.coordinates[entry][col];
+
+    memcpy(dst.coordinates,productMatrix.coordinates,sizeof(float) * 16);
+}
+
+
+
+
+Matrix4 Matrix4::inverse() noexcept
+{
+    auto m = reinterpret_cast<float*>(&coordinates[0][0]);
+    const float a0 = m[0] * m[5] - m[1] * m[4];
+    const float a1 = m[0] * m[6] - m[2] * m[4];
+    const float a2 = m[0] * m[7] - m[3] * m[4];
+    const float a3 = m[1] * m[6] - m[2] * m[5];
+    const float a4 = m[1] * m[7] - m[3] * m[5];
+    const float a5 = m[2] * m[7] - m[3] * m[6];
+    const float b0 = m[8] * m[13] - m[9] * m[12];
+    const float b1 = m[8] * m[14] - m[10] * m[12];
+    const float b2 = m[8] * m[15] - m[11] * m[12];
+    const float b3 = m[9] * m[14] - m[10] * m[13];
+    const float b4 = m[9] * m[15] - m[11] * m[13];
+    const float b5 = m[10] * m[15] - m[11] * m[14];
+
+
+    const float det = a0 * b5 - a1 * b4 + a2 * b3 + a3 * b2 - a4 * b1 + a5 * b0;
+
+
+    if (std::fabs(det) <= std::numeric_limits<float>::min()) return *this;
+
+    Matrix4 inverse;
+    auto m2 = reinterpret_cast<float*>(&inverse.coordinates[0][0]);
+
+
+    m2[0] = m[5] * b5 - m[6] * b4 + m[7] * b3;
+    m2[1] = -m[1] * b5 + m[2] * b4 - m[3] * b3;
+    m2[2] = m[13] * a5 - m[14] * a4 + m[15] * a3;
+    m2[3] = -m[9] * a5 + m[10] * a4 - m[11] * a3;
+
+    m2[4] = -m[4] * b5 + m[6] * b2 - m[7] * b1;
+    m2[5] = m[0] * b5 - m[2] * b2 + m[3] * b1;
+    m2[6] = -m[12] * a5 + m[14] * a2 - m[15] * a1;
+    m2[7] = m[8] * a5 - m[10] * a2 + m[11] * a1;
+
+    m2[8] = m[4] * b4 - m[5] * b2 + m[7] * b0;
+    m2[9] = -m[0] * b4 + m[1] * b2 - m[3] * b0;
+    m2[10] = m[12] * a4 - m[13] * a2 + m[15] * a0;
+    m2[11] = -m[8] * a4 + m[9] * a2 - m[11] * a0;
+
+    m2[12] = -m[4] * b3 + m[5] * b1 - m[6] * b0;
+    m2[13] = m[0] * b3 - m[1] * b1 + m[2] * b0;
+    m2[14] = -m[12] * a3 + m[13] * a1 - m[14] * a0;
+    m2[15] = m[8] * a3 - m[9] * a1 + m[10] * a0;
+    inverse = inverse * (1.f / det);
+    return inverse;
+}
+
+bool Matrix4::operator !=(const Matrix4 &other) const
+{
+    for (int row = 0; row < 4; row++)
+        for (int col = 0; col < 4; col++)
+            if(coordinates[row][col] != other.coordinates[row][col]){
+                return true;
+            }
+    return false;
+}
+
 
 // scalar operations
 // additional scalar multiplication operator

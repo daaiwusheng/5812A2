@@ -11,7 +11,7 @@
 #include "../TexturedObject.h"
 class ray;
 class hittable;
-
+class hittable_list;
 
 class Raytracer
 {
@@ -22,7 +22,7 @@ public:
     RenderParameters *renderParameters;
     TexturedObject *texturedObject;
 private:
-    Cartesian3 ray_color(const ray& r, const Cartesian3& background, const hittable& world, int depth);
+    Cartesian3 ray_color(const ray& r, const Cartesian3& background, hittable_list world, int depth);
     void test_render();
 };
 

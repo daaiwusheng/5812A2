@@ -5,7 +5,7 @@
 #include "aarect.h"
 #include "../Cartesian3.h"
 
-bool xz_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
+bool xz_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     auto t = (k-r.origin().y) / r.direction().y;
     if (t < t_min || t > t_max)
         return false;
@@ -33,7 +33,7 @@ bool xz_rect::bounding_box(double time0, double time1, aabb &output_box) const {
 
 
 
-bool xy_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
+bool xy_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     auto t = (k-r.origin().z) / r.direction().z;
     if (t < t_min || t > t_max)
         return false;
@@ -58,7 +58,7 @@ bool xy_rect::bounding_box(double time0, double time1, aabb &output_box) const {
     return true;
 }
 
-bool yz_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) const {
+bool yz_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     auto t = (k-r.origin().x) / r.direction().x;
     if (t < t_min || t > t_max)
         return false;

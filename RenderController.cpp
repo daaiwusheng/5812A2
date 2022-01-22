@@ -148,7 +148,7 @@ void RenderController::objectRotationChanged()
     { // RenderController::objectRotationChanged()
     // copy the rotation matrix from the widget to the model
     renderParameters->rotationMatrix = renderWindow->modelRotator->RotationMatrix();
-    
+    renderParameters->transformHasUpdated = true;
     // reset the interface
     renderWindow->ResetInterface();
     } // RenderController::objectRotationChanged()
@@ -177,7 +177,7 @@ void RenderController::zoomChanged(int value)
 
     // and reset the value  
     renderParameters->zoomScale = newZoomScale;
-    
+    renderParameters->transformHasUpdated = true;
     // reset the interface
     renderWindow->ResetInterface();
     } // RenderController::zoomChanged()
@@ -193,7 +193,7 @@ void RenderController::xTranslateChanged(int value)
         renderParameters->xTranslate = TRANSLATE_MIN;
     else if (renderParameters->xTranslate > TRANSLATE_MAX)
         renderParameters->xTranslate = TRANSLATE_MAX;
-    
+    renderParameters->transformHasUpdated = true;
     // reset the interface
     renderWindow->ResetInterface();
     } // RenderController::xTranslateChanged()
@@ -209,7 +209,7 @@ void RenderController::yTranslateChanged(int value)
         renderParameters->yTranslate = TRANSLATE_MIN;
     else if (renderParameters->yTranslate > TRANSLATE_MAX)
         renderParameters->yTranslate = TRANSLATE_MAX;
-    
+    renderParameters->transformHasUpdated = true;
     // reset the interface
     renderWindow->ResetInterface();
     } // RenderController::yTranslateChanged()
@@ -379,8 +379,8 @@ void RenderController::centreObjectCheckChanged(int state)
 void RenderController::scaleObjectCheckChanged(int state)
     { // RenderController::scaleObjectCheckChanged()
     // reset the model's flag
-    renderParameters->scaleObject = (state == Qt::Checked); 
-
+    renderParameters->scaleObject = (state == Qt::Checked);
+    renderParameters->transformHasUpdated = true;
     // reset the interface
     renderWindow->ResetInterface();
     } // RenderController::scaleObjectCheckChanged()

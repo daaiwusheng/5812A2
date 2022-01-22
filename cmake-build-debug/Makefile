@@ -574,6 +574,30 @@ my_code/Raytracer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.s
 .PHONY : my_code/Raytracer.cpp.s
 
+my_code/TransformTool.o: my_code/TransformTool.cpp.o
+.PHONY : my_code/TransformTool.o
+
+# target to build an object file
+my_code/TransformTool.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TransformTool.cpp.o
+.PHONY : my_code/TransformTool.cpp.o
+
+my_code/TransformTool.i: my_code/TransformTool.cpp.i
+.PHONY : my_code/TransformTool.i
+
+# target to preprocess a source file
+my_code/TransformTool.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TransformTool.cpp.i
+.PHONY : my_code/TransformTool.cpp.i
+
+my_code/TransformTool.s: my_code/TransformTool.cpp.s
+.PHONY : my_code/TransformTool.s
+
+# target to generate assembly for a file
+my_code/TransformTool.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TransformTool.cpp.s
+.PHONY : my_code/TransformTool.cpp.s
+
 my_code/TriangleMesh.o: my_code/TriangleMesh.cpp.o
 .PHONY : my_code/TriangleMesh.o
 
@@ -950,6 +974,9 @@ help:
 	@echo "... my_code/Raytracer.o"
 	@echo "... my_code/Raytracer.i"
 	@echo "... my_code/Raytracer.s"
+	@echo "... my_code/TransformTool.o"
+	@echo "... my_code/TransformTool.i"
+	@echo "... my_code/TransformTool.s"
 	@echo "... my_code/TriangleMesh.o"
 	@echo "... my_code/TriangleMesh.i"
 	@echo "... my_code/TriangleMesh.s"

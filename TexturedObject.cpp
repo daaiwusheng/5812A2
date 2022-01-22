@@ -323,7 +323,7 @@ void TexturedObject::Render(RenderParameters *renderParameters)
     // if object scaling is requested, apply it as well 
     if (renderParameters->scaleObject)
         scale /= objectSize;
-        
+    renderParameters->realScale = scale;
     //  now scale everything
 //     glScalef(scale, scale, scale);
 
