@@ -12,7 +12,7 @@ ray camera::get_ray(double s, double t) const {
     Cartesian3 offset = u * rd.x + v * rd.y;
 
     return ray(
-            origin + offset, //同样,光线原点也要进行便宜
+            origin + offset, //同样,光线原点也要进行偏移
             lower_left_corner + s*horizontal + t*vertical - origin - offset, //理解为-(origin+offset)
             random_double(time0, time1)
     );

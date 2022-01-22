@@ -63,6 +63,7 @@ void RaytraceRenderWidget::resizeGL(int w, int h)
     { // RaytraceRenderWidget::resizeGL()
     // resize the render image
     frameBuffer.Resize(w, h);
+    raytracer->frameBuffer.Resize(w,h);
     } // RaytraceRenderWidget::resizeGL()
     
 // called every time the widget needs painting
