@@ -10,7 +10,6 @@
 #include "color.h"
 #include "hittable.h"
 #include "utility.h"
-//#include "vec3.h"
 #include "../Cartesian3.h"
 #include "CornellBox.h"
 #include "headers.h"

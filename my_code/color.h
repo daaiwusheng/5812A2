@@ -5,7 +5,6 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_COLOR_H
 #define RAYTRACERENDERWINDOWRELEASE_COLOR_H
 
-//#include "vec3.h"
 #include "../Cartesian3.h"
 #include <fstream>
 #include <iostream>

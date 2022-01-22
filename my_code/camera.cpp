@@ -3,7 +3,6 @@
 //
 
 #include "camera.h"
-//#include "vec3.h"
 #include "utility.h"
 
 ray camera::get_ray(double s, double t) const {

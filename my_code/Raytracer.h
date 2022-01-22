@@ -5,7 +5,6 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_RAYTRACER_H
 #define RAYTRACERENDERWINDOWRELEASE_RAYTRACER_H
 
-//#include "vec3.h"
 #include "../Cartesian3.h"
 #include "../RGBAImage.h"
 #include "../RenderParameters.h"

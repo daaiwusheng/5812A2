@@ -5,7 +5,6 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_RAY_H
 #define RAYTRACERENDERWINDOWRELEASE_RAY_H
 
-//#include "vec3.h"
 #include "../Cartesian3.h"
 
 class ray {

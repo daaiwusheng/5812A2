@@ -6,7 +6,6 @@
 #define RAYTRACERENDERWINDOWRELEASE_CORNELLBOX_H
 
 #include "hittable_list.h"
-//#include "vec3.h"
 #include "../Cartesian3.h"
 
 class cornellBox{

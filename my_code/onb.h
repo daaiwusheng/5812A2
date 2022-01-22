@@ -5,7 +5,6 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_ONB_H
 #define RAYTRACERENDERWINDOWRELEASE_ONB_H
 
-//#include "vec3.h"
 #include "../Cartesian3.h"
 
 class onb {

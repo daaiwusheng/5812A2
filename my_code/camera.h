@@ -5,7 +5,6 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_CAMERA_H
 #define RAYTRACERENDERWINDOWRELEASE_CAMERA_H
 
-//#include "vec3.h"
 #include "../Cartesian3.h"
 #include "ray.h"
 

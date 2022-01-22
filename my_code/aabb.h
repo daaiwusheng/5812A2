@@ -5,7 +5,7 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_AABB_H
 #define RAYTRACERENDERWINDOWRELEASE_AABB_H
 
-//#include "vec3.h"
+
 #include "../Cartesian3.h"
 #include "ray.h"
 
