@@ -92,9 +92,9 @@ TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1,
     return currentRecord;
 }
 
-bool TriangleMesh::bounding_box(double time0, double time1, aabb &output_box) const {
+bool TriangleMesh::bounding_box(double time0, double time1, aabb &output_box)
+{
     output_box = aabb(Cartesian3(INFINITY,INFINITY,INFINITY),Cartesian3(-INFINITY,-INFINITY,-INFINITY));
-
     for(auto &v : textureObject.vertices){
         for(int32_t i = 0;i<3;i++){
             if (v[i] < output_box.min()[i]){
@@ -111,6 +111,18 @@ bool TriangleMesh::bounding_box(double time0, double time1, aabb &output_box) co
 //            }
 //        }
     }
+
+    if (output_box.minimum.x<INFINITY || output_box.maximum.x<INFINITY)
+    {
+        if (transformTool.renderParameters->transformHasUpdated)
+        {
+            auto transformMatrix = transformTool.getTransformMatrix();
+            output_box.minimum = transformMatrix*output_box.minimum;
+            output_box.maximum = transformMatrix*output_box.maximum;
+        }
+        return true;
+    }
+
     return false;
 }
 

@@ -23,7 +23,7 @@ bool box::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     return sides.hit(r, t_min, t_max, rec);
 }
 
-bool box::bounding_box(double time0, double time1, aabb &output_box) const {
+bool box::bounding_box(double time0, double time1, aabb &output_box) {
     output_box = aabb(box_min, box_max);
     return true;
 }

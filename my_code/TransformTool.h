@@ -15,8 +15,9 @@ public:
     auto recalculateLocalTransform() -> const Matrix4&;
     auto resetAllMatrix() -> void;
     auto getTransformMatrix() -> const Matrix4&;
-private:
     RenderParameters* renderParameters;
+private:
+
     Matrix4 scale;
 
     Matrix4 localTransform;

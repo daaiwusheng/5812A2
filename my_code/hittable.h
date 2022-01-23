@@ -29,7 +29,7 @@ struct hit_record {
 class hittable {
 public:
     virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) = 0;
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) const = 0;
+    virtual bool bounding_box(double time0, double time1, aabb& output_box) = 0;
 };
 
 class translate : public hittable {
@@ -40,7 +40,7 @@ public:
     virtual bool hit(
             const ray& r, double t_min, double t_max, hit_record& rec) override;
 
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
+    virtual bool bounding_box(double time0, double time1, aabb& output_box) override;
 
 public:
     shared_ptr<hittable> ptr;
@@ -55,7 +55,7 @@ public:
     virtual bool hit(
             const ray& r, double t_min, double t_max, hit_record& rec) override;
 
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
+    virtual bool bounding_box(double time0, double time1, aabb& output_box) override;
 
 public:
     shared_ptr<hittable> ptr;
@@ -73,7 +73,7 @@ public:
     virtual bool hit(
             const ray& r, double t_min, double t_max, hit_record& rec)  override;
 
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
+    virtual bool bounding_box(double time0, double time1, aabb& output_box) override;
 
 public:
     shared_ptr<hittable> ptr;

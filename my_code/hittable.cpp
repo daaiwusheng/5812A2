@@ -17,7 +17,7 @@ bool translate::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     return true;
 }
 
-bool translate::bounding_box(double time0, double time1, aabb& output_box) const {
+bool translate::bounding_box(double time0, double time1, aabb& output_box) {
     if (!ptr->bounding_box(time0, time1, output_box))
         return false;
 
@@ -90,7 +90,7 @@ bool rotate_y::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
     return true;
 }
 
-bool rotate_y::bounding_box(double time0, double time1, aabb &output_box) const {
+bool rotate_y::bounding_box(double time0, double time1, aabb &output_box) {
     output_box = bbox;
     return hasbox;
 }
@@ -105,6 +105,6 @@ bool flip_face::hit(const ray &r, double t_min, double t_max, hit_record &rec) {
     return true;
 }
 
-bool flip_face::bounding_box(double time0, double time1, aabb &output_box) const {
+bool flip_face::bounding_box(double time0, double time1, aabb &output_box) {
     return ptr->bounding_box(time0, time1, output_box);
 }

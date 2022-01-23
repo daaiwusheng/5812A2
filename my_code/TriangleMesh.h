@@ -17,7 +17,7 @@ public:
 
     virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) override;
 
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) const override;
+    virtual bool bounding_box(double time0, double time1, aabb& output_box) override;
 
 
     auto intersectsWithTriangle(const Cartesian3& v0,const Cartesian3& v1,const Cartesian3& v2, const ray &ray, double minT,double maxT,int32_t index) -> hit_record &;
