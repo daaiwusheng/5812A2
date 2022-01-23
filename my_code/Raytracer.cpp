@@ -8,7 +8,7 @@
 #include "../RGBAValue.h"
 #include "../RGBAImage.h"
 #include "color.h"
-#include "hittable.h"
+#include "HittableObject.h"
 #include "utility.h"
 #include "../Cartesian3.h"
 #include "CornellBox.h"
@@ -87,7 +87,7 @@ void Raytracer::render()
 }
 
 Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, hittable_list world, int depth) {
-    hit_record rec;
+    HitRecord rec;
 
     // If we've exceeded the ray bounce limit, no more light is gathered.
     if (depth <= 0)
@@ -98,12 +98,12 @@ Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, hitt
 
     ray scattered;
     Cartesian3 attenuation;
-    Cartesian3 emitted = rec.mat_ptr->emitted(r,rec,rec.u,rec.v,rec.p);
+    Cartesian3 emitted = rec.material->emitted(r, rec, rec.u, rec.v, rec.p);
 
     double pdf;
     Cartesian3 albedo;
 
-    if (!rec.mat_ptr->scatter(r, rec, albedo, scattered, pdf))
+    if (!rec.material->scatter(r, rec, albedo, scattered, pdf))
         return emitted;
 
     auto on_light = Cartesian3(random_double(213,343), 554, random_double(227,332));
@@ -125,7 +125,7 @@ Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, hitt
 
     return
            emitted
-           + albedo * rec.mat_ptr->scattering_pdf(r, rec, scattered)
+           + albedo * rec.material->scattering_pdf(r, rec, scattered)
            * ray_color(scattered, background, world, depth-1) / pdf;
 
 }

@@ -6,19 +6,19 @@
 #define RAYTRACERENDERWINDOWRELEASE_SPHERE_H
 
 
-#include "hittable.h"
+#include "HittableObject.h"
 #include "../Cartesian3.h"
 #include "Material.h"
 #include "utility.h"
 
-class Sphere : public hittable {
+class Sphere : public HittableObject {
 public:
     Sphere() {}
     Sphere(Cartesian3 cen, double r, shared_ptr<Material> m)
             : center(cen), radius(r), mat_ptr(m) {};
 
     virtual bool hit(
-            const ray& r, double t_min, double t_max, hit_record& rec) override;
+            const ray& r, double t_min, double t_max, HitRecord& rec) override;
     virtual bool bounding_box(double time0, double time1, AABBStructure& output_box) override;
 
 public:

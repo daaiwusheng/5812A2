@@ -5,24 +5,24 @@
 #include "Material.h"
 #include "ray.h"
 #include "onb.h"
-#include "hittable.h"
+#include "HittableObject.h"
 #include "headers.h"
 #include "utility.h"
 #include "../Cartesian3.h"
 
-bool Material::scatter(const ray &r_in, const hit_record &rec, Cartesian3 &alb, ray &scattered, double &pdf) const {
+bool Material::scatter(const ray &r_in, const HitRecord &rec, Cartesian3 &alb, ray &scattered, double &pdf) const {
     return false;
 }
 
-double Material::scattering_pdf(const ray &r_in, const hit_record &rec, const ray &scattered) const {
+double Material::scattering_pdf(const ray &r_in, const HitRecord &rec, const ray &scattered) const {
     return 0;
 }
 
-Cartesian3 Material::emitted(const ray &r_in, const hit_record &rec, double u, double v, const Cartesian3 &p) const {
+Cartesian3 Material::emitted(const ray &r_in, const HitRecord &rec, double u, double v, const Cartesian3 &p) const {
     return Cartesian3(0,0,0);
 }
 
-bool lambertian::scatter(const ray &r_in, const hit_record &rec, Cartesian3 &alb, ray &scattered, double &pdf) const {
+bool lambertian::scatter(const ray &r_in, const HitRecord &rec, Cartesian3 &alb, ray &scattered, double &pdf) const {
     onb uvw;
     uvw.build_from_w(rec.normal);
     auto direction = uvw.local(random_cosine_direction());
@@ -33,7 +33,7 @@ bool lambertian::scatter(const ray &r_in, const hit_record &rec, Cartesian3 &alb
     return true;
 }
 
-double lambertian::scattering_pdf(const ray &r_in, const hit_record &rec, const ray &scattered) const {
+double lambertian::scattering_pdf(const ray &r_in, const HitRecord &rec, const ray &scattered) const {
     auto cosine = dot(rec.normal, unit_vector(scattered.direction()));
     return cosine < 0 ? 0 : cosine/pi;
 }
@@ -46,7 +46,7 @@ lambertian::lambertian(shared_ptr<texture> a) : albedo(a) {
 
 }
 
-bool metal::scatter(const ray &r_in, const hit_record &rec, Cartesian3 &attenuation, ray &scattered, double &pdf) const {
+bool metal::scatter(const ray &r_in, const HitRecord &rec, Cartesian3 &attenuation, ray &scattered, double &pdf) const {
     Cartesian3 reflected = reflect(unit_vector(r_in.direction()), rec.normal);
     scattered = ray(rec.p, reflected + fuzz*random_in_unit_sphere(), r_in.time());
     attenuation = albedo;
@@ -61,9 +61,9 @@ dielectric::dielectric(double index_of_refraction) : ir(index_of_refraction) {
 
 }
 
-bool dielectric::scatter(const ray &r_in, const hit_record &rec, Cartesian3 &attenuation, ray &scattered, double &pdf) const {
+bool dielectric::scatter(const ray &r_in, const HitRecord &rec, Cartesian3 &attenuation, ray &scattered, double &pdf) const {
     attenuation = Cartesian3(1.0, 1.0, 1.0);
-    double refraction_ratio = rec.front_face ? (1.0/ir) : ir;
+    double refraction_ratio = rec.frontFace ? (1.0 / ir) : ir;
 
     Cartesian3 unit_direction = unit_vector(r_in.direction());
 
@@ -99,13 +99,13 @@ diffuse_light::diffuse_light(Cartesian3 c) : emitmaterial(make_shared<solid_colo
 }
 
 bool
-diffuse_light::scatter(const ray &r_in, const hit_record &rec, Cartesian3 &attenuation, ray &scattered, double &pdf) const {
+diffuse_light::scatter(const ray &r_in, const HitRecord &rec, Cartesian3 &attenuation, ray &scattered, double &pdf) const {
     return false;
 }
 
-Cartesian3 diffuse_light::emitted(const ray &r_in, const hit_record &rec, double u, double v, const Cartesian3 &p) const {
+Cartesian3 diffuse_light::emitted(const ray &r_in, const HitRecord &rec, double u, double v, const Cartesian3 &p) const {
 
-    if (rec.front_face)
+    if (rec.frontFace)
         return emitmaterial->value(u, v, p);
     else
         return Cartesian3(0,0,0);

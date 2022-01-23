@@ -11,7 +11,7 @@ TriangleMesh::TriangleMesh(const TexturedObject &textureObject, const std::share
     this->material = material;
 }
 
-bool TriangleMesh::hit(const ray &ray, double t_min, double t_max, hit_record &rec)  {
+bool TriangleMesh::hit(const ray &ray, double t_min, double t_max, HitRecord &rec)  {
     rec.t = INFINITY;
     auto transformMatrix = transformTool.getTransformMatrix();
     for(auto i = 0;i<textureObject.faceVertices.size() ;i++){
@@ -21,7 +21,7 @@ bool TriangleMesh::hit(const ray &ray, double t_min, double t_max, hit_record &r
         auto v1 = transformMatrix * textureObject.vertices[v[1]];
         auto v2 = transformMatrix * textureObject.vertices[v[2]];
         //get three vertices.
-        hit_record currentHitRecord;
+        HitRecord currentHitRecord;
 
         currentHitRecord = intersectsWithTriangle(v0,v1,v2,ray,t_min,rec.t,i);
 
@@ -40,9 +40,9 @@ bool TriangleMesh::hit(const ray &ray, double t_min, double t_max, hit_record &r
 
 auto
 TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1, const Cartesian3 &v2, const ray &ray,
-                                     double minT, double maxT, int32_t index) -> hit_record & {
+                                     double minT, double maxT, int32_t index) -> HitRecord & {
 
-    hit_record currentRecord;
+    HitRecord currentRecord;
     currentRecord.t = INFINITY;
 
     auto v0v1 = v1 - v0;
@@ -73,7 +73,7 @@ TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1,
         auto normal = v0v1.cross(v0v2); // N
         currentRecord.t = t;
         currentRecord.normal = normal;
-        currentRecord.set_face_normal(ray,normal);
+        currentRecord.setFaceNormal(ray, normal);
 
         auto & coords = textureObject.faceTexCoords[index];
         //get the three corrds in current face.

@@ -2,17 +2,17 @@
 // Created by 王宇 on 2022/1/19.
 //
 
-#include "hittable.h"
+#include "HittableObject.h"
 #include "utility.h"
 #include "../Cartesian3.h"
 
-bool translate::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
+bool translate::hit(const ray& r, double t_min, double t_max, HitRecord& rec) {
     ray moved_r(r.origin() - offset, r.direction(), r.time());
     if (!ptr->hit(moved_r, t_min, t_max, rec))
         return false;
 
     rec.p += offset;
-    rec.set_face_normal(moved_r, rec.normal);
+    rec.setFaceNormal(moved_r, rec.normal);
 
     return true;
 }
@@ -28,7 +28,7 @@ bool translate::bounding_box(double time0, double time1, AABBStructure& output_b
     return true;
 }
 
-rotate_y::rotate_y(shared_ptr<hittable> p, double angle) : ptr(p) {
+rotate_y::rotate_y(shared_ptr<HittableObject> p, double angle) : ptr(p) {
     auto radians = degrees_to_radians(angle);
     sin_theta = sin(radians);
     cos_theta = cos(radians);
@@ -60,7 +60,7 @@ rotate_y::rotate_y(shared_ptr<hittable> p, double angle) : ptr(p) {
     bbox = AABBStructure(min, max);
 }
 
-bool rotate_y::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
+bool rotate_y::hit(const ray& r, double t_min, double t_max, HitRecord& rec)  {
     auto origin = r.origin();
     auto direction = r.direction();
 
@@ -85,7 +85,7 @@ bool rotate_y::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
     normal[2] = -sin_theta*rec.normal[0] + cos_theta*rec.normal[2];
 
     rec.p = p;
-    rec.set_face_normal(rotated_r, normal);
+    rec.setFaceNormal(rotated_r, normal);
 
     return true;
 }
@@ -96,12 +96,12 @@ bool rotate_y::bounding_box(double time0, double time1, AABBStructure &output_bo
 }
 
 
-bool flip_face::hit(const ray &r, double t_min, double t_max, hit_record &rec) {
+bool flip_face::hit(const ray &r, double t_min, double t_max, HitRecord &rec) {
 
     if (!ptr->hit(r, t_min, t_max, rec))
         return false;
 
-    rec.front_face = !rec.front_face;
+    rec.frontFace = !rec.frontFace;
     return true;
 }
 

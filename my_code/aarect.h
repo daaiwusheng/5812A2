@@ -5,61 +5,60 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_AARECT_H
 #define RAYTRACERENDERWINDOWRELEASE_AARECT_H
 
-#include "hittable.h"
+#include "HittableObject.h"
 
+//in this file, we define three axis-aligned rectangle classes.
+//they are all subclass of HittableObject.
 
-class xy_rect : public hittable {
+class xy_rectangle : public HittableObject {
 public:
-    xy_rect() {}
+    xy_rectangle();
 
-    xy_rect(double _x0, double _x1, double _y0, double _y1, double _k,
-            shared_ptr<Material> mat)
-            : x0(_x0), x1(_x1), y0(_y0), y1(_y1), k(_k), mp(mat) {};
+    xy_rectangle(double _x0, double _x1, double _y0, double _y1, double _z,
+                 shared_ptr<Material> _material);;
 
-    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) override;
+    virtual bool hit(const ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool bounding_box(double time0, double time1, AABBStructure& output_box) override;
 
 public:
-    shared_ptr<Material> mp;
-    double x0, x1, y0, y1, k;
+    shared_ptr<Material> material;
+    double x0, x1, y0, y1, z;
 };
 
 
-class xz_rect : public hittable {
+class xz_rectangle : public HittableObject {
 public:
-    xz_rect() {}
+    xz_rectangle();
 
-    xz_rect(double _x0, double _x1, double _z0, double _z1, double _k,
-            shared_ptr<Material> mat)
-            : x0(_x0), x1(_x1), z0(_z0), z1(_z1), k(_k), mp(mat) {};
+    xz_rectangle(double _x0, double _x1, double _z0, double _z1, double _y,
+                 shared_ptr<Material> _material);;
 
-    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) override;
+    virtual bool hit(const ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool bounding_box(double time0, double time1, AABBStructure& output_box) override;
 
 public:
-    shared_ptr<Material> mp;
-    double x0, x1, z0, z1, k;
+    shared_ptr<Material> material;
+    double x0, x1, z0, z1, y;
 };
 
 
 
-class yz_rect : public hittable {
+class yz_rectangle : public HittableObject {
 public:
-    yz_rect() {}
+    yz_rectangle();
 
-    yz_rect(double _y0, double _y1, double _z0, double _z1, double _k,
-            shared_ptr<Material> mat)
-            : y0(_y0), y1(_y1), z0(_z0), z1(_z1), k(_k), mp(mat) {};
+    yz_rectangle(double _y0, double _y1, double _z0, double _z1, double _x,
+                 shared_ptr<Material> _material);;
 
-    virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) override;
+    virtual bool hit(const ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool bounding_box(double time0, double time1, AABBStructure& output_box) override;
 
 public:
-    shared_ptr<Material> mp;
-    double y0, y1, z0, z1, k;
+    shared_ptr<Material> material;
+    double y0, y1, z0, z1, x;
 
 };
 

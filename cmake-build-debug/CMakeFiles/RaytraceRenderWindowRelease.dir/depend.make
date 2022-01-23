@@ -199,14 +199,26 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
  ../my_code/AABBStructure.h \
  ../my_code/CornellBox.cpp \
  ../my_code/CornellBox.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/Sphere.h \
  ../my_code/aarect.h \
  ../my_code/box.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/hittable_list.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/utility.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/HittableObject.cpp.o: \
+ ../Cartesian3.h \
+ ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.cpp \
+ ../my_code/HittableObject.h \
+ ../my_code/Material.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
  ../my_code/utility.h
@@ -214,11 +226,11 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.cpp \
  ../my_code/Material.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/onb.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
@@ -227,6 +239,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/MyScene.cpp \
  ../my_code/MyScene.h \
@@ -235,7 +248,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.o: \
  ../my_code/box.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/hittable_list.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
@@ -251,6 +263,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../TexturedObject.h \
  ../my_code/AABBStructure.h \
  ../my_code/CornellBox.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/MyScene.h \
  ../my_code/Raytracer.cpp \
@@ -258,7 +271,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../my_code/camera.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/hittable_list.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
@@ -268,12 +280,12 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Sphere.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/Sphere.cpp \
  ../my_code/Sphere.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
  ../my_code/utility.h
@@ -295,38 +307,38 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o: \
  ../RenderParameters.h \
  ../TexturedObject.h \
  ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/TransformTool.h \
  ../my_code/TriangleMesh.cpp \
  ../my_code/TriangleMesh.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/ray.h \
  ../my_code/texture.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/aarect.cpp \
  ../my_code/aarect.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/ray.h \
  ../my_code/texture.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/aarect.h \
  ../my_code/box.cpp \
  ../my_code/box.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/hittable_list.h \
  ../my_code/ray.h \
  ../my_code/texture.h
@@ -342,26 +354,14 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o: \
  ../my_code/color.cpp \
  ../my_code/color.h \
  ../my_code/utility.h
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.o: \
- ../Cartesian3.h \
- ../RGBAValue.h \
- ../my_code/AABBStructure.h \
- ../my_code/Material.h \
- ../my_code/color.h \
- ../my_code/headers.h \
- ../my_code/hittable.cpp \
- ../my_code/hittable.h \
- ../my_code/ray.h \
- ../my_code/texture.h \
- ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
  ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/hittable.h \
  ../my_code/hittable_list.cpp \
  ../my_code/hittable_list.h \
  ../my_code/ray.h \

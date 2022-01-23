@@ -9,21 +9,21 @@
 #include "texture.h"
 #include "../Cartesian3.h"
 
-struct hit_record;
+struct HitRecord;
 
 class Material {
 public:
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, Cartesian3& alb, ray& scattered, double& pdf
+            const ray& r_in, const HitRecord& rec, Cartesian3& alb, ray& scattered, double& pdf
     )const;
 
     virtual double scattering_pdf(
-            const ray& r_in, const hit_record& rec, const ray& scattered
+            const ray& r_in, const HitRecord& rec, const ray& scattered
     ) const;
 
-    virtual Cartesian3 emitted(const ray& r_in, const hit_record& rec, double u, double v,
-                          const Cartesian3& p) const;
+    virtual Cartesian3 emitted(const ray& r_in, const HitRecord& rec, double u, double v,
+                               const Cartesian3& p) const;
 };
 
 
@@ -34,11 +34,11 @@ public:
 
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, Cartesian3& alb, ray& scattered, double& pdf
+            const ray& r_in, const HitRecord& rec, Cartesian3& alb, ray& scattered, double& pdf
     ) const override;
 
     double scattering_pdf(
-            const ray& r_in, const hit_record& rec, const ray& scattered
+            const ray& r_in, const HitRecord& rec, const ray& scattered
     ) const;
 public:
     shared_ptr<texture> albedo;
@@ -49,7 +49,7 @@ public:
     metal(const Cartesian3& a, double f);
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, Cartesian3& attenuation, ray& scattered, double& pdf
+            const ray& r_in, const HitRecord& rec, Cartesian3& attenuation, ray& scattered, double& pdf
     ) const override;
 
 public:
@@ -62,7 +62,7 @@ public:
     dielectric(double index_of_refraction);
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, Cartesian3& attenuation, ray& scattered, double& pdf
+            const ray& r_in, const HitRecord& rec, Cartesian3& attenuation, ray& scattered, double& pdf
     ) const override;
 
 public:
@@ -77,11 +77,11 @@ public:
     diffuse_light(Cartesian3 c);
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, Cartesian3& attenuation, ray& scattered, double& pdf
+            const ray& r_in, const HitRecord& rec, Cartesian3& attenuation, ray& scattered, double& pdf
     ) const override;
 
-    virtual Cartesian3 emitted(const ray& r_in, const hit_record& rec, double u, double v,
-                          const Cartesian3& p) const override;
+    virtual Cartesian3 emitted(const ray& r_in, const HitRecord& rec, double u, double v,
+                               const Cartesian3& p) const override;
 
 public:
     shared_ptr<texture> emitmaterial;

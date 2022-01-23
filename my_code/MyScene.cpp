@@ -22,19 +22,19 @@ hittable_list MyOwnScene::getMyOwnScene() {
     auto green = make_shared<lambertian>(Cartesian3(.12, .45, .15));
     auto light = make_shared<diffuse_light>(Cartesian3(15, 15, 15));
 
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 555, green));
-    objects.add(make_shared<yz_rect>(0, 555, 0, 555, 0, red));
-    objects.add(make_shared<flip_face>(make_shared<xz_rect>(213, 343, 227, 332, 554, light)));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 555, white));
-    objects.add(make_shared<xz_rect>(0, 555, 0, 555, 0, white));
-    objects.add(make_shared<xy_rect>(0, 555, 0, 555, 555, white));
+    objects.add(make_shared<yz_rectangle>(0, 555, 0, 555, 555, green));
+    objects.add(make_shared<yz_rectangle>(0, 555, 0, 555, 0, red));
+    objects.add(make_shared<flip_face>(make_shared<xz_rectangle>(213, 343, 227, 332, 554, light)));
+    objects.add(make_shared<xz_rectangle>(0, 555, 0, 555, 555, white));
+    objects.add(make_shared<xz_rectangle>(0, 555, 0, 555, 0, white));
+    objects.add(make_shared<xy_rectangle>(0, 555, 0, 555, 555, white));
 
-    shared_ptr<hittable> box1 = make_shared<box>(Cartesian3(0,0,0), Cartesian3(165,330,165), white);
+    shared_ptr<HittableObject> box1 = make_shared<box>(Cartesian3(0,0,0), Cartesian3(165,330,165), white);
     box1 = make_shared<rotate_y>(box1, 15);
     box1 = make_shared<translate>(box1, Cartesian3(265,0,295));
     objects.add(box1);
 
-    shared_ptr<hittable> box2 = make_shared<box>(Cartesian3(0,0,0), Cartesian3(165,165,165), white);
+    shared_ptr<HittableObject> box2 = make_shared<box>(Cartesian3(0,0,0), Cartesian3(165,165,165), white);
     box2 = make_shared<rotate_y>(box2, -18);
     box2 = make_shared<translate>(box2, Cartesian3(130,0,65));
     objects.add(box2);

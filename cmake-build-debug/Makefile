@@ -550,6 +550,30 @@ my_code/CornellBox.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.s
 .PHONY : my_code/CornellBox.cpp.s
 
+my_code/HittableObject.o: my_code/HittableObject.cpp.o
+.PHONY : my_code/HittableObject.o
+
+# target to build an object file
+my_code/HittableObject.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/HittableObject.cpp.o
+.PHONY : my_code/HittableObject.cpp.o
+
+my_code/HittableObject.i: my_code/HittableObject.cpp.i
+.PHONY : my_code/HittableObject.i
+
+# target to preprocess a source file
+my_code/HittableObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/HittableObject.cpp.i
+.PHONY : my_code/HittableObject.cpp.i
+
+my_code/HittableObject.s: my_code/HittableObject.cpp.s
+.PHONY : my_code/HittableObject.s
+
+# target to generate assembly for a file
+my_code/HittableObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/HittableObject.cpp.s
+.PHONY : my_code/HittableObject.cpp.s
+
 my_code/Material.o: my_code/Material.cpp.o
 .PHONY : my_code/Material.o
 
@@ -790,30 +814,6 @@ my_code/color.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.s
 .PHONY : my_code/color.cpp.s
 
-my_code/hittable.o: my_code/hittable.cpp.o
-.PHONY : my_code/hittable.o
-
-# target to build an object file
-my_code/hittable.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.o
-.PHONY : my_code/hittable.cpp.o
-
-my_code/hittable.i: my_code/hittable.cpp.i
-.PHONY : my_code/hittable.i
-
-# target to preprocess a source file
-my_code/hittable.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.i
-.PHONY : my_code/hittable.cpp.i
-
-my_code/hittable.s: my_code/hittable.cpp.s
-.PHONY : my_code/hittable.s
-
-# target to generate assembly for a file
-my_code/hittable.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.s
-.PHONY : my_code/hittable.cpp.s
-
 my_code/hittable_list.o: my_code/hittable_list.cpp.o
 .PHONY : my_code/hittable_list.o
 
@@ -1019,6 +1019,9 @@ help:
 	@echo "... my_code/CornellBox.o"
 	@echo "... my_code/CornellBox.i"
 	@echo "... my_code/CornellBox.s"
+	@echo "... my_code/HittableObject.o"
+	@echo "... my_code/HittableObject.i"
+	@echo "... my_code/HittableObject.s"
 	@echo "... my_code/Material.o"
 	@echo "... my_code/Material.i"
 	@echo "... my_code/Material.s"
@@ -1049,9 +1052,6 @@ help:
 	@echo "... my_code/color.o"
 	@echo "... my_code/color.i"
 	@echo "... my_code/color.s"
-	@echo "... my_code/hittable.o"
-	@echo "... my_code/hittable.i"
-	@echo "... my_code/hittable.s"
 	@echo "... my_code/hittable_list.o"
 	@echo "... my_code/hittable_list.i"
 	@echo "... my_code/hittable_list.s"

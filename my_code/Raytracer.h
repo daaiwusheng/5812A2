@@ -10,7 +10,7 @@
 #include "../RenderParameters.h"
 #include "../TexturedObject.h"
 class ray;
-class hittable;
+class HittableObject;
 class hittable_list;
 
 class Raytracer

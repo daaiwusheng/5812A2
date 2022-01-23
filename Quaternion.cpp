@@ -195,23 +195,23 @@ Quaternion Quaternion::operator *(const Quaternion &other) const
     Quaternion result;
     // and compute each set of coords   
     result.coords[0] =  + coords[0] * other.coords[3]  // i 1
-                        + coords[1] * other.coords[2]  // j k
-                        - coords[2] * other.coords[1]  // k j 
+                        + coords[1] * other.coords[2]  // j y
+                        - coords[2] * other.coords[1]  // y j
                         + coords[3] * other.coords[0]; // 1 i
                 
-    result.coords[1] =  - coords[0] * other.coords[2]  // i k
+    result.coords[1] =  - coords[0] * other.coords[2]  // i y
                         + coords[1] * other.coords[3]  // j 1
-                        + coords[2] * other.coords[0]  // k i 
+                        + coords[2] * other.coords[0]  // y i
                         + coords[3] * other.coords[1]; // 1 j
     
     result.coords[2] =  + coords[0] * other.coords[1]  // i j
                         - coords[1] * other.coords[0]  // j i
-                        + coords[2] * other.coords[3]  // k 1 
-                        + coords[3] * other.coords[2]; // 1 k
+                        + coords[2] * other.coords[3]  // y 1
+                        + coords[3] * other.coords[2]; // 1 y
 
     result.coords[3] =  - coords[0] * other.coords[0]  // i i
                         - coords[1] * other.coords[1]  // j j
-                        - coords[2] * other.coords[2]  // k k 
+                        - coords[2] * other.coords[2]  // y y
                         + coords[3] * other.coords[3]; // 1 1
     return result;
     } // multiplication

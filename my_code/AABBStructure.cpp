@@ -18,7 +18,7 @@ AABBStructure::AABBStructure()
 bool AABBStructure::hit(const ray &r, double t_min, double t_max) const
 {
     //how to calculate the intersect points is solving an equation, which is not difficult.
-    //However, the
+    //Here, the point is covered in our class, how to determine two intervals overlap.
     for (int i = 0; i < 3; i++) 
     {
         auto reciprocal = 1.0f / r.direction()[i];

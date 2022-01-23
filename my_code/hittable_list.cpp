@@ -9,7 +9,7 @@ hittable_list::hittable_list()
 
 }
 
-hittable_list::hittable_list(shared_ptr<hittable> object)
+hittable_list::hittable_list(shared_ptr<HittableObject> object)
 {
     add(object);
 }
@@ -19,14 +19,14 @@ void hittable_list::clear()
     objects.clear();
 }
 
-void hittable_list::add(shared_ptr<hittable> object)
+void hittable_list::add(shared_ptr<HittableObject> object)
 {
     objects.push_back(object);
 }
 
-bool hittable_list::hit(const ray& r, double t_min, double t_max, hit_record& rec)
+bool hittable_list::hit(const ray& r, double t_min, double t_max, HitRecord& rec)
 {
-    hit_record temp_rec;
+    HitRecord temp_rec;
     bool hit_anything = false;
     auto closest_so_far = t_max;
 

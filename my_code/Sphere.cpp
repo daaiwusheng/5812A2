@@ -6,7 +6,7 @@
 
 
 
-bool Sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
+bool Sphere::hit(const ray& r, double t_min, double t_max, HitRecord& rec)  {
     Cartesian3 oc = r.origin() - center;
     auto a = r.direction().length_squared();
     auto half_b = dot(oc, r.direction());
@@ -27,9 +27,9 @@ bool Sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
     rec.t = root;
     rec.p = r.at(rec.t);
     Cartesian3 outward_normal = (rec.p - center) / radius;
-    rec.set_face_normal(r, outward_normal);
+    rec.setFaceNormal(r, outward_normal);
     get_sphere_uv(outward_normal, rec.u, rec.v);
-    rec.mat_ptr = mat_ptr;
+    rec.material = mat_ptr;
 
     return true;
 }
