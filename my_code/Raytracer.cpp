@@ -3,7 +3,7 @@
 //
 
 #include "Raytracer.h"
-#include "camera.h"
+#include "Camera.h"
 #include "omp.h"
 #include "../RGBAValue.h"
 #include "../RGBAImage.h"
@@ -24,7 +24,7 @@ Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *textured
 void Raytracer::render()
 {
     HittableList world = HittableList();
-    std::shared_ptr<camera> cam = std::make_shared<camera>(Cartesian3(278, 278, -800),
+    std::shared_ptr<Camera> cam = std::make_shared<Camera>(Cartesian3(278, 278, -800),
                                                            Cartesian3(278, 278, 0), Cartesian3(0, 1, 0), 40,
                                                            1.0, 0.0, 10.0, 0, 0);
     int image_width = 0;
@@ -44,7 +44,7 @@ void Raytracer::render()
         max_depth = cornel_box.max_depth;
         samples_per_pixel = cornel_box.max_depth;
         world = cornel_box.cornell_box();
-        cam = std::make_shared<camera>(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
+        cam = std::make_shared<Camera>(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
                   cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
     }
     else{
@@ -57,7 +57,7 @@ void Raytracer::render()
         max_depth = myOwnScene.max_depth;
         samples_per_pixel = myOwnScene.max_depth;
         world = myOwnScene.getMyOwnScene();
-        cam = std::make_shared<camera>(myOwnScene.lookfrom, myOwnScene.lookat, myOwnScene.vup, myOwnScene.vfov,
+        cam = std::make_shared<Camera>(myOwnScene.lookfrom, myOwnScene.lookat, myOwnScene.vup, myOwnScene.vfov,
                                        myOwnScene.aspect_ratio, myOwnScene.aperture, myOwnScene.dist_to_focus, myOwnScene.time0, myOwnScene.time1);
     }
 
@@ -75,7 +75,7 @@ void Raytracer::render()
                 for (int s = 0; s < samples_per_pixel; ++s) {
                     auto u = (i + random_double()) / (image_width - 1);
                     auto v = (j + random_double()) / (image_height - 1);
-                    ray r = cam->get_ray(u, v);
+                    ray r = cam->getRay(u, v);
                     pixel_color += ray_color(r, background, world, max_depth);
                 }
                 RGBAValue current_color = get_color(pixel_color, samples_per_pixel);
@@ -168,7 +168,7 @@ void Raytracer::test_render()
 
     fileTextureMap << "P3\n " << image_width << " " << image_height << " " << "\n255" << std::endl;
 
-    camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, time0, time1);
+    Camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, time0, time1);
     // Render
 
 
@@ -185,7 +185,7 @@ void Raytracer::test_render()
                 for (int s = 0; s < samples_per_pixel; ++s) {
                     auto u = (i + random_double()) / (image_width - 1);
                     auto v = (j + random_double()) / (image_height - 1);
-                    ray r = cam.get_ray(u, v);
+                    ray r = cam.getRay(u, v);
                     pixel_color += ray_color(r, background, world, max_depth);
                 }
                 RGBAValue current_color = get_color(pixel_color, samples_per_pixel);

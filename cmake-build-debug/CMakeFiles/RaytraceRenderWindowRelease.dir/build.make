@@ -417,18 +417,18 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Box.cpp -o CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.s
 
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o: CMakeFiles/RaytraceRenderWindowRelease.dir/flags.make
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o: ../my_code/camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o -c /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.cpp
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.o: CMakeFiles/RaytraceRenderWindowRelease.dir/flags.make
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.o: ../my_code/Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.o -c /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Camera.cpp
 
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.cpp > CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.i
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Camera.cpp > CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.i
 
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.cpp -o CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.s
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Camera.cpp -o CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.s
 
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: CMakeFiles/RaytraceRenderWindowRelease.dir/flags.make
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: ../my_code/Raytracer.cpp
@@ -537,7 +537,7 @@ RaytraceRenderWindowRelease_OBJECTS = \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.o" \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o" \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.o" \
-"CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o" \
+"CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.o" \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o" \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o" \
 "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o" \
@@ -575,7 +575,7 @@ RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.o
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.o
-RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o
+RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.o
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o
 RaytraceRenderWindowRelease: CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o

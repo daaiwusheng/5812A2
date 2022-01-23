@@ -222,7 +222,7 @@ Cartesian3 unit_vector(Cartesian3 v) {
     return v / v.length();
 }
 
-Cartesian3 random_in_unit_sphere() {
+Cartesian3 randomInUnitSphere() {
     while (true) {
         //把圆心当做0,0,0点,那么随机取点的范围应该上,三个轴都在-1到1之间
         //然后p-0点也就是p自己,然后计算p的长度是否大于0.小于0在球体内部
@@ -232,12 +232,12 @@ Cartesian3 random_in_unit_sphere() {
     }
 }
 
-Cartesian3 random_unit_vector() {
-    return unit_vector(random_in_unit_sphere());
+Cartesian3 randomUnitVector() {
+    return unit_vector(randomInUnitSphere());
 }
 
-Cartesian3 random_in_hemisphere(const Cartesian3 &normal) {
-    Cartesian3 in_unit_sphere = random_in_unit_sphere();
+Cartesian3 randomInHemisphere(const Cartesian3 &normal) {
+    Cartesian3 in_unit_sphere = randomInUnitSphere();
     if (dot(in_unit_sphere, normal) > 0.0) // In the same hemisphere as the normal
         return in_unit_sphere;
     else
@@ -255,7 +255,7 @@ Cartesian3 refract(const Cartesian3 &uv, const Cartesian3 &n, double etai_over_e
     return r_out_perp + r_out_parallel;
 }
 
-Cartesian3 random_in_unit_disk() {
+Cartesian3 randomInUnitDisk() {
     while (true) {
         auto p = Cartesian3(random_double(-1,1), random_double(-1,1), 0);
         if (p.length_squared() >= 1) continue;
@@ -263,7 +263,7 @@ Cartesian3 random_in_unit_disk() {
     }
 }
 
-Cartesian3 random_cosine_direction() {
+Cartesian3 randomCosineDirection() {
     auto r1 = random_double();
     auto r2 = random_double();
     auto z = sqrt(1-r2);

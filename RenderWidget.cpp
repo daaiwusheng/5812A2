@@ -162,7 +162,7 @@ void RenderWidget::paintGL()
         } // use lighting
 
     // translate by the visual translation
-    //Lets center the scene on -1 so we can have a camera with near 0 and far 2
+    //Lets center the scene on -1 so we can have a Camera with near 0 and far 2
     //without having to do many changes
     glTranslatef(renderParameters->xTranslate, renderParameters->yTranslate, -1.0f);
 

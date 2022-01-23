@@ -103,18 +103,18 @@ Cartesian3 cross(const Cartesian3 &u, const Cartesian3 &v);
 
 Cartesian3 unit_vector(Cartesian3 v);
 
-Cartesian3 random_in_unit_sphere();
+Cartesian3 randomInUnitSphere();
 
-Cartesian3 random_unit_vector();
+Cartesian3 randomUnitVector();
 
-Cartesian3 random_in_hemisphere(const Cartesian3& normal);
+Cartesian3 randomInHemisphere(const Cartesian3& normal);
 
 Cartesian3 reflect(const Cartesian3& v, const Cartesian3& n);
 
 Cartesian3 refract(const Cartesian3& uv, const Cartesian3& n, double etai_over_etat);
 
-Cartesian3 random_in_unit_disk();
+Cartesian3 randomInUnitDisk();
 
-Cartesian3 random_cosine_direction();
+Cartesian3 randomCosineDirection();
 
 #endif

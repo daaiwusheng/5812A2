@@ -186,6 +186,12 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Camera.h",
+			"MU",
+			"3GW5QA7T5Y/moc_Camera.cpp",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/CornellBox.h",
 			"MU",
 			"3GW5QA7T5Y/moc_CornellBox.cpp",
@@ -243,12 +249,6 @@
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.h",
 			"MU",
 			"3GW5QA7T5Y/moc_aarect.cpp",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.h",
-			"MU",
-			"3GW5QA7T5Y/moc_camera.cpp",
 			null
 		],
 		[
@@ -431,6 +431,11 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Camera.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/CornellBox.cpp",
 			"MU",
 			null
@@ -477,11 +482,6 @@
 		],
 		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.cpp",
 			"MU",
 			null
 		],

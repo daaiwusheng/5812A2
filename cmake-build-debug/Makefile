@@ -550,6 +550,30 @@ my_code/Box.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.s
 .PHONY : my_code/Box.cpp.s
 
+my_code/Camera.o: my_code/Camera.cpp.o
+.PHONY : my_code/Camera.o
+
+# target to build an object file
+my_code/Camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.o
+.PHONY : my_code/Camera.cpp.o
+
+my_code/Camera.i: my_code/Camera.cpp.i
+.PHONY : my_code/Camera.i
+
+# target to preprocess a source file
+my_code/Camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.i
+.PHONY : my_code/Camera.cpp.i
+
+my_code/Camera.s: my_code/Camera.cpp.s
+.PHONY : my_code/Camera.s
+
+# target to generate assembly for a file
+my_code/Camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.s
+.PHONY : my_code/Camera.cpp.s
+
 my_code/CornellBox.o: my_code/CornellBox.cpp.o
 .PHONY : my_code/CornellBox.o
 
@@ -790,30 +814,6 @@ my_code/aarect.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.s
 .PHONY : my_code/aarect.cpp.s
 
-my_code/camera.o: my_code/camera.cpp.o
-.PHONY : my_code/camera.o
-
-# target to build an object file
-my_code/camera.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o
-.PHONY : my_code/camera.cpp.o
-
-my_code/camera.i: my_code/camera.cpp.i
-.PHONY : my_code/camera.i
-
-# target to preprocess a source file
-my_code/camera.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.i
-.PHONY : my_code/camera.cpp.i
-
-my_code/camera.s: my_code/camera.cpp.s
-.PHONY : my_code/camera.s
-
-# target to generate assembly for a file
-my_code/camera.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.s
-.PHONY : my_code/camera.cpp.s
-
 my_code/color.o: my_code/color.cpp.o
 .PHONY : my_code/color.o
 
@@ -1019,6 +1019,9 @@ help:
 	@echo "... my_code/Box.o"
 	@echo "... my_code/Box.i"
 	@echo "... my_code/Box.s"
+	@echo "... my_code/Camera.o"
+	@echo "... my_code/Camera.i"
+	@echo "... my_code/Camera.s"
 	@echo "... my_code/CornellBox.o"
 	@echo "... my_code/CornellBox.i"
 	@echo "... my_code/CornellBox.s"
@@ -1049,9 +1052,6 @@ help:
 	@echo "... my_code/aarect.o"
 	@echo "... my_code/aarect.i"
 	@echo "... my_code/aarect.s"
-	@echo "... my_code/camera.o"
-	@echo "... my_code/camera.i"
-	@echo "... my_code/camera.s"
 	@echo "... my_code/color.o"
 	@echo "... my_code/color.i"
 	@echo "... my_code/color.s"

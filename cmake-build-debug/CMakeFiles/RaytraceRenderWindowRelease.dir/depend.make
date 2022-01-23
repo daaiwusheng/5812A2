@@ -207,6 +207,12 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.o: \
  ../my_code/headers.h \
  ../my_code/ray.h \
  ../my_code/texture.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Camera.cpp.o: \
+ ../Cartesian3.h \
+ ../my_code/Camera.cpp \
+ ../my_code/Camera.h \
+ ../my_code/ray.h \
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
@@ -288,6 +294,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../RenderParameters.h \
  ../TexturedObject.h \
  ../my_code/AABBStructure.h \
+ ../my_code/Camera.h \
  ../my_code/CornellBox.h \
  ../my_code/HittableList.h \
  ../my_code/HittableObject.h \
@@ -295,7 +302,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../my_code/MyScene.h \
  ../my_code/Raytracer.cpp \
  ../my_code/Raytracer.h \
- ../my_code/camera.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/ray.h \
@@ -354,12 +360,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o: \
  ../my_code/headers.h \
  ../my_code/ray.h \
  ../my_code/texture.h
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/camera.cpp.o: \
- ../Cartesian3.h \
- ../my_code/camera.cpp \
- ../my_code/camera.h \
- ../my_code/ray.h \
- ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \

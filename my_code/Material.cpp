@@ -25,7 +25,7 @@ Cartesian3 Material::emitted(const ray &r_in, const HitRecord &rec, double u, do
 bool lambertian::scatter(const ray &r_in, const HitRecord &rec, Cartesian3 &alb, ray &scattered, double &pdf) const {
     onb uvw;
     uvw.build_from_w(rec.normal);
-    auto direction = uvw.local(random_cosine_direction());
+    auto direction = uvw.local(randomCosineDirection());
 
     scattered = ray(rec.p, unit_vector(direction), r_in.time());
     alb = albedo->value(rec.u, rec.v, rec.p);
@@ -48,7 +48,7 @@ lambertian::lambertian(shared_ptr<texture> a) : albedo(a) {
 
 bool metal::scatter(const ray &r_in, const HitRecord &rec, Cartesian3 &attenuation, ray &scattered, double &pdf) const {
     Cartesian3 reflected = reflect(unit_vector(r_in.direction()), rec.normal);
-    scattered = ray(rec.p, reflected + fuzz*random_in_unit_sphere(), r_in.time());
+    scattered = ray(rec.p, reflected + fuzz * randomInUnitSphere(), r_in.time());
     attenuation = albedo;
     return (dot(scattered.direction(), rec.normal) > 0);
 }

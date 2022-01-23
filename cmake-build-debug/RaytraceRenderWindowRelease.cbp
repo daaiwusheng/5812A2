@@ -223,6 +223,12 @@
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Box.h">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
+		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Camera.cpp">
+			<Option target="RaytraceRenderWindowRelease"/>
+		</Unit>
+		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Camera.h">
+			<Option target="RaytraceRenderWindowRelease"/>
+		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/CornellBox.cpp">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
@@ -281,12 +287,6 @@
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.h">
-			<Option target="RaytraceRenderWindowRelease"/>
-		</Unit>
-		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.cpp">
-			<Option target="RaytraceRenderWindowRelease"/>
-		</Unit>
-		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.h">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.cpp">
