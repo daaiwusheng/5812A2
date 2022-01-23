@@ -1,20 +1,20 @@
 //
-// Created by 王宇 on 2022/1/20.
+// Created by 王宇 on 2022/1/23.
 //
 
-#include "CornellBox.h"
+#include "MyScene.h"
 #include "aarect.h"
 #include "box.h"
 #include "Sphere.h"
 
-cornellBox::cornellBox() {
+MyOwnScene::MyOwnScene() {
     background = Cartesian3(0,0,0);
     lookfrom = Cartesian3(278, 278, -800);
     lookat = Cartesian3(278, 278, 0);
     vup = Cartesian3(0, 1, 0);
 }
 
-hittable_list cornellBox::cornell_box() {
+hittable_list MyOwnScene::getMyOwnScene() {
     hittable_list objects;
 
     auto red   = make_shared<lambertian>(Cartesian3(.65, .05, .05));
@@ -39,7 +39,9 @@ hittable_list cornellBox::cornell_box() {
     box2 = make_shared<translate>(box2, Cartesian3(130,0,65));
     objects.add(box2);
 
+    auto material2 = make_shared<lambertian>(Cartesian3(0.4, 0.2, 0.1));
+    objects.add(make_shared<Sphere>(Cartesian3(160, 225, 165), 60, material2));
+
+
     return objects;
 }
-
-

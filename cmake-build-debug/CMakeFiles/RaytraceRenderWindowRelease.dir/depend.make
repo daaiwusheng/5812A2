@@ -194,6 +194,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
  ../my_code/CornellBox.cpp \
  ../my_code/CornellBox.h \
  ../my_code/Material.h \
+ ../my_code/Sphere.h \
  ../my_code/aabb.h \
  ../my_code/aarect.h \
  ../my_code/box.h \
@@ -202,7 +203,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
  ../my_code/hittable.h \
  ../my_code/hittable_list.h \
  ../my_code/ray.h \
- ../my_code/texture.h
+ ../my_code/texture.h \
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
@@ -213,6 +215,23 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o: \
  ../my_code/headers.h \
  ../my_code/hittable.h \
  ../my_code/onb.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/utility.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.o: \
+ ../Cartesian3.h \
+ ../RGBAValue.h \
+ ../my_code/Material.h \
+ ../my_code/MyScene.cpp \
+ ../my_code/MyScene.h \
+ ../my_code/Sphere.h \
+ ../my_code/aabb.h \
+ ../my_code/aarect.h \
+ ../my_code/box.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/hittable_list.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
  ../my_code/utility.h
@@ -227,6 +246,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../TexturedObject.h \
  ../my_code/CornellBox.h \
  ../my_code/Material.h \
+ ../my_code/MyScene.h \
  ../my_code/Raytracer.cpp \
  ../my_code/Raytracer.h \
  ../my_code/aabb.h \
@@ -239,6 +259,19 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../my_code/texture.h \
  ../my_code/utility.h \
  /usr/local/include/omp.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Sphere.cpp.o: \
+ ../Cartesian3.h \
+ ../RGBAValue.h \
+ ../my_code/Material.h \
+ ../my_code/Sphere.cpp \
+ ../my_code/Sphere.h \
+ ../my_code/aabb.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/hittable.h \
+ ../my_code/ray.h \
+ ../my_code/texture.h \
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TransformTool.cpp.o: \
  ../Cartesian3.h \
  ../Homogeneous4.h \

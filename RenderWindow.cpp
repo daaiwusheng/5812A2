@@ -174,7 +174,7 @@ void RenderWindow::ResetInterface()
     scaleObjectBox          ->setChecked        (renderParameters   ->  scaleObject);
     
     // set sliders
-    // x & y translate are scaled to notional unit sphere in render widgets
+    // x & y translate are scaled to notional unit Sphere in render widgets
     // but because the slider is defined as integer, we multiply by a 100 for all sliders
     xTranslateSlider        ->setMinimum        ((int) (TRANSLATE_MIN                               * PARAMETER_SCALING));
     xTranslateSlider        ->setMaximum        ((int) (TRANSLATE_MAX                               * PARAMETER_SCALING));

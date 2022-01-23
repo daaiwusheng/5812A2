@@ -91,7 +91,7 @@ void RaytraceRenderWidget::mousePressEvent(QMouseEvent *event)
     { // RaytraceRenderWidget::mousePressEvent()
     // store the button for future reference
     int whichButton = event->button();
-    // scale the event to the nominal unit sphere in the widget:
+    // scale the event to the nominal unit Sphere in the widget:
     // find the minimum of height & width   
     float size = (width() > height()) ? height() : width();
     // scale both coordinates from that
@@ -112,7 +112,7 @@ void RaytraceRenderWidget::mousePressEvent(QMouseEvent *event)
     
 void RaytraceRenderWidget::mouseMoveEvent(QMouseEvent *event)
     { // RaytraceRenderWidget::mouseMoveEvent()
-    // scale the event to the nominal unit sphere in the widget:
+    // scale the event to the nominal unit Sphere in the widget:
     // find the minimum of height & width   
     float size = (width() > height()) ? height() : width();
     // scale both coordinates from that
@@ -125,7 +125,7 @@ void RaytraceRenderWidget::mouseMoveEvent(QMouseEvent *event)
     
 void RaytraceRenderWidget::mouseReleaseEvent(QMouseEvent *event)
     { // RaytraceRenderWidget::mouseReleaseEvent()
-    // scale the event to the nominal unit sphere in the widget:
+    // scale the event to the nominal unit Sphere in the widget:
     // find the minimum of height & width   
     float size = (width() > height()) ? height() : width();
     // scale both coordinates from that

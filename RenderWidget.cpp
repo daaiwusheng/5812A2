@@ -97,7 +97,7 @@ void RenderWidget::resizeGL(int w, int h)
     // compute the aspect ratio of the widget
     float aspectRatio = (float) w / (float) h;
     
-    // we want to capture a sphere of radius 1.0 without distortion
+    // we want to capture a Sphere of radius 1.0 without distortion
     // so we set the ortho projection based on whether the window is portrait (> 1.0) or landscape
     // portrait ratio is wider, so make bottom & top -1.0 & 1.0
     if (aspectRatio > 1.0)
@@ -216,7 +216,7 @@ void RenderWidget::mousePressEvent(QMouseEvent *event)
     { // RenderWidget::mousePressEvent()
     // store the button for future reference
     int whichButton = event->button();
-    // scale the event to the nominal unit sphere in the widget:
+    // scale the event to the nominal unit Sphere in the widget:
     // find the minimum of height & width   
     float size = (width() > height()) ? height() : width();
     // scale both coordinates from that
@@ -236,7 +236,7 @@ void RenderWidget::mousePressEvent(QMouseEvent *event)
     
 void RenderWidget::mouseMoveEvent(QMouseEvent *event)
     { // RenderWidget::mouseMoveEvent()
-    // scale the event to the nominal unit sphere in the widget:
+    // scale the event to the nominal unit Sphere in the widget:
     // find the minimum of height & width   
     float size = (width() > height()) ? height() : width();
     // scale both coordinates from that
@@ -249,7 +249,7 @@ void RenderWidget::mouseMoveEvent(QMouseEvent *event)
     
 void RenderWidget::mouseReleaseEvent(QMouseEvent *event)
     { // RenderWidget::mouseReleaseEvent()
-    // scale the event to the nominal unit sphere in the widget:
+    // scale the event to the nominal unit Sphere in the widget:
     // find the minimum of height & width   
     float size = (width() > height()) ? height() : width();
     // scale both coordinates from that

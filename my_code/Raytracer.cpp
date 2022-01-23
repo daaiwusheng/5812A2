@@ -14,6 +14,7 @@
 #include "CornellBox.h"
 #include "headers.h"
 #include "hittable_list.h"
+#include "MyScene.h"
 
 Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *texturedObject) {
     this->renderParameters = renderParameters;
@@ -32,7 +33,7 @@ void Raytracer::render()
     int max_depth = 1;
     int samples_per_pixel = 10;
     //康奈尔box
-    if (renderParameters->sceneType == CORNEL_BOX)
+    if (renderParameters->sceneType != CORNEL_BOX)
     {
         //渲染康奈尔box
         cornellBox cornel_box = cornellBox();
@@ -48,7 +49,16 @@ void Raytracer::render()
     }
     else{
         //渲染默认的mesh 和 纹理
+        MyOwnScene myOwnScene = MyOwnScene();
+        image_width = myOwnScene.image_width;
+        image_height = myOwnScene.image_height;
 
+        background = myOwnScene.background;
+        max_depth = myOwnScene.max_depth;
+        samples_per_pixel = myOwnScene.max_depth;
+        world = myOwnScene.getMyOwnScene();
+        cam = std::make_shared<camera>(myOwnScene.lookfrom, myOwnScene.lookat, myOwnScene.vup, myOwnScene.vfov,
+                                       myOwnScene.aspect_ratio, myOwnScene.aperture, myOwnScene.dist_to_focus, myOwnScene.time0, myOwnScene.time1);
     }
 
 

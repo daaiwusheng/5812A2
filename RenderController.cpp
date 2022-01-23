@@ -387,7 +387,7 @@ void RenderController::scaleObjectCheckChanged(int state)
     
 // slots for responding to arcball manipulations
 // these are general purpose signals which pass the mouse moves to the controller
-// after scaling to the notional unit sphere
+// after scaling to the notional unit Sphere
 void RenderController::BeginScaledDrag(int whichButton, float x, float y)
     { // RenderController::BeginScaledDrag()
     // depends on which button was depressed, so save that for the duration

@@ -550,6 +550,30 @@ my_code/Material.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.s
 .PHONY : my_code/Material.cpp.s
 
+my_code/MyScene.o: my_code/MyScene.cpp.o
+.PHONY : my_code/MyScene.o
+
+# target to build an object file
+my_code/MyScene.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.o
+.PHONY : my_code/MyScene.cpp.o
+
+my_code/MyScene.i: my_code/MyScene.cpp.i
+.PHONY : my_code/MyScene.i
+
+# target to preprocess a source file
+my_code/MyScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.i
+.PHONY : my_code/MyScene.cpp.i
+
+my_code/MyScene.s: my_code/MyScene.cpp.s
+.PHONY : my_code/MyScene.s
+
+# target to generate assembly for a file
+my_code/MyScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.s
+.PHONY : my_code/MyScene.cpp.s
+
 my_code/Raytracer.o: my_code/Raytracer.cpp.o
 .PHONY : my_code/Raytracer.o
 
@@ -573,6 +597,30 @@ my_code/Raytracer.s: my_code/Raytracer.cpp.s
 my_code/Raytracer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.s
 .PHONY : my_code/Raytracer.cpp.s
+
+my_code/Sphere.o: my_code/Sphere.cpp.o
+.PHONY : my_code/Sphere.o
+
+# target to build an object file
+my_code/Sphere.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Sphere.cpp.o
+.PHONY : my_code/Sphere.cpp.o
+
+my_code/Sphere.i: my_code/Sphere.cpp.i
+.PHONY : my_code/Sphere.i
+
+# target to preprocess a source file
+my_code/Sphere.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Sphere.cpp.i
+.PHONY : my_code/Sphere.cpp.i
+
+my_code/Sphere.s: my_code/Sphere.cpp.s
+.PHONY : my_code/Sphere.s
+
+# target to generate assembly for a file
+my_code/Sphere.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Sphere.cpp.s
+.PHONY : my_code/Sphere.cpp.s
 
 my_code/TransformTool.o: my_code/TransformTool.cpp.o
 .PHONY : my_code/TransformTool.o
@@ -971,9 +1019,15 @@ help:
 	@echo "... my_code/Material.o"
 	@echo "... my_code/Material.i"
 	@echo "... my_code/Material.s"
+	@echo "... my_code/MyScene.o"
+	@echo "... my_code/MyScene.i"
+	@echo "... my_code/MyScene.s"
 	@echo "... my_code/Raytracer.o"
 	@echo "... my_code/Raytracer.i"
 	@echo "... my_code/Raytracer.s"
+	@echo "... my_code/Sphere.o"
+	@echo "... my_code/Sphere.i"
+	@echo "... my_code/Sphere.s"
 	@echo "... my_code/TransformTool.o"
 	@echo "... my_code/TransformTool.i"
 	@echo "... my_code/TransformTool.s"

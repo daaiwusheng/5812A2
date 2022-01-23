@@ -90,7 +90,7 @@ class RenderController : public QObject
 
     // slots for responding to arcball manipulations
     // these are general purpose signals which pass the mouse moves to the controller
-    // after scaling to the notional unit sphere
+    // after scaling to the notional unit Sphere
     void BeginScaledDrag(int whichButton, float x, float y);
     // note that Continue & End assume the button has already been set
     void ContinueScaledDrag(float x, float y);

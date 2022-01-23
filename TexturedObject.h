@@ -74,7 +74,7 @@ class TexturedObject
     // centre of gravity - computed after reading
     Cartesian3 centreOfGravity;
 
-    // size of object - i.e. radius of circumscribing sphere centred at centre of gravity
+    // size of object - i.e. radius of circumscribing Sphere centred at centre of gravity
     float objectSize;
 
     // constructor will initialise to safe values

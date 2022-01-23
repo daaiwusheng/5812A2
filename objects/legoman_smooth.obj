@@ -6,7 +6,7 @@
 #
 # Vertex Count 1372
 # Face Count   2772
-# Texture Coordinates are theta/phi on sphere from normal vector
+# Texture Coordinates are theta/phi on Sphere from normal vector
 #
 v -10.6805 0.05136 -1.85006
 v -12.3338 1.91354 -6.45413

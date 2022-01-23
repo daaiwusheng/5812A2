@@ -163,8 +163,8 @@ void ArcBallWidget::paintGL()
 
     // set colour to black
     glColor3f(0.0, 0.0, 0.0);
-    // draw a circle around the edge of the sphere
-    // reusing data from some of the elements of the sphere
+    // draw a circle around the edge of the Sphere
+    // reusing data from some of the elements of the Sphere
     glScalef(0.8, 0.8, 0.8);
     glBegin(GL_LINE_LOOP);
     for (int j = 3; j < 84; j += 7)
@@ -175,7 +175,7 @@ void ArcBallWidget::paintGL()
     Matrix4 rotMatrix = theBall.GetRotation();
     glMultMatrixf(rotMatrix.columnMajor().coordinates);
 
-    // loop through verticals of sphere
+    // loop through verticals of Sphere
     for (int i = 0; i < 12; i++)
         { // loop drawing verticals
         glBegin(GL_LINE_STRIP);

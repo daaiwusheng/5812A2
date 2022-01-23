@@ -79,7 +79,7 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	public:
 	signals:
 	// these are general purpose signals, which scale the drag to 
-	// the notional unit sphere and pass it to the controller for handling
+	// the notional unit Sphere and pass it to the controller for handling
 	void BeginScaledDrag(int whichButton, float x, float y);
 	// note that Continue & End assume the button has already been set
 	void ContinueScaledDrag(float x, float y);
