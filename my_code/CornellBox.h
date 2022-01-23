@@ -5,7 +5,7 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_CORNELLBOX_H
 #define RAYTRACERENDERWINDOWRELEASE_CORNELLBOX_H
 
-#include "hittable_list.h"
+#include "HittableList.h"
 #include "../Cartesian3.h"
 
 class cornellBox{
@@ -28,7 +28,7 @@ public:
     double time1 = 1.0;
 
     cornellBox();
-    hittable_list cornell_box();
+    HittableList cornell_box();
 
 };
 

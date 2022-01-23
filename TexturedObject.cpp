@@ -137,7 +137,7 @@ bool TexturedObject::ReadObjectStream(std::istream &geometryStream, std::istream
                     unsigned int normalID;
                     unsigned int texCoordID;
 
-                    // try reading them in, breaking if we hit eof
+                    // try reading them in, breaking if we hitTest eof
                     lineParse >> vertexID;
                     // retrieve & discard a slash
                     lineParse.get();

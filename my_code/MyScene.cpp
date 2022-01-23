@@ -4,7 +4,7 @@
 
 #include "MyScene.h"
 #include "aarect.h"
-#include "box.h"
+#include "Box.h"
 #include "Sphere.h"
 
 MyOwnScene::MyOwnScene() {
@@ -14,8 +14,8 @@ MyOwnScene::MyOwnScene() {
     vup = Cartesian3(0, 1, 0);
 }
 
-hittable_list MyOwnScene::getMyOwnScene() {
-    hittable_list objects;
+HittableList MyOwnScene::getMyOwnScene() {
+    HittableList objects;
 
     auto red   = make_shared<lambertian>(Cartesian3(.65, .05, .05));
     auto white = make_shared<lambertian>(Cartesian3(.73, .73, .73));
@@ -29,12 +29,12 @@ hittable_list MyOwnScene::getMyOwnScene() {
     objects.add(make_shared<xz_rectangle>(0, 555, 0, 555, 0, white));
     objects.add(make_shared<xy_rectangle>(0, 555, 0, 555, 555, white));
 
-    shared_ptr<HittableObject> box1 = make_shared<box>(Cartesian3(0,0,0), Cartesian3(165,330,165), white);
+    shared_ptr<HittableObject> box1 = make_shared<Box>(Cartesian3(0,0,0), Cartesian3(165,330,165), white);
     box1 = make_shared<rotate_y>(box1, 15);
     box1 = make_shared<translate>(box1, Cartesian3(265,0,295));
     objects.add(box1);
 
-    shared_ptr<HittableObject> box2 = make_shared<box>(Cartesian3(0,0,0), Cartesian3(165,165,165), white);
+    shared_ptr<HittableObject> box2 = make_shared<Box>(Cartesian3(0,0,0), Cartesian3(165,165,165), white);
     box2 = make_shared<rotate_y>(box2, -18);
     box2 = make_shared<translate>(box2, Cartesian3(130,0,65));
     objects.add(box2);

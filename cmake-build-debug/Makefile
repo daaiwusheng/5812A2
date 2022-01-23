@@ -526,6 +526,30 @@ my_code/AABBStructure.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/AABBStructure.cpp.s
 .PHONY : my_code/AABBStructure.cpp.s
 
+my_code/Box.o: my_code/Box.cpp.o
+.PHONY : my_code/Box.o
+
+# target to build an object file
+my_code/Box.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.o
+.PHONY : my_code/Box.cpp.o
+
+my_code/Box.i: my_code/Box.cpp.i
+.PHONY : my_code/Box.i
+
+# target to preprocess a source file
+my_code/Box.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.i
+.PHONY : my_code/Box.cpp.i
+
+my_code/Box.s: my_code/Box.cpp.s
+.PHONY : my_code/Box.s
+
+# target to generate assembly for a file
+my_code/Box.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Box.cpp.s
+.PHONY : my_code/Box.cpp.s
+
 my_code/CornellBox.o: my_code/CornellBox.cpp.o
 .PHONY : my_code/CornellBox.o
 
@@ -549,6 +573,30 @@ my_code/CornellBox.s: my_code/CornellBox.cpp.s
 my_code/CornellBox.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.s
 .PHONY : my_code/CornellBox.cpp.s
+
+my_code/HittableList.o: my_code/HittableList.cpp.o
+.PHONY : my_code/HittableList.o
+
+# target to build an object file
+my_code/HittableList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/HittableList.cpp.o
+.PHONY : my_code/HittableList.cpp.o
+
+my_code/HittableList.i: my_code/HittableList.cpp.i
+.PHONY : my_code/HittableList.i
+
+# target to preprocess a source file
+my_code/HittableList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/HittableList.cpp.i
+.PHONY : my_code/HittableList.cpp.i
+
+my_code/HittableList.s: my_code/HittableList.cpp.s
+.PHONY : my_code/HittableList.s
+
+# target to generate assembly for a file
+my_code/HittableList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/HittableList.cpp.s
+.PHONY : my_code/HittableList.cpp.s
 
 my_code/HittableObject.o: my_code/HittableObject.cpp.o
 .PHONY : my_code/HittableObject.o
@@ -742,30 +790,6 @@ my_code/aarect.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.s
 .PHONY : my_code/aarect.cpp.s
 
-my_code/box.o: my_code/box.cpp.o
-.PHONY : my_code/box.o
-
-# target to build an object file
-my_code/box.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o
-.PHONY : my_code/box.cpp.o
-
-my_code/box.i: my_code/box.cpp.i
-.PHONY : my_code/box.i
-
-# target to preprocess a source file
-my_code/box.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.i
-.PHONY : my_code/box.cpp.i
-
-my_code/box.s: my_code/box.cpp.s
-.PHONY : my_code/box.s
-
-# target to generate assembly for a file
-my_code/box.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.s
-.PHONY : my_code/box.cpp.s
-
 my_code/camera.o: my_code/camera.cpp.o
 .PHONY : my_code/camera.o
 
@@ -813,30 +837,6 @@ my_code/color.s: my_code/color.cpp.s
 my_code/color.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.s
 .PHONY : my_code/color.cpp.s
-
-my_code/hittable_list.o: my_code/hittable_list.cpp.o
-.PHONY : my_code/hittable_list.o
-
-# target to build an object file
-my_code/hittable_list.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.o
-.PHONY : my_code/hittable_list.cpp.o
-
-my_code/hittable_list.i: my_code/hittable_list.cpp.i
-.PHONY : my_code/hittable_list.i
-
-# target to preprocess a source file
-my_code/hittable_list.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.i
-.PHONY : my_code/hittable_list.cpp.i
-
-my_code/hittable_list.s: my_code/hittable_list.cpp.s
-.PHONY : my_code/hittable_list.s
-
-# target to generate assembly for a file
-my_code/hittable_list.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.s
-.PHONY : my_code/hittable_list.cpp.s
 
 my_code/onb.o: my_code/onb.cpp.o
 .PHONY : my_code/onb.o
@@ -1016,9 +1016,15 @@ help:
 	@echo "... my_code/AABBStructure.o"
 	@echo "... my_code/AABBStructure.i"
 	@echo "... my_code/AABBStructure.s"
+	@echo "... my_code/Box.o"
+	@echo "... my_code/Box.i"
+	@echo "... my_code/Box.s"
 	@echo "... my_code/CornellBox.o"
 	@echo "... my_code/CornellBox.i"
 	@echo "... my_code/CornellBox.s"
+	@echo "... my_code/HittableList.o"
+	@echo "... my_code/HittableList.i"
+	@echo "... my_code/HittableList.s"
 	@echo "... my_code/HittableObject.o"
 	@echo "... my_code/HittableObject.i"
 	@echo "... my_code/HittableObject.s"
@@ -1043,18 +1049,12 @@ help:
 	@echo "... my_code/aarect.o"
 	@echo "... my_code/aarect.i"
 	@echo "... my_code/aarect.s"
-	@echo "... my_code/box.o"
-	@echo "... my_code/box.i"
-	@echo "... my_code/box.s"
 	@echo "... my_code/camera.o"
 	@echo "... my_code/camera.i"
 	@echo "... my_code/camera.s"
 	@echo "... my_code/color.o"
 	@echo "... my_code/color.i"
 	@echo "... my_code/color.s"
-	@echo "... my_code/hittable_list.o"
-	@echo "... my_code/hittable_list.i"
-	@echo "... my_code/hittable_list.s"
 	@echo "... my_code/onb.o"
 	@echo "... my_code/onb.i"
 	@echo "... my_code/onb.s"

@@ -5,7 +5,7 @@
 #ifndef RAYTRACERENDERWINDOWRELEASE_MYSCENE_H
 #define RAYTRACERENDERWINDOWRELEASE_MYSCENE_H
 
-#include "hittable_list.h"
+#include "HittableList.h"
 #include "../Cartesian3.h"
 
 class MyOwnScene{
@@ -28,7 +28,7 @@ public:
     double time1 = 1.0;
 
     MyOwnScene();
-    hittable_list getMyOwnScene();
+    HittableList getMyOwnScene();
 
 };
 

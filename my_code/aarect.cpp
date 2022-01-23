@@ -16,7 +16,7 @@ xz_rectangle::xz_rectangle(double _x0, double _x1, double _z0, double _z1, doubl
 
 }
 
-bool xz_rectangle::hit(const ray& r, double t_min, double t_max, HitRecord& rec) {
+bool xz_rectangle::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
     //solving the equation is easy. but we need keep an eye on that
     // t should be between t_min and t_max.
     auto t = (y - r.origin().y) / r.direction().y;
@@ -27,7 +27,7 @@ bool xz_rectangle::hit(const ray& r, double t_min, double t_max, HitRecord& rec)
     auto z = r.origin().z + t*r.direction().z;
     if (x < x0 || x > x1 || z < z0 || z > z1)
         return false;
-    //store these data in hit record. we will use them to calculate the ray tracer.
+    //store these data in hitTest record. we will use them to calculate the ray tracer.
     rec.u = (x-x0)/(x1-x0);
     rec.v = (z-z0)/(z1-z0);
     rec.t = t;
@@ -39,8 +39,8 @@ bool xz_rectangle::hit(const ray& r, double t_min, double t_max, HitRecord& rec)
 }
 
 
-bool xz_rectangle::bounding_box(double time0, double time1, AABBStructure &output_box) {
-    // The bounding box can not have zero width in each dimension, so add the Y
+bool xz_rectangle::boundingBox(double time0, double time1, AABBStructure &output_box) {
+    // The bounding Box can not have zero width in each dimension, so add the Y
     // dimension a small number.
     output_box = AABBStructure(Cartesian3(x0, y - 0.0001, z0), Cartesian3(x1, y + 0.0001, z1));
     return true;
@@ -55,7 +55,7 @@ xy_rectangle::xy_rectangle(double _x0, double _x1, double _y0, double _y1, doubl
 
 }
 
-bool xy_rectangle::hit(const ray& r, double t_min, double t_max, HitRecord& rec) {
+bool xy_rectangle::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
     auto t = (z - r.origin().z) / r.direction().z;
     if (t < t_min || t > t_max)
         return false;
@@ -73,7 +73,7 @@ bool xy_rectangle::hit(const ray& r, double t_min, double t_max, HitRecord& rec)
     return true;
 }
 
-bool xy_rectangle::bounding_box(double time0, double time1, AABBStructure &output_box) {
+bool xy_rectangle::boundingBox(double time0, double time1, AABBStructure &output_box) {
     output_box = AABBStructure(Cartesian3(x0, y0, z - 0.0001), Cartesian3(x1, y1, z + 0.0001));
     return true;
 }
@@ -87,7 +87,7 @@ yz_rectangle::yz_rectangle(double _y0, double _y1, double _z0, double _z1, doubl
 
 }
 
-bool yz_rectangle::hit(const ray& r, double t_min, double t_max, HitRecord& rec) {
+bool yz_rectangle::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
     auto t = (x - r.origin().x) / r.direction().x;
     if (t < t_min || t > t_max)
         return false;
@@ -105,7 +105,7 @@ bool yz_rectangle::hit(const ray& r, double t_min, double t_max, HitRecord& rec)
     return true;
 }
 
-bool yz_rectangle::bounding_box(double time0, double time1, AABBStructure &output_box) {
+bool yz_rectangle::boundingBox(double time0, double time1, AABBStructure &output_box) {
     output_box = AABBStructure(Cartesian3(x - 0.0001, y0, z0), Cartesian3(x + 0.0001, y1, z1));
     return true;
 }

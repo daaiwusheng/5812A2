@@ -6,7 +6,7 @@
 
 
 
-bool Sphere::hit(const ray& r, double t_min, double t_max, HitRecord& rec)  {
+bool Sphere::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec)  {
     Cartesian3 oc = r.origin() - center;
     auto a = r.direction().length_squared();
     auto half_b = dot(oc, r.direction());
@@ -34,7 +34,7 @@ bool Sphere::hit(const ray& r, double t_min, double t_max, HitRecord& rec)  {
     return true;
 }
 
-bool Sphere::bounding_box(double time0, double time1, AABBStructure& output_box)  {
+bool Sphere::boundingBox(double time0, double time1, AABBStructure& output_box)  {
     output_box = AABBStructure(
             center - Cartesian3(radius, radius, radius),
             center + Cartesian3(radius, radius, radius));

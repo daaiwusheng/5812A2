@@ -13,7 +13,7 @@
 #include "../Cartesian3.h"
 #include "CornellBox.h"
 #include "headers.h"
-#include "hittable_list.h"
+#include "HittableList.h"
 #include "MyScene.h"
 
 Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *texturedObject) {
@@ -23,7 +23,7 @@ Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *textured
 
 void Raytracer::render()
 {
-    hittable_list world = hittable_list();
+    HittableList world = HittableList();
     std::shared_ptr<camera> cam = std::make_shared<camera>(Cartesian3(278, 278, -800),
                                                            Cartesian3(278, 278, 0), Cartesian3(0, 1, 0), 40,
                                                            1.0, 0.0, 10.0, 0, 0);
@@ -86,14 +86,14 @@ void Raytracer::render()
     std::cerr << "\nDone.\n";
 }
 
-Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, hittable_list world, int depth) {
+Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, HittableList world, int depth) {
     HitRecord rec;
 
     // If we've exceeded the ray bounce limit, no more light is gathered.
     if (depth <= 0)
         return Cartesian3(0,0,0);
     // If the ray hits nothing, return the background color.
-    if (!world.hit(r, 0.001, infinity, rec))
+    if (!world.hitTest(r, 0.001, infinity, rec))
         return background;
 
     ray scattered;

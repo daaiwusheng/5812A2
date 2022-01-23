@@ -9,11 +9,11 @@ AABBStructure::AABBStructure()
 
 }
 /***
- * judge if the ray can hit the box
+ * judge if the ray can hitTest the Box
  * @param r the ray
  * @param t_min the lower limit of the solution, 
  * @param t_max the upper limit of the solution,
- * @return if hit, return ture.
+ * @return if hitTest, return ture.
  */
 bool AABBStructure::hit(const ray &r, double t_min, double t_max) const
 {
@@ -33,7 +33,7 @@ bool AABBStructure::hit(const ray &r, double t_min, double t_max) const
         t_max = t1 < t_max ? t1 : t_max;
         //here it's a little bit tricky, if the interval of solution previous is not
         //overlap with the interval of current solution, the t_max can not be bigger
-        //than t_min. If there is one dimension can not be hit by the ray, we need to
+        //than t_min. If there is one dimension can not be hitTest by the ray, we need to
         //say no intersect here.
         if (t_max <= t_min)
         {
@@ -61,13 +61,13 @@ Cartesian3 AABBStructure::max() const
 }
 
 /***
- * calculate the surrounding box of two AABB boxes
+ * calculate the surrounding Box of two AABB boxes
  * @param box0
  * @param box1
  * @return
  */
 AABBStructure getSurroundingBox(AABBStructure box0, AABBStructure box1) {
-    //the result box is contain box0 and box1,in order to do this, we just need
+    //the result Box is contain box0 and box1,in order to do this, we just need
     //to get the smallest and the biggest point of these two boxes.
     Cartesian3 small(fmin(box0.min().get_x(), box1.min().get_x()),
                  fmin(box0.min().get_y(), box1.min().get_y()),

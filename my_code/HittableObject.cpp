@@ -6,9 +6,9 @@
 #include "utility.h"
 #include "../Cartesian3.h"
 
-bool translate::hit(const ray& r, double t_min, double t_max, HitRecord& rec) {
+bool translate::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
     ray moved_r(r.origin() - offset, r.direction(), r.time());
-    if (!ptr->hit(moved_r, t_min, t_max, rec))
+    if (!ptr->hitTest(moved_r, t_min, t_max, rec))
         return false;
 
     rec.p += offset;
@@ -17,13 +17,13 @@ bool translate::hit(const ray& r, double t_min, double t_max, HitRecord& rec) {
     return true;
 }
 
-bool translate::bounding_box(double time0, double time1, AABBStructure& output_box) {
-    if (!ptr->bounding_box(time0, time1, output_box))
+bool translate::boundingBox(double time0, double time1, AABBStructure& outputBox) {
+    if (!ptr->boundingBox(time0, time1, outputBox))
         return false;
 
-    output_box = AABBStructure(
-            output_box.min() + offset,
-            output_box.max() + offset);
+    outputBox = AABBStructure(
+            outputBox.min() + offset,
+            outputBox.max() + offset);
 
     return true;
 }
@@ -32,7 +32,7 @@ rotate_y::rotate_y(shared_ptr<HittableObject> p, double angle) : ptr(p) {
     auto radians = degrees_to_radians(angle);
     sin_theta = sin(radians);
     cos_theta = cos(radians);
-    hasbox = ptr->bounding_box(0, 1, bbox);
+    hasbox = ptr->boundingBox(0, 1, bbox);
 
     Cartesian3 min( infinity,  infinity,  infinity);
     Cartesian3 max(-infinity, -infinity, -infinity);
@@ -60,7 +60,7 @@ rotate_y::rotate_y(shared_ptr<HittableObject> p, double angle) : ptr(p) {
     bbox = AABBStructure(min, max);
 }
 
-bool rotate_y::hit(const ray& r, double t_min, double t_max, HitRecord& rec)  {
+bool rotate_y::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec)  {
     auto origin = r.origin();
     auto direction = r.direction();
 
@@ -72,7 +72,7 @@ bool rotate_y::hit(const ray& r, double t_min, double t_max, HitRecord& rec)  {
 
     ray rotated_r(origin, direction, r.time());
 
-    if (!ptr->hit(rotated_r, t_min, t_max, rec))
+    if (!ptr->hitTest(rotated_r, t_min, t_max, rec))
         return false;
 
     auto p = rec.p;
@@ -90,21 +90,21 @@ bool rotate_y::hit(const ray& r, double t_min, double t_max, HitRecord& rec)  {
     return true;
 }
 
-bool rotate_y::bounding_box(double time0, double time1, AABBStructure &output_box) {
-    output_box = bbox;
+bool rotate_y::boundingBox(double time0, double time1, AABBStructure &outputBox) {
+    outputBox = bbox;
     return hasbox;
 }
 
 
-bool flip_face::hit(const ray &r, double t_min, double t_max, HitRecord &rec) {
+bool flip_face::hitTest(const ray &r, double t_min, double t_max, HitRecord &rec) {
 
-    if (!ptr->hit(r, t_min, t_max, rec))
+    if (!ptr->hitTest(r, t_min, t_max, rec))
         return false;
 
     rec.frontFace = !rec.frontFace;
     return true;
 }
 
-bool flip_face::bounding_box(double time0, double time1, AABBStructure &output_box) {
-    return ptr->bounding_box(time0, time1, output_box);
+bool flip_face::boundingBox(double time0, double time1, AABBStructure &outputBox) {
+    return ptr->boundingBox(time0, time1, outputBox);
 }

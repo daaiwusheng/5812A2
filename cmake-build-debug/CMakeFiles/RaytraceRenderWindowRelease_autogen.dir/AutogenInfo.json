@@ -180,9 +180,21 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Box.h",
+			"MU",
+			"3GW5QA7T5Y/moc_Box.cpp",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/CornellBox.h",
 			"MU",
 			"3GW5QA7T5Y/moc_CornellBox.cpp",
+			null
+		],
+		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/HittableList.h",
+			"MU",
+			"3GW5QA7T5Y/moc_HittableList.cpp",
 			null
 		],
 		[
@@ -234,12 +246,6 @@
 			null
 		],
 		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/box.h",
-			"MU",
-			"3GW5QA7T5Y/moc_box.cpp",
-			null
-		],
-		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.h",
 			"MU",
 			"3GW5QA7T5Y/moc_camera.cpp",
@@ -255,12 +261,6 @@
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/headers.h",
 			"MU",
 			"3GW5QA7T5Y/moc_headers.cpp",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/hittable_list.h",
-			"MU",
-			"3GW5QA7T5Y/moc_hittable_list.cpp",
 			null
 		],
 		[
@@ -426,7 +426,17 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Box.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/CornellBox.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/HittableList.cpp",
 			"MU",
 			null
 		],
@@ -471,22 +481,12 @@
 			null
 		],
 		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/box.cpp",
-			"MU",
-			null
-		],
-		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/camera.cpp",
 			"MU",
 			null
 		],
 		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/hittable_list.cpp",
 			"MU",
 			null
 		],

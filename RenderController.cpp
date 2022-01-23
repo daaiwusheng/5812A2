@@ -95,39 +95,39 @@ RenderController::RenderController
     QObject::connect(   renderWindow->specularExponentSlider,       SIGNAL(valueChanged(int)),
                         this,                                       SLOT(specularExponentChanged(int)));
 
-    // signal for check box for colour choice
+    // signal for check Box for colour choice
     QObject::connect(   renderWindow->mapUVWToRGBBox,               SIGNAL(stateChanged(int)),
                         this,                                       SLOT(mapUVWToRGBCheckChanged(int)));
 
-    // signal for check box for lighting
+    // signal for check Box for lighting
     QObject::connect(   renderWindow->lightingBox,                  SIGNAL(stateChanged(int)),
                         this,                                       SLOT(useLightingCheckChanged(int)));
 
-    // signal for check box for textured rendering
+    // signal for check Box for textured rendering
     QObject::connect(   renderWindow->texturedRenderingBox,         SIGNAL(stateChanged(int)),
                         this,                                       SLOT(texturedRenderingCheckChanged(int)));
 
-    // signal for check box for texture modulation
+    // signal for check Box for texture modulation
     QObject::connect(   renderWindow->textureModulationBox,         SIGNAL(stateChanged(int)),
                         this,                                       SLOT(textureModulationCheckChanged(int)));
 
-    // signal for check box for depth test
+    // signal for check Box for depth test
     QObject::connect(   renderWindow->depthTestBox,                 SIGNAL(stateChanged(int)),
                         this,                                       SLOT(depthTestCheckChanged(int)));
 
-    // signal for check box for axes
+    // signal for check Box for axes
     QObject::connect(   renderWindow->showAxesBox,                  SIGNAL(stateChanged(int)),
                         this,                                       SLOT(showAxesCheckChanged(int)));
 
-    // signal for check box for objects
+    // signal for check Box for objects
     QObject::connect(   renderWindow->showObjectBox,                SIGNAL(stateChanged(int)),
                         this,                                       SLOT(showObjectCheckChanged(int)));
 
-    // signal for check box for centring
+    // signal for check Box for centring
     QObject::connect(   renderWindow->centreObjectBox,              SIGNAL(stateChanged(int)),
                         this,                                       SLOT(centreObjectCheckChanged(int)));
 
-    // signal for check box for scaling
+    // signal for check Box for scaling
     QObject::connect(   renderWindow->scaleObjectBox,               SIGNAL(stateChanged(int)),
                         this,                                       SLOT(scaleObjectCheckChanged(int)));
 

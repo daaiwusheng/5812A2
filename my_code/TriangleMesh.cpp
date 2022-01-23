@@ -11,7 +11,7 @@ TriangleMesh::TriangleMesh(const TexturedObject &textureObject, const std::share
     this->material = material;
 }
 
-bool TriangleMesh::hit(const ray &ray, double t_min, double t_max, HitRecord &rec)  {
+bool TriangleMesh::hitTest(const ray &ray, double t_min, double t_max, HitRecord &rec)  {
     rec.t = INFINITY;
     auto transformMatrix = transformTool.getTransformMatrix();
     for(auto i = 0;i<textureObject.faceVertices.size() ;i++){
@@ -92,7 +92,7 @@ TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1,
     return currentRecord;
 }
 
-bool TriangleMesh::bounding_box(double time0, double time1, AABBStructure &output_box)
+bool TriangleMesh::boundingBox(double time0, double time1, AABBStructure &output_box)
 {
     output_box = AABBStructure(Cartesian3(INFINITY,INFINITY,INFINITY),Cartesian3(-INFINITY,-INFINITY,-INFINITY));
     for(auto &v : textureObject.vertices){
