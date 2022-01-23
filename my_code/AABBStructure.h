@@ -9,6 +9,10 @@
 #include "../Cartesian3.h"
 #include "ray.h"
 
+//the AABB structure is easy to explain, A and B are two  Axis-Aligned planes. Then
+//we can use four planes to construct a box. Then we can calculate if a ray hits
+//the AABB box.
+
 class AABBStructure {
 public:
     AABBStructure();
@@ -23,7 +27,7 @@ public:
     Cartesian3 maximum;
 };
 
-AABBStructure surrounding_box(AABBStructure box0, AABBStructure box1);
+AABBStructure getSurroundingBox(AABBStructure box0, AABBStructure box1);
 
 
 #endif //RAYTRACERENDERWINDOWRELEASE_AABBSTRUCTURE_H

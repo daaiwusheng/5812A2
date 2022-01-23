@@ -8,18 +8,38 @@ AABBStructure::AABBStructure()
 {
 
 }
-
-bool AABBStructure::hit(const ray &r, double t_min, double t_max) const {
-    for (int a = 0; a < 3; a++) {
-        auto invD = 1.0f / r.direction()[a];
-        auto t0 = (min()[a] - r.origin()[a]) * invD;
-        auto t1 = (max()[a] - r.origin()[a]) * invD;
-        if (invD < 0.0f)
+/***
+ * judge if the ray can hit the box
+ * @param r the ray
+ * @param t_min the lower limit of the solution, 
+ * @param t_max the upper limit of the solution,
+ * @return if hit, return ture.
+ */
+bool AABBStructure::hit(const ray &r, double t_min, double t_max) const
+{
+    //how to calculate the intersect points is solving an equation, which is not difficult.
+    //However, the
+    for (int i = 0; i < 3; i++) 
+    {
+        auto reciprocal = 1.0f / r.direction()[i];
+        auto t0 = (min()[i] - r.origin()[i]) * reciprocal;
+        auto t1 = (max()[i] - r.origin()[i]) * reciprocal;
+        if (reciprocal < 0.0f)
+        {
             std::swap(t0, t1);
+            //we should always keep to is less than t1.
+        }
         t_min = t0 > t_min ? t0 : t_min;
         t_max = t1 < t_max ? t1 : t_max;
+        //here it's a little bit tricky, if the interval of solution previous is not
+        //overlap with the interval of current solution, the t_max can not be bigger
+        //than t_min. If there is one dimension can not be hit by the ray, we need to
+        //say no intersect here.
         if (t_max <= t_min)
+        {
             return false;
+        }
+            
     }
     return true;
 }
@@ -40,7 +60,15 @@ Cartesian3 AABBStructure::max() const
     return maximum;
 }
 
-AABBStructure surrounding_box(AABBStructure box0, AABBStructure box1) {
+/***
+ * calculate the surrounding box of two AABB boxes
+ * @param box0
+ * @param box1
+ * @return
+ */
+AABBStructure getSurroundingBox(AABBStructure box0, AABBStructure box1) {
+    //the result box is contain box0 and box1,in order to do this, we just need
+    //to get the smallest and the biggest point of these two boxes.
     Cartesian3 small(fmin(box0.min().get_x(), box1.min().get_x()),
                  fmin(box0.min().get_y(), box1.min().get_y()),
                  fmin(box0.min().get_z(), box1.min().get_z()));
