@@ -346,11 +346,9 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/texture.cpp.o: \
  ../RGBAValue.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/rtw_stb_image.h \
  ../my_code/texture.cpp \
  ../my_code/texture.h \
- ../my_code/utility.h \
- /Users/wangyu/myownlibs/stb-master/stb_image.h
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/utility.cpp.o: \
  ../my_code/utility.cpp \
  ../my_code/utility.h

@@ -42,25 +42,4 @@ public:
     shared_ptr<texture> even;
 };
 
-
-class image_texture : public texture {
-public:
-    const static int bytes_per_pixel = 3;
-
-    image_texture();
-
-    image_texture(const char* filename);
-
-    ~image_texture();
-
-    virtual Cartesian3 value(double u, double v, const Cartesian3& p) const override;
-
-private:
-    unsigned char *data;
-    int width, height;
-    int bytes_per_scanline;
-};
-
-
-
 #endif //RAYTRACERENDERWINDOWRELEASE_TEXTURE_H
