@@ -92,9 +92,9 @@ TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1,
     return currentRecord;
 }
 
-bool TriangleMesh::bounding_box(double time0, double time1, aabb &output_box)
+bool TriangleMesh::bounding_box(double time0, double time1, AABBStructure &output_box)
 {
-    output_box = aabb(Cartesian3(INFINITY,INFINITY,INFINITY),Cartesian3(-INFINITY,-INFINITY,-INFINITY));
+    output_box = AABBStructure(Cartesian3(INFINITY,INFINITY,INFINITY),Cartesian3(-INFINITY,-INFINITY,-INFINITY));
     for(auto &v : textureObject.vertices){
         for(int32_t i = 0;i<3;i++){
             if (v[i] < output_box.min()[i]){

@@ -17,11 +17,11 @@ bool translate::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     return true;
 }
 
-bool translate::bounding_box(double time0, double time1, aabb& output_box) {
+bool translate::bounding_box(double time0, double time1, AABBStructure& output_box) {
     if (!ptr->bounding_box(time0, time1, output_box))
         return false;
 
-    output_box = aabb(
+    output_box = AABBStructure(
             output_box.min() + offset,
             output_box.max() + offset);
 
@@ -57,7 +57,7 @@ rotate_y::rotate_y(shared_ptr<hittable> p, double angle) : ptr(p) {
         }
     }
 
-    bbox = aabb(min, max);
+    bbox = AABBStructure(min, max);
 }
 
 bool rotate_y::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
@@ -90,7 +90,7 @@ bool rotate_y::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
     return true;
 }
 
-bool rotate_y::bounding_box(double time0, double time1, aabb &output_box) {
+bool rotate_y::bounding_box(double time0, double time1, AABBStructure &output_box) {
     output_box = bbox;
     return hasbox;
 }
@@ -105,6 +105,6 @@ bool flip_face::hit(const ray &r, double t_min, double t_max, hit_record &rec) {
     return true;
 }
 
-bool flip_face::bounding_box(double time0, double time1, aabb &output_box) {
+bool flip_face::bounding_box(double time0, double time1, AABBStructure &output_box) {
     return ptr->bounding_box(time0, time1, output_box);
 }

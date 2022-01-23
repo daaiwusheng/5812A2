@@ -188,14 +188,19 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.o: \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qapplication.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/Headers/qopenglwidget.h \
  /usr/local/opt/qt@5/lib/QtWidgets.framework/QtWidgets
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/AABBStructure.cpp.o: \
+ ../Cartesian3.h \
+ ../my_code/AABBStructure.cpp \
+ ../my_code/AABBStructure.h \
+ ../my_code/ray.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
  ../my_code/CornellBox.cpp \
  ../my_code/CornellBox.h \
  ../my_code/Material.h \
  ../my_code/Sphere.h \
- ../my_code/aabb.h \
  ../my_code/aarect.h \
  ../my_code/box.h \
  ../my_code/color.h \
@@ -208,9 +213,9 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/CornellBox.cpp.o: \
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
  ../my_code/Material.cpp \
  ../my_code/Material.h \
- ../my_code/aabb.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/hittable.h \
@@ -221,11 +226,11 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o: \
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
  ../my_code/Material.h \
  ../my_code/MyScene.cpp \
  ../my_code/MyScene.h \
  ../my_code/Sphere.h \
- ../my_code/aabb.h \
  ../my_code/aarect.h \
  ../my_code/box.h \
  ../my_code/color.h \
@@ -244,12 +249,12 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../RGBAValue.h \
  ../RenderParameters.h \
  ../TexturedObject.h \
+ ../my_code/AABBStructure.h \
  ../my_code/CornellBox.h \
  ../my_code/Material.h \
  ../my_code/MyScene.h \
  ../my_code/Raytracer.cpp \
  ../my_code/Raytracer.h \
- ../my_code/aabb.h \
  ../my_code/camera.h \
  ../my_code/color.h \
  ../my_code/headers.h \
@@ -262,10 +267,10 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Sphere.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
  ../my_code/Material.h \
  ../my_code/Sphere.cpp \
  ../my_code/Sphere.h \
- ../my_code/aabb.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/hittable.h \
@@ -289,26 +294,21 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.o: \
  ../RGBAValue.h \
  ../RenderParameters.h \
  ../TexturedObject.h \
+ ../my_code/AABBStructure.h \
  ../my_code/Material.h \
  ../my_code/TransformTool.h \
  ../my_code/TriangleMesh.cpp \
  ../my_code/TriangleMesh.h \
- ../my_code/aabb.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/hittable.h \
  ../my_code/ray.h \
  ../my_code/texture.h
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.o: \
- ../Cartesian3.h \
- ../my_code/aabb.cpp \
- ../my_code/aabb.h \
- ../my_code/ray.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
  ../my_code/Material.h \
- ../my_code/aabb.h \
  ../my_code/aarect.cpp \
  ../my_code/aarect.h \
  ../my_code/color.h \
@@ -319,8 +319,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o: \
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/box.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
  ../my_code/Material.h \
- ../my_code/aabb.h \
  ../my_code/aarect.h \
  ../my_code/box.cpp \
  ../my_code/box.h \
@@ -345,8 +345,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o: \
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
  ../my_code/Material.h \
- ../my_code/aabb.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/hittable.cpp \
@@ -357,8 +357,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable.cpp.o: \
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/hittable_list.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
  ../my_code/Material.h \
- ../my_code/aabb.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/hittable.h \

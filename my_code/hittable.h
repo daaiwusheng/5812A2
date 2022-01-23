@@ -8,7 +8,7 @@
 #include "ray.h"
 #include "headers.h"
 #include "Material.h"
-#include "aabb.h"
+#include "AABBStructure.h"
 #include "../Cartesian3.h"
 
 struct hit_record {
@@ -29,7 +29,7 @@ struct hit_record {
 class hittable {
 public:
     virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) = 0;
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) = 0;
+    virtual bool bounding_box(double time0, double time1, AABBStructure& output_box) = 0;
 };
 
 class translate : public hittable {
@@ -40,7 +40,7 @@ public:
     virtual bool hit(
             const ray& r, double t_min, double t_max, hit_record& rec) override;
 
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) override;
+    virtual bool bounding_box(double time0, double time1, AABBStructure& output_box) override;
 
 public:
     shared_ptr<hittable> ptr;
@@ -55,14 +55,14 @@ public:
     virtual bool hit(
             const ray& r, double t_min, double t_max, hit_record& rec) override;
 
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) override;
+    virtual bool bounding_box(double time0, double time1, AABBStructure& output_box) override;
 
 public:
     shared_ptr<hittable> ptr;
     double sin_theta;
     double cos_theta;
     bool hasbox;
-    aabb bbox;
+    AABBStructure bbox;
 };
 
 
@@ -73,7 +73,7 @@ public:
     virtual bool hit(
             const ray& r, double t_min, double t_max, hit_record& rec)  override;
 
-    virtual bool bounding_box(double time0, double time1, aabb& output_box) override;
+    virtual bool bounding_box(double time0, double time1, AABBStructure& output_box) override;
 
 public:
     shared_ptr<hittable> ptr;

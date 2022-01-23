@@ -24,10 +24,10 @@ bool xz_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
 }
 
 
-bool xz_rect::bounding_box(double time0, double time1, aabb &output_box) {
+bool xz_rect::bounding_box(double time0, double time1, AABBStructure &output_box) {
     // The bounding box must have non-zero width in each dimension, so pad the Y
     // dimension a small amount.
-    output_box = aabb(Cartesian3(x0,k-0.0001,z0), Cartesian3(x1, k+0.0001, z1));
+    output_box = AABBStructure(Cartesian3(x0,k-0.0001,z0), Cartesian3(x1, k+0.0001, z1));
     return true;
 }
 
@@ -51,10 +51,10 @@ bool xy_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     return true;
 }
 
-bool xy_rect::bounding_box(double time0, double time1, aabb &output_box) {
+bool xy_rect::bounding_box(double time0, double time1, AABBStructure &output_box) {
     // The bounding box must have non-zero width in each dimension, so pad the Z
     // dimension a small amount.
-    output_box = aabb(Cartesian3(x0,y0, k-0.0001), Cartesian3(x1, y1, k+0.0001));
+    output_box = AABBStructure(Cartesian3(x0,y0, k-0.0001), Cartesian3(x1, y1, k+0.0001));
     return true;
 }
 
@@ -76,9 +76,9 @@ bool yz_rect::hit(const ray& r, double t_min, double t_max, hit_record& rec) {
     return true;
 }
 
-bool yz_rect::bounding_box(double time0, double time1, aabb &output_box) {
+bool yz_rect::bounding_box(double time0, double time1, AABBStructure &output_box) {
     // The bounding box must have non-zero width in each dimension, so pad the X
     // dimension a small amount.
-    output_box = aabb(Cartesian3(k-0.0001, y0, z0), Cartesian3(k+0.0001, y1, z1));
+    output_box = AABBStructure(Cartesian3(k-0.0001, y0, z0), Cartesian3(k+0.0001, y1, z1));
     return true;
 }

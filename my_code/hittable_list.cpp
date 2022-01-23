@@ -41,11 +41,11 @@ bool hittable_list::hit(const ray& r, double t_min, double t_max, hit_record& re
     return hit_anything;
 }
 
-bool hittable_list::bounding_box(double time0, double time1, aabb& output_box)
+bool hittable_list::bounding_box(double time0, double time1, AABBStructure& output_box)
 {
     if (objects.empty()) return false;
 
-    aabb temp_box;
+    AABBStructure temp_box;
     bool first_box = true;
 
     for (const auto& object : objects) {

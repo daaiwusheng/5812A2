@@ -502,6 +502,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+my_code/AABBStructure.o: my_code/AABBStructure.cpp.o
+.PHONY : my_code/AABBStructure.o
+
+# target to build an object file
+my_code/AABBStructure.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/AABBStructure.cpp.o
+.PHONY : my_code/AABBStructure.cpp.o
+
+my_code/AABBStructure.i: my_code/AABBStructure.cpp.i
+.PHONY : my_code/AABBStructure.i
+
+# target to preprocess a source file
+my_code/AABBStructure.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/AABBStructure.cpp.i
+.PHONY : my_code/AABBStructure.cpp.i
+
+my_code/AABBStructure.s: my_code/AABBStructure.cpp.s
+.PHONY : my_code/AABBStructure.s
+
+# target to generate assembly for a file
+my_code/AABBStructure.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/AABBStructure.cpp.s
+.PHONY : my_code/AABBStructure.cpp.s
+
 my_code/CornellBox.o: my_code/CornellBox.cpp.o
 .PHONY : my_code/CornellBox.o
 
@@ -669,30 +693,6 @@ my_code/TriangleMesh.s: my_code/TriangleMesh.cpp.s
 my_code/TriangleMesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/TriangleMesh.cpp.s
 .PHONY : my_code/TriangleMesh.cpp.s
-
-my_code/aabb.o: my_code/aabb.cpp.o
-.PHONY : my_code/aabb.o
-
-# target to build an object file
-my_code/aabb.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.o
-.PHONY : my_code/aabb.cpp.o
-
-my_code/aabb.i: my_code/aabb.cpp.i
-.PHONY : my_code/aabb.i
-
-# target to preprocess a source file
-my_code/aabb.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.i
-.PHONY : my_code/aabb.cpp.i
-
-my_code/aabb.s: my_code/aabb.cpp.s
-.PHONY : my_code/aabb.s
-
-# target to generate assembly for a file
-my_code/aabb.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aabb.cpp.s
-.PHONY : my_code/aabb.cpp.s
 
 my_code/aarect.o: my_code/aarect.cpp.o
 .PHONY : my_code/aarect.o
@@ -1013,6 +1013,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... my_code/AABBStructure.o"
+	@echo "... my_code/AABBStructure.i"
+	@echo "... my_code/AABBStructure.s"
 	@echo "... my_code/CornellBox.o"
 	@echo "... my_code/CornellBox.i"
 	@echo "... my_code/CornellBox.s"
@@ -1034,9 +1037,6 @@ help:
 	@echo "... my_code/TriangleMesh.o"
 	@echo "... my_code/TriangleMesh.i"
 	@echo "... my_code/TriangleMesh.s"
-	@echo "... my_code/aabb.o"
-	@echo "... my_code/aabb.i"
-	@echo "... my_code/aabb.s"
 	@echo "... my_code/aarect.o"
 	@echo "... my_code/aarect.i"
 	@echo "... my_code/aarect.s"

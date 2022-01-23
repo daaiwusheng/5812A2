@@ -34,8 +34,8 @@ bool Sphere::hit(const ray& r, double t_min, double t_max, hit_record& rec)  {
     return true;
 }
 
-bool Sphere::bounding_box(double time0, double time1, aabb& output_box)  {
-    output_box = aabb(
+bool Sphere::bounding_box(double time0, double time1, AABBStructure& output_box)  {
+    output_box = AABBStructure(
             center - Cartesian3(radius, radius, radius),
             center + Cartesian3(radius, radius, radius));
     return true;

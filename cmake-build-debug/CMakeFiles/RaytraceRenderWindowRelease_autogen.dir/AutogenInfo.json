@@ -174,6 +174,12 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/AABBStructure.h",
+			"MU",
+			"3GW5QA7T5Y/moc_AABBStructure.cpp",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/CornellBox.h",
 			"MU",
 			"3GW5QA7T5Y/moc_CornellBox.cpp",
@@ -213,12 +219,6 @@
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TriangleMesh.h",
 			"MU",
 			"3GW5QA7T5Y/moc_TriangleMesh.cpp",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.h",
-			"MU",
-			"3GW5QA7T5Y/moc_aabb.cpp",
 			null
 		],
 		[
@@ -421,6 +421,11 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/AABBStructure.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/CornellBox.cpp",
 			"MU",
 			null
@@ -452,11 +457,6 @@
 		],
 		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TriangleMesh.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.cpp",
 			"MU",
 			null
 		],

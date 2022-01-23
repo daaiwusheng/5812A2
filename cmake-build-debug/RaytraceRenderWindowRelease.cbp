@@ -211,6 +211,12 @@
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/main.cpp">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
+		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/AABBStructure.cpp">
+			<Option target="RaytraceRenderWindowRelease"/>
+		</Unit>
+		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/AABBStructure.h">
+			<Option target="RaytraceRenderWindowRelease"/>
+		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/CornellBox.cpp">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
@@ -251,12 +257,6 @@
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/TriangleMesh.h">
-			<Option target="RaytraceRenderWindowRelease"/>
-		</Unit>
-		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.cpp">
-			<Option target="RaytraceRenderWindowRelease"/>
-		</Unit>
-		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aabb.h">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.cpp">
