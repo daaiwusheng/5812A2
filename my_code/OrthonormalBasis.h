@@ -7,21 +7,22 @@
 
 #include "../Cartesian3.h"
 
+//this is a quite easy tool class, which can build a OrthonormalBasis coordinate system.
 class OrthonormalBasis {
 public:
     OrthonormalBasis();
 
     inline Cartesian3 operator[](int i) const;
 
-    Cartesian3 u() const { return axis[0]; }
-    Cartesian3 v() const { return axis[1]; }
-    Cartesian3 w() const { return axis[2]; }
+    Cartesian3 u() const;
+    Cartesian3 v() const;
+    Cartesian3 w() const;
 
     Cartesian3 local(double a, double b, double c) const;
 
     Cartesian3 local(const Cartesian3& a) const;
 
-    void build_from_w(const Cartesian3&);
+    void buildFromNormal(const Cartesian3 &n);
 
 public:
     Cartesian3 axis[3];
