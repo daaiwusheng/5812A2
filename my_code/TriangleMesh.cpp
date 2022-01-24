@@ -11,7 +11,7 @@ TriangleMesh::TriangleMesh(const TexturedObject &textureObject, const std::share
     this->material = material;
 }
 
-bool TriangleMesh::hitTest(const ray &ray, double t_min, double t_max, HitRecord &rec)  {
+bool TriangleMesh::hitTest(const Ray &ray, double t_min, double t_max, HitRecord &rec)  {
     rec.t = INFINITY;
     auto transformMatrix = transformTool.getTransformMatrix();
     for(auto i = 0;i<textureObject.faceVertices.size() ;i++){
@@ -39,7 +39,7 @@ bool TriangleMesh::hitTest(const ray &ray, double t_min, double t_max, HitRecord
 }
 
 auto
-TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1, const Cartesian3 &v2, const ray &ray,
+TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1, const Cartesian3 &v2, const Ray &ray,
                                      double minT, double maxT, int32_t index) -> HitRecord & {
 
     HitRecord currentRecord;
@@ -50,7 +50,7 @@ TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1,
     auto pvec = ray.direction().cross(v0v2);
     float det = v0v1.dot(pvec);
 
-    // ray and triangle are parallel if det is close to 0
+    // Ray and triangle are parallel if det is close to 0
     if (std::fabs(det) < 1e-8) return currentRecord;
 
     float invDet = 1 / det;

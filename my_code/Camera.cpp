@@ -30,13 +30,13 @@ Camera::Camera(Cartesian3 lookFrom, Cartesian3 lookAt, Cartesian3 viewUp, double
 
 }
 
-ray Camera::getRay(double _u, double _v) const {
+Ray Camera::getRay(double _u, double _v) const {
     //randomPoint is a random sample on the Camera'_u lens.
     Cartesian3 randomPoint = lensRadius * randomInUnitDisk();
     Cartesian3 offset = u * randomPoint.x + v * randomPoint.y;
-    //the ray function will be commented in Ray class.
-    return ray(
-            origin + offset, //the origin of the ray need to offset, then we can sample better
+    //the Ray function will be commented in Ray class.
+    return Ray(
+            origin + offset, //the origin of the Ray need to offset, then we can sample better
             lowerLeftCorner + _u * horizontal + _v * vertical - origin - offset, //-(origin+offset)
             randomDoubleInRange(time0, time1)
     );

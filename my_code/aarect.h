@@ -17,7 +17,7 @@ public:
     xy_rectangle(double _x0, double _x1, double _y0, double _y1, double _z,
                  shared_ptr<Material> _material);;
 
-    virtual bool hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) override;
+    virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
 
@@ -34,7 +34,7 @@ public:
     xz_rectangle(double _x0, double _x1, double _z0, double _z1, double _y,
                  shared_ptr<Material> _material);;
 
-    virtual bool hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) override;
+    virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
 
@@ -52,7 +52,7 @@ public:
     yz_rectangle(double _y0, double _y1, double _z0, double _z1, double _x,
                  shared_ptr<Material> _material);;
 
-    virtual bool hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) override;
+    virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
 

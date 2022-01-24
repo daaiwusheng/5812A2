@@ -9,7 +9,7 @@
 #include "../RGBAImage.h"
 #include "../RenderParameters.h"
 #include "../TexturedObject.h"
-class ray;
+class Ray;
 class HittableObject;
 class HittableList;
 
@@ -22,7 +22,7 @@ public:
     RenderParameters *renderParameters;
     TexturedObject *texturedObject;
 private:
-    Cartesian3 ray_color(const ray& r, const Cartesian3& background, HittableList world, int depth);
+    Cartesian3 ray_color(const Ray& r, const Cartesian3& background, HittableList world, int depth);
     void test_render();
 };
 

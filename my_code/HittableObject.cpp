@@ -6,10 +6,10 @@
 #include "utility.h"
 #include "../Cartesian3.h"
 
-bool Translate::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
-    //when we need to move the object, we can cheat. like just move the ray origin to the
+bool Translate::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
+    //when we need to move the object, we can cheat. like just move the Ray origin to the
     //opposite direction.
-    ray moved_ray(r.origin() - offset, r.direction(), r.time());
+    Ray moved_ray(r.origin() - offset, r.direction(), r.time());
     if (!theObject->hitTest(moved_ray, t_min, t_max, rec))
         return false;
     //but, the hit point we need move to the offset direction. not the opposite.
@@ -67,18 +67,18 @@ rotate_y::rotate_y(shared_ptr<HittableObject> _object, double angle) : theObject
     aabbbox = AABBStructure(minPoint, maxPoint);
 }
 
-bool rotate_y::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec)  {
+bool rotate_y::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec)  {
     auto origin = r.origin();
     auto direction = r.direction();
     //doing the hit test for a rotated object. we also can cheat, like just rotate
-    //the ray.
+    //the Ray.
     origin[0] = cosTheta * r.origin()[0] - sinTheta * r.origin()[2];
     origin[2] = sinTheta * r.origin()[0] + cosTheta * r.origin()[2];
 
     direction[0] = cosTheta * r.direction()[0] - sinTheta * r.direction()[2];
     direction[2] = sinTheta * r.direction()[0] + cosTheta * r.direction()[2];
 
-    ray rotatedRay(origin, direction, r.time());
+    Ray rotatedRay(origin, direction, r.time());
 
     if (!theObject->hitTest(rotatedRay, t_min, t_max, rec))
         return false;
@@ -104,7 +104,7 @@ bool rotate_y::boundingBox(double time0, double time1, AABBStructure &outputBox)
 }
 
 
-bool flipAFace::hitTest(const ray &r, double t_min, double t_max, HitRecord &rec) {
+bool flipAFace::hitTest(const Ray &r, double t_min, double t_max, HitRecord &rec) {
 
     if (!theObject->hitTest(r, t_min, t_max, rec))
         return false;

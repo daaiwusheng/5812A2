@@ -228,6 +228,12 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Ray.h",
+			"MU",
+			"3GW5QA7T5Y/moc_Ray.cpp",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h",
 			"MU",
 			"3GW5QA7T5Y/moc_Raytracer.cpp",
@@ -267,12 +273,6 @@
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/headers.h",
 			"MU",
 			"3GW5QA7T5Y/moc_headers.cpp",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ray.h",
-			"MU",
-			"3GW5QA7T5Y/moc_ray.cpp",
 			null
 		],
 		[
@@ -466,6 +466,11 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Ray.cpp",
+			"MU",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.cpp",
 			"MU",
 			null
@@ -492,11 +497,6 @@
 		],
 		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.cpp",
-			"MU",
-			null
-		],
-		[
-			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ray.cpp",
 			"MU",
 			null
 		],

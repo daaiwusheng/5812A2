@@ -21,7 +21,7 @@ Box::Box(const Cartesian3& p0, const Cartesian3& p1, shared_ptr<Material> materi
     sides.add(make_shared<yz_rectangle>(p0.get_y(), p1.get_y(), p0.get_z(), p1.get_z(), p0.get_x(), material));
 }
 
-bool Box::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
+bool Box::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
     //sides can do hit test for us, as it is an instance of HittableList.
     // I will explain the details in HittableList.
     return sides.hitTest(r, t_min, t_max, rec);

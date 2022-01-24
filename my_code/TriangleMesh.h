@@ -15,12 +15,12 @@ class TriangleMesh : public HittableObject
 public:
     TriangleMesh(const TexturedObject & textureObject,const std::shared_ptr<Material> & material);
 
-    virtual bool hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) override;
+    virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
 
 
-    auto intersectsWithTriangle(const Cartesian3& v0,const Cartesian3& v1,const Cartesian3& v2, const ray &ray, double minT,double maxT,int32_t index) -> HitRecord &;
+    auto intersectsWithTriangle(const Cartesian3& v0,const Cartesian3& v1,const Cartesian3& v2, const Ray &ray, double minT,double maxT,int32_t index) -> HitRecord &;
 
 private:
     TexturedObject textureObject;

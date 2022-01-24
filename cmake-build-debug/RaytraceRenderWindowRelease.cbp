@@ -265,6 +265,12 @@
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/OrthonormalBasis.h">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
+		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Ray.cpp">
+			<Option target="RaytraceRenderWindowRelease"/>
+		</Unit>
+		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Ray.h">
+			<Option target="RaytraceRenderWindowRelease"/>
+		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.cpp">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
@@ -302,12 +308,6 @@
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/headers.h">
-			<Option target="RaytraceRenderWindowRelease"/>
-		</Unit>
-		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ray.cpp">
-			<Option target="RaytraceRenderWindowRelease"/>
-		</Unit>
-		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ray.h">
 			<Option target="RaytraceRenderWindowRelease"/>
 		</Unit>
 		<Unit filename="/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/rtw_stb_image.h">

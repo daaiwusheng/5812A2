@@ -6,7 +6,7 @@
 #define RAYTRACERENDERWINDOWRELEASE_CAMERA_H
 
 #include "../Cartesian3.h"
-#include "ray.h"
+#include "Ray.h"
 
 class Camera {
 public:
@@ -23,7 +23,7 @@ public:
             double _time1 = 0
     );
 
-    ray getRay(double _u, double _v) const;
+    Ray getRay(double _u, double _v) const;
 
 private:
     Cartesian3 origin;

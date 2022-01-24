@@ -10,7 +10,7 @@
 
 //this class is also a subclass of HittableObject,
 //but it has a container,which can store all hittable objects.
-//Then we can test if one of them is hit by the ray.
+//Then we can test if one of them is hit by the Ray.
 //the key method is hitTest.
 
 class HittableList : public HittableObject {
@@ -21,7 +21,7 @@ public:
     void add(shared_ptr<HittableObject> object);
 
     virtual bool hitTest(
-            const ray& r, double t_min, double t_max, HitRecord& rec) override;
+            const Ray& r, double t_min, double t_max, HitRecord& rec) override;
     virtual bool boundingBox(
             double time0, double time1, AABBStructure& outputBox) override;
 

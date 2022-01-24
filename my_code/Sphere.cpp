@@ -6,7 +6,7 @@
 
 
 
-bool Sphere::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec)  {
+bool Sphere::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec)  {
     Cartesian3 oc = r.origin() - center;
     auto a = r.direction().length_squared();
     auto half_b = dot(oc, r.direction());

@@ -19,15 +19,15 @@ void HittableList::add(shared_ptr<HittableObject> object)
     objectsInScene.push_back(object);
 }
 
-bool HittableList::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec)
+bool HittableList::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec)
 {
     HitRecord tempRecord;
     bool ifHitAnything = false;
     auto closest_t = t_max;
-    //the idea is if anyone is hit by the ray, and we will store the t in closest_t.
+    //the idea is if anyone is hit by the Ray, and we will store the t in closest_t.
     //next loop we will use closest_t as the upper limit. then if the next theObject is hit,
     //we can get a new t less than the previous one. if not, we ignore it.
-    //so at the end, we can get the closest theObject hit by the ray.
+    //so at the end, we can get the closest theObject hit by the Ray.
     for (const auto& object : objectsInScene) {
         if (object->hitTest(r, t_min, closest_t, tempRecord)) {
             ifHitAnything = true;

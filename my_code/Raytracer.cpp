@@ -75,7 +75,7 @@ void Raytracer::render()
                 for (int s = 0; s < samples_per_pixel; ++s) {
                     auto u = (i + randomDouble()) / (image_width - 1);
                     auto v = (j + randomDouble()) / (image_height - 1);
-                    ray r = cam->getRay(u, v);
+                    Ray r = cam->getRay(u, v);
                     pixel_color += ray_color(r, background, world, max_depth);
                 }
                 RGBAValue current_color = getColor(pixel_color, samples_per_pixel);
@@ -86,17 +86,17 @@ void Raytracer::render()
     std::cerr << "\nDone.\n";
 }
 
-Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, HittableList world, int depth) {
+Cartesian3 Raytracer::ray_color(const Ray& r, const Cartesian3& background, HittableList world, int depth) {
     HitRecord rec;
 
-    // If we've exceeded the ray bounce limit, no more light is gathered.
+    // If we've exceeded the Ray bounce limit, no more light is gathered.
     if (depth <= 0)
         return Cartesian3(0,0,0);
-    // If the ray hits nothing, return the background color.
+    // If the Ray hits nothing, return the background color.
     if (!world.hitTest(r, 0.001, infinity, rec))
         return background;
 
-    ray scattered;
+    Ray scattered;
     Cartesian3 attenuation;
     Cartesian3 emitted = rec.material->emits(r, rec, rec.u, rec.v, rec.p);
 
@@ -120,7 +120,7 @@ Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, Hitt
         return emitted;
 
     pdf = distance_squared / (light_cosine * light_area);
-    scattered = ray(rec.p, to_light, r.time());
+    scattered = Ray(rec.p, to_light, r.time());
 
 
     return
@@ -185,7 +185,7 @@ void Raytracer::test_render()
                 for (int s = 0; s < samplesPerPixel; ++s) {
                     auto u = (i + randomDoubleInRange()) / (imageWidth - 1);
                     auto v = (j + randomDouble()) / (imageHeight - 1);
-                    ray r = cam.getRay(u, v);
+                    Ray r = cam.getRay(u, v);
                     pixel_color += ray_color(r, background, world, maxDepth);
                 }
                 RGBAValue current_color = getColor(pixel_color, samplesPerPixel);

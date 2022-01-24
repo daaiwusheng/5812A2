@@ -9,13 +9,13 @@ AABBStructure::AABBStructure()
 
 }
 /***
- * judge if the ray can hitTest the Box
- * @param r the ray
+ * judge if the Ray can hitTest the Box
+ * @param r the Ray
  * @param t_min the lower limit of the solution, 
  * @param t_max the upper limit of the solution,
  * @return if hitTest, return ture.
  */
-bool AABBStructure::hit(const ray &r, double t_min, double t_max) const
+bool AABBStructure::hit(const Ray &r, double t_min, double t_max) const
 {
     //how to calculate the intersect points is solving an equation, which is not difficult.
     //Here, the point is covered in our class, how to determine two intervals overlap.
@@ -33,7 +33,7 @@ bool AABBStructure::hit(const ray &r, double t_min, double t_max) const
         t_max = t1 < t_max ? t1 : t_max;
         //here it's a little bit tricky, if the interval of solution previous is not
         //overlap with the interval of current solution, the t_max can not be bigger
-        //than t_min. If there is one dimension can not be hitTest by the ray, we need to
+        //than t_min. If there is one dimension can not be hitTest by the Ray, we need to
         //say no intersect here.
         if (t_max <= t_min)
         {

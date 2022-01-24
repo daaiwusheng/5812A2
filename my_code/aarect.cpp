@@ -16,18 +16,18 @@ xz_rectangle::xz_rectangle(double _x0, double _x1, double _z0, double _z1, doubl
 
 }
 
-bool xz_rectangle::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
+bool xz_rectangle::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
     //solving the equation is easy. but we need keep an eye on that
     // t should be between t_min and t_max.
     auto t = (y - r.origin().y) / r.direction().y;
     if (t < t_min || t > t_max)
         return false;
-    //if t is valid, then we can calculate the point where the ray intersect with the planes
+    //if t is valid, then we can calculate the point where the Ray intersect with the planes
     auto x = r.origin().x + t*r.direction().x;
     auto z = r.origin().z + t*r.direction().z;
     if (x < x0 || x > x1 || z < z0 || z > z1)
         return false;
-    //store these data in hitTest record. we will use them to calculate the ray tracer.
+    //store these data in hitTest record. we will use them to calculate the Ray tracer.
     rec.u = (x-x0)/(x1-x0);
     rec.v = (z-z0)/(z1-z0);
     rec.t = t;
@@ -55,7 +55,7 @@ xy_rectangle::xy_rectangle(double _x0, double _x1, double _y0, double _y1, doubl
 
 }
 
-bool xy_rectangle::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
+bool xy_rectangle::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
     auto t = (z - r.origin().z) / r.direction().z;
     if (t < t_min || t > t_max)
         return false;
@@ -87,7 +87,7 @@ yz_rectangle::yz_rectangle(double _y0, double _y1, double _z0, double _z1, doubl
 
 }
 
-bool yz_rectangle::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) {
+bool yz_rectangle::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
     auto t = (x - r.origin().x) / r.direction().x;
     if (t < t_min || t > t_max)
         return false;

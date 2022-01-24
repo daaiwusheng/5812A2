@@ -18,7 +18,7 @@ public:
             : center(cen), radius(r), mat_ptr(m) {};
 
     virtual bool hitTest(
-            const ray& r, double t_min, double t_max, HitRecord& rec) override;
+            const Ray& r, double t_min, double t_max, HitRecord& rec) override;
     virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
 
 public:

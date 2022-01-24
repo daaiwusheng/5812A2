@@ -7,10 +7,10 @@
 
 
 #include "../Cartesian3.h"
-#include "ray.h"
+#include "Ray.h"
 
 //the AABB structure is easy to explain, A and B are two  Axis-Aligned planes. Then
-//we can use four planes to construct a Box. Then we can calculate if a ray hits
+//we can use four planes to construct a Box. Then we can calculate if a Ray hits
 //the AABB Box.
 
 class AABBStructure {
@@ -21,7 +21,7 @@ public:
     Cartesian3 min() const;
     Cartesian3 max() const;
 
-    bool hit(const ray& r, double t_min, double t_max) const;
+    bool hit(const Ray& r, double t_min, double t_max) const;
 
     Cartesian3 minimum;
     Cartesian3 maximum;
