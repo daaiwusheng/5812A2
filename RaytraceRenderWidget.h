@@ -33,7 +33,7 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	{ // class RaytraceRenderWidget
 	Q_OBJECT
 	private:	
-	// the geometric object to be rendered
+	// the geometric theObject to be rendered
 	TexturedObject *texturedObject;	
 
 	// the render parameters to use
@@ -48,7 +48,7 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	// constructor
 	RaytraceRenderWidget
 			(
-	 		// the geometric object to show
+	 		// the geometric theObject to show
 			TexturedObject 		*newTexturedObject,
 			// the render parameters to use
 			RenderParameters 	*newRenderParameters,

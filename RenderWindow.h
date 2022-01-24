@@ -40,7 +40,7 @@
 class RenderWindow : public QWidget
     { // class RenderWindow
     private:
-    // the geometric object being shown
+    // the geometric theObject being shown
     TexturedObject              *texturedObject;
     
     // the values set in the interface
@@ -100,9 +100,9 @@ class RenderWindow : public QWidget
     // constructor
     RenderWindow
         (
-        // the object to be rendered
+        // the theObject to be rendered
         TexturedObject          *newTexturedObject, 
-        // the model object storing render parameters
+        // the model theObject storing render parameters
         RenderParameters        *newRenderParameters,
         // the title for the window (with default value)
         const char              *windowName = "Object Renderer"

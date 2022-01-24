@@ -10,14 +10,14 @@
 //  Render Widget
 //  -----------------------------
 //  
-//  Since the render code is in the geometric object class
+//  Since the render code is in the geometric theObject class
 //  this widget primarily sets up the transformation matrices and 
 //  lighting.
 //
 //  It implements the UI for an arcball controller, but in an
 //  abstractable way that allows it to share an arcball with another
 //  widget (the arcball controller) - thus you can manipulate the
-//  object either directly in the widget or indirectly through the
+//  theObject either directly in the widget or indirectly through the
 //  arcball displayed visually.
 //  
 //  It also supports translation by visual dragging.  This results in
@@ -39,7 +39,7 @@
 // constructor
 RenderWidget::RenderWidget
         (   
-        // the geometric object to show
+        // the geometric theObject to show
         TexturedObject      *newTexturedObject,
         // the render parameters to use
         RenderParameters    *newRenderParameters,
@@ -79,7 +79,7 @@ void RenderWidget::initializeGL()
     // background is yellowish-grey
     glClearColor(0.8, 0.8, 0.6, 1.0);
 
-    // and transfer the object's assets to GPU
+    // and transfer the theObject's assets to GPU
     texturedObject->TransferAssetsToGPU();
 
     } // RenderWidget::initializeGL()
@@ -134,7 +134,7 @@ void RenderWidget::paintGL()
         glEnable(GL_LIGHTING);
 
         // set light position first, pushing/popping matrix so that it the transformation does
-        // not affect the position of the geometric object
+        // not affect the position of the geometric theObject
         glPushMatrix();
         glMultMatrixf(renderParameters->lightMatrix.columnMajor().coordinates);
         glLightfv(GL_LIGHT0, GL_POSITION, renderParameters->lightPosition);
@@ -161,7 +161,7 @@ void RenderWidget::paintGL()
         
         } // use lighting
 
-    // translate by the visual translation
+    // Translate by the visual translation
     //Lets center the scene on -1 so we can have a Camera with near 0 and far 2
     //without having to do many changes
     glTranslatef(renderParameters->xTranslate, renderParameters->yTranslate, -1.0f);
@@ -205,7 +205,7 @@ void RenderWidget::paintGL()
             glEnable(GL_LIGHTING);
         } // show axes
 
-    // tell the object to draw itself, 
+    // tell the theObject to draw itself,
     // passing in the render parameters for reference
     if (renderParameters->showObject)
         texturedObject->Render(renderParameters);

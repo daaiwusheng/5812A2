@@ -25,9 +25,9 @@ bool HittableList::hitTest(const ray& r, double t_min, double t_max, HitRecord& 
     bool ifHitAnything = false;
     auto closest_t = t_max;
     //the idea is if anyone is hit by the ray, and we will store the t in closest_t.
-    //next loop we will use closest_t as the upper limit. then if the next object is hit,
+    //next loop we will use closest_t as the upper limit. then if the next theObject is hit,
     //we can get a new t less than the previous one. if not, we ignore it.
-    //so at the end, we can get the closest object hit by the ray.
+    //so at the end, we can get the closest theObject hit by the ray.
     for (const auto& object : objectsInScene) {
         if (object->hitTest(r, t_min, closest_t, tempRecord)) {
             ifHitAnything = true;
@@ -48,7 +48,7 @@ bool HittableList::boundingBox(double time0, double time1, AABBStructure& output
 
     for (const auto& object : objectsInScene) {
         if (!object->boundingBox(time0, time1, tempBox)) {
-            //in the if statement, every time we can get a bounding box of the current object.
+            //in the if statement, every time we can get a bounding box of the current theObject.
             //if not we can not use this function, in this programme it's illegal.
             return false;
         }

@@ -11,31 +11,36 @@
 #include "AABBStructure.h"
 #include "../Cartesian3.h"
 
+//the struct is a container storing some data if a ray hits an theObject.
 struct HitRecord {
-    Cartesian3 p;
-    Cartesian3 normal;
-    shared_ptr<Material> material;
-    double t;
+    Cartesian3 p; //the hit point
+    Cartesian3 normal; //the normal of the hit point
+    shared_ptr<Material> material; //the material of the hit point
+    double t; //t is the factor of the equation of the ray.
     double u;
     double v;
-    bool frontFace;
+    bool frontFace; //if the hit face is the front, the value is true.
 
     inline void setFaceNormal(const ray& r, const Cartesian3& outwardNormal) {
         frontFace = dot(r.direction(), outwardNormal) < 0;
+        //we need the normal of the front face. so we need to inverse it if is not the front face.
         normal = frontFace ? outwardNormal : -1 * outwardNormal;
     }
 };
-
+//the virtual class of all objects can be hit.
+//this class only provides the two APIs.
 class HittableObject {
 public:
     virtual bool hitTest(const ray& r, double t_min, double t_max, HitRecord& rec) = 0;
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) = 0;
 };
 
-class translate : public HittableObject {
+//the Translate class is a tool when we want to translate an object in our scene.
+//please see the details in .cpp.
+class Translate : public HittableObject {
 public:
-    translate(shared_ptr<HittableObject> p, const Cartesian3& displacement)
-            : ptr(p), offset(displacement) {}
+    Translate(shared_ptr<HittableObject> p, const Cartesian3& displacement)
+            : theObject(p), offset(displacement) {}
 
     virtual bool hitTest(
             const ray& r, double t_min, double t_max, HitRecord& rec) override;
@@ -43,8 +48,8 @@ public:
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
 
 public:
-    shared_ptr<HittableObject> ptr;
-    Cartesian3 offset;
+    shared_ptr<HittableObject> theObject;
+    Cartesian3 offset; //the offset value for moving
 };
 
 
@@ -58,17 +63,17 @@ public:
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
 
 public:
-    shared_ptr<HittableObject> ptr;
-    double sin_theta;
-    double cos_theta;
-    bool hasbox;
+    shared_ptr<HittableObject> theObject;
+    double sinTheta;
+    double cosTheta;
+    bool ifHaveBox;
     AABBStructure bbox;
 };
 
 
-class flip_face : public HittableObject {
+class flipAFace : public HittableObject {
 public:
-    flip_face(shared_ptr<HittableObject> p) : ptr(p) {}
+    flipAFace(shared_ptr<HittableObject> p) : theObject(p) {}
 
     virtual bool hitTest(
             const ray& r, double t_min, double t_max, HitRecord& rec)  override;
@@ -76,7 +81,7 @@ public:
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
 
 public:
-    shared_ptr<HittableObject> ptr;
+    shared_ptr<HittableObject> theObject;
 };
 
 

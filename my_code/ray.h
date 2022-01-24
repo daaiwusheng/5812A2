@@ -21,7 +21,7 @@ public:
 public:
     Cartesian3 orig;
     Cartesian3 dir;
-    double tm;//这个时间,关键用处在于判断光线是否hit object, 并且此时物体的位置也根据这个时间来判断,都对hit产生影响
+    double tm;//这个时间,关键用处在于判断光线是否hit theObject, 并且此时物体的位置也根据这个时间来判断,都对hit产生影响
 };
 
 #endif //RAYTRACERENDERWINDOWRELEASE_RAY_H

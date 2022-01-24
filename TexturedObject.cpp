@@ -10,12 +10,12 @@
 //  Base code for rendering assignments.
 //
 //  Minimalist (non-optimised) code for reading and 
-//  rendering an object file
+//  rendering an theObject file
 //  
 //  We will make some hard assumptions about input file
 //  quality. We will not check for manifoldness or 
 //  normal direction, &c.  And if it doesn't work on 
-//  all object files, that's fine.
+//  all theObject files, that's fine.
 //
 //  While I could set it up to use QImage for textures,
 //  I want this code to be reusable without Qt, so I 
@@ -287,7 +287,7 @@ void TexturedObject::TransferAssetsToGPU()
 // routine to render
 void TexturedObject::Render(RenderParameters *renderParameters)
     { // Render()
-    // Ideally, we would apply a global transformation to the object, but sadly that breaks down
+    // Ideally, we would apply a global transformation to the theObject, but sadly that breaks down
     // when we want to scale things, as unless we normalise the normal vectors, we end up affecting
     // the illumination.  Known solutions include:
     // 1.   Normalising the normal vectors
@@ -320,18 +320,18 @@ void TexturedObject::Render(RenderParameters *renderParameters)
     // Scale defaults to the zoom setting
     float scale = renderParameters->zoomScale;
     
-    // if object scaling is requested, apply it as well 
+    // if theObject scaling is requested, apply it as well
     if (renderParameters->scaleObject)
         scale /= objectSize;
     renderParameters->realScale = scale;
     //  now scale everything
 //     glScalef(scale, scale, scale);
 
-    // apply the translation to the centre of the object if requested
+    // apply the translation to the centre of the theObject if requested
     if (renderParameters->centreObject)
         glTranslatef(-centreOfGravity.x * scale, -centreOfGravity.y * scale, -centreOfGravity.z * scale);
 
-    // emissive glow from object
+    // emissive glow from theObject
     float emissiveColour[4];
     // default ambient / diffuse / specular colour
     float surfaceColour[4] = { 0.7, 0.7, 0.7, 1.0 };
@@ -360,7 +360,7 @@ void TexturedObject::Render(RenderParameters *renderParameters)
     // start rendering
     glBegin(GL_TRIANGLES);
 
-    // we assume a single Material for the entire object
+    // we assume a single Material for the entire theObject
     glMaterialfv(GL_FRONT, GL_EMISSION, emissiveColour);
     glMaterialfv(GL_FRONT, GL_AMBIENT, ambientColour);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuseColour);

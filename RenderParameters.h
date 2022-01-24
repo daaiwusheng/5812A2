@@ -11,7 +11,7 @@
 //  -----------------------------
 //  
 //  This is part of the "model" in the MVC paradigm
-//  We separate out the render parameters from the object rendered
+//  We separate out the render parameters from the theObject rendered
 //
 /////////////////////////////////////////////////////////////////
 

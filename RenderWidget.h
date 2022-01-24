@@ -10,14 +10,14 @@
 //  Render Widget
 //  -----------------------------
 //  
-//  Since the render code is in the geometric object class
+//  Since the render code is in the geometric theObject class
 //  this widget primarily sets up the transformation matrices and 
 //  lighting.
 //
 //  It implements the UI for an arcball controller, but in an
 //  abstractable way that allows it to share an arcball with another
 //  widget (the arcball controller) - thus you can manipulate the
-//  object either directly in the widget or indirectly through the
+//  theObject either directly in the widget or indirectly through the
 //  arcball displayed visually.
 //  
 //  It also supports translation by visual dragging.  This results in
@@ -48,7 +48,7 @@ class RenderWidget : public QOpenGLWidget
     { // class RenderWidget
     Q_OBJECT
     private:    
-    // the geometric object to be rendered
+    // the geometric theObject to be rendered
     TexturedObject *texturedObject; 
 
     // the render parameters to use
@@ -58,7 +58,7 @@ class RenderWidget : public QOpenGLWidget
     // constructor
     RenderWidget
             (
-            // the geometric object to show
+            // the geometric theObject to show
             TexturedObject      *newTexturedObject,
             // the render parameters to use
             RenderParameters    *newRenderParameters,

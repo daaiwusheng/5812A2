@@ -35,7 +35,7 @@ class RenderController : public QObject
     { // class RenderController
     Q_OBJECT
     private:
-    // the geometric object to be rendered
+    // the geometric theObject to be rendered
     TexturedObject *texturedObject; 
 
     // the render parameters to use
@@ -51,7 +51,7 @@ class RenderController : public QObject
     // constructor
     RenderController
         (
-        // the geometric object to show
+        // the geometric theObject to show
         TexturedObject      *newTexturedObject,
         // the render parameters to use
         RenderParameters    *newRenderParameters,
@@ -61,11 +61,11 @@ class RenderController : public QObject
     
     public slots:
     void raytraceButtonClick();
-    // slot for responding to arcball rotation for object
+    // slot for responding to arcball rotation for theObject
     void objectRotationChanged();
     void lightRotationChanged();
 
-    // slots for responding to zoom & translate sliders
+    // slots for responding to zoom & Translate sliders
     void zoomChanged(int value);
     void xTranslateChanged(int value);
     void yTranslateChanged(int value);

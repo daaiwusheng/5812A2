@@ -23,7 +23,7 @@
 // constructor
 RenderController::RenderController
         (
-        // the geometric object to show
+        // the geometric theObject to show
         TexturedObject      *newTexturedObject,
         // the render parameters to use
         RenderParameters    *newRenderParameters,
@@ -65,13 +65,13 @@ RenderController::RenderController
     QObject::connect(   renderWindow->zoomSlider,                   SIGNAL(valueChanged(int)),
                         this,                                       SLOT(zoomChanged(int)));
 
-    // signal for x translate sliders
+    // signal for x Translate sliders
     QObject::connect(   renderWindow->xTranslateSlider,             SIGNAL(valueChanged(int)),
                         this,                                       SLOT(xTranslateChanged(int)));
     QObject::connect(   renderWindow->secondXTranslateSlider,       SIGNAL(valueChanged(int)),
                         this,                                       SLOT(xTranslateChanged(int)));
 
-    // signal for y translate slider
+    // signal for y Translate slider
     QObject::connect(   renderWindow->yTranslateSlider,             SIGNAL(valueChanged(int)),
                         this,                                       SLOT(yTranslateChanged(int)));
 
@@ -143,7 +143,7 @@ void RenderController::raytraceButtonClick() {
     renderWindow->ResetInterface();
 }
 
-// slot for responding to arcball rotation for object
+// slot for responding to arcball rotation for theObject
 void RenderController::objectRotationChanged()
     { // RenderController::objectRotationChanged()
     // copy the rotation matrix from the widget to the model
@@ -182,7 +182,7 @@ void RenderController::zoomChanged(int value)
     renderWindow->ResetInterface();
     } // RenderController::zoomChanged()
 
-// slot for responding to x translate sliders
+// slot for responding to x Translate sliders
 void RenderController::xTranslateChanged(int value)
     { // RenderController::xTranslateChanged()
     // reset the model's x translation (slider ticks are 1/100 each)
@@ -198,7 +198,7 @@ void RenderController::xTranslateChanged(int value)
     renderWindow->ResetInterface();
     } // RenderController::xTranslateChanged()
 
-// slot for responding to y translate slider
+// slot for responding to y Translate slider
 void RenderController::yTranslateChanged(int value)
     { // RenderController::tTranslateChanged()
     // reset the model's y translation (slider ticks are 1/100 each)
@@ -355,7 +355,7 @@ void RenderController::showAxesCheckChanged(int state)
     renderWindow->ResetInterface();
     } // RenderController::showAxesCheckChanged()
     
-// slot for toggling object
+// slot for toggling theObject
 void RenderController::showObjectCheckChanged(int state)
     { // RenderController::showObjectCheckChanged()
     // reset the model's flag
@@ -365,7 +365,7 @@ void RenderController::showObjectCheckChanged(int state)
     renderWindow->ResetInterface();
     } // RenderController::showObjectCheckChanged()
     
-// slot for toggling object centring
+// slot for toggling theObject centring
 void RenderController::centreObjectCheckChanged(int state)
     { // RenderController::centreObjectCheckChanged()
     // reset the model's flag
@@ -375,7 +375,7 @@ void RenderController::centreObjectCheckChanged(int state)
     renderWindow->ResetInterface();
     } // RenderController::centreObjectCheckChanged()
     
-// slot for toggling object scaling
+// slot for toggling theObject scaling
 void RenderController::scaleObjectCheckChanged(int state)
     { // RenderController::scaleObjectCheckChanged()
     // reset the model's flag

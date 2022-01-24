@@ -24,7 +24,7 @@
 // constructor
 RaytraceRenderWidget::RaytraceRenderWidget
         (   
-        // the geometric object to show
+        // the geometric theObject to show
         TexturedObject      *newTexturedObject,
         // the render parameters to use
         RenderParameters    *newRenderParameters,

@@ -10,12 +10,12 @@
 //  Base code for rendering assignments.
 //
 //  Minimalist (non-optimised) code for reading and 
-//  rendering an object file
+//  rendering an theObject file
 //  
 //  We will make some hard assumptions about input file
 //  quality. We will not check for manifoldness or 
 //  normal direction, &c.  And if it doesn't work on 
-//  all object files, that's fine.
+//  all theObject files, that's fine.
 //
 //  While I could set it up to use QImage for textures,
 //  I want this code to be reusable without Qt, so I 
@@ -74,7 +74,7 @@ class TexturedObject
     // centre of gravity - computed after reading
     Cartesian3 centreOfGravity;
 
-    // size of object - i.e. radius of circumscribing Sphere centred at centre of gravity
+    // size of theObject - i.e. radius of circumscribing Sphere centred at centre of gravity
     float objectSize;
 
     // constructor will initialise to safe values

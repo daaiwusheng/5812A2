@@ -52,10 +52,10 @@ int main(int argc, char **argv)
 
     // try reading it
     if (!(geometryFile.good()) || !(textureFile.good()) || (!texturedObject.ReadObjectStream(geometryFile, textureFile)))
-        { // object read failed 
-        std::cout << "Read failed for object " << argv[1] << " or texture " << argv[2] << std::endl;
+        { // theObject read failed
+        std::cout << "Read failed for theObject " << argv[1] << " or texture " << argv[2] << std::endl;
         return 0;
-        } // object read failed
+        } // theObject read failed
 
     // create some default render parameters
     RenderParameters renderParameters;
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
         renderParameters.sceneType = argv[3];
     }
 
-    // use the object & parameters to create a window
+    // use the theObject & parameters to create a window
     RenderWindow renderWindow(&texturedObject, &renderParameters, argv[1]);
 
     // create a controller for the window
