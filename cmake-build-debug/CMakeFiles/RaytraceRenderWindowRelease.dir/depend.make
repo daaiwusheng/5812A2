@@ -261,9 +261,9 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o: \
  ../my_code/HittableObject.h \
  ../my_code/Material.cpp \
  ../my_code/Material.h \
+ ../my_code/OrthonormalBasis.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/onb.h \
  ../my_code/ray.h \
  ../my_code/texture.h \
  ../my_code/utility.h
@@ -284,6 +284,10 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.o: \
  ../my_code/ray.h \
  ../my_code/texture.h \
  ../my_code/utility.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.o: \
+ ../Cartesian3.h \
+ ../my_code/OrthonormalBasis.cpp \
+ ../my_code/OrthonormalBasis.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../Cartesian3.h \
  ../Homogeneous4.h \
@@ -366,10 +370,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o: \
  ../my_code/color.cpp \
  ../my_code/color.h \
  ../my_code/utility.h
-CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.o: \
- ../Cartesian3.h \
- ../my_code/onb.cpp \
- ../my_code/onb.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ray.cpp.o: \
  ../Cartesian3.h \
  ../my_code/ray.cpp \

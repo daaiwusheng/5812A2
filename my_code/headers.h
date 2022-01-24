@@ -10,7 +10,7 @@ using std::shared_ptr;
 using std::make_shared;
 
 //scene type
-const std::string CORNEL_BOX = "getCornellBox";
-const std::string BALLS = "balls";
+const std::string CORNEL_BOX = "cornellBox";
+const std::string BALLS = "cornellBoxWithBalls";
 
 #endif //RAYTRACERENDERWINDOWRELEASE_HEADERS_H

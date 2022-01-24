@@ -2,14 +2,14 @@
 // Created by 王宇 on 2022/1/19.
 //
 
-#ifndef RAYTRACERENDERWINDOWRELEASE_ONB_H
-#define RAYTRACERENDERWINDOWRELEASE_ONB_H
+#ifndef RAYTRACERENDERWINDOWRELEASE_ORTHONORMALBASIS_H
+#define RAYTRACERENDERWINDOWRELEASE_ORTHONORMALBASIS_H
 
 #include "../Cartesian3.h"
 
-class onb {
+class OrthonormalBasis {
 public:
-    onb();
+    OrthonormalBasis();
 
     inline Cartesian3 operator[](int i) const;
 
@@ -29,4 +29,4 @@ public:
 
 
 
-#endif //RAYTRACERENDERWINDOWRELEASE_ONB_H
+#endif //RAYTRACERENDERWINDOWRELEASE_ORTHONORMALBASIS_H

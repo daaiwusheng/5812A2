@@ -4,7 +4,7 @@
 
 #include "Material.h"
 #include "ray.h"
-#include "onb.h"
+#include "OrthonormalBasis.h"
 #include "HittableObject.h"
 #include "headers.h"
 #include "utility.h"
@@ -31,7 +31,7 @@ LambertianMaterial::LambertianMaterial(shared_ptr<texture> a_texture) : albedo(a
 }
 
 bool LambertianMaterial::scatter(const ray &ray_in, const HitRecord &rec, Cartesian3 &_albedo, ray &scattered, double &proDenF) const {
-    onb uvw;
+    OrthonormalBasis uvw;
     uvw.build_from_w(rec.normal);
     auto direction = uvw.local(randomCosineDirection());
     //for calculating proDenF of the current scattered ray, we need an

@@ -694,6 +694,30 @@ my_code/MyScene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.s
 .PHONY : my_code/MyScene.cpp.s
 
+my_code/OrthonormalBasis.o: my_code/OrthonormalBasis.cpp.o
+.PHONY : my_code/OrthonormalBasis.o
+
+# target to build an object file
+my_code/OrthonormalBasis.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.o
+.PHONY : my_code/OrthonormalBasis.cpp.o
+
+my_code/OrthonormalBasis.i: my_code/OrthonormalBasis.cpp.i
+.PHONY : my_code/OrthonormalBasis.i
+
+# target to preprocess a source file
+my_code/OrthonormalBasis.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.i
+.PHONY : my_code/OrthonormalBasis.cpp.i
+
+my_code/OrthonormalBasis.s: my_code/OrthonormalBasis.cpp.s
+.PHONY : my_code/OrthonormalBasis.s
+
+# target to generate assembly for a file
+my_code/OrthonormalBasis.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.s
+.PHONY : my_code/OrthonormalBasis.cpp.s
+
 my_code/Raytracer.o: my_code/Raytracer.cpp.o
 .PHONY : my_code/Raytracer.o
 
@@ -837,30 +861,6 @@ my_code/color.s: my_code/color.cpp.s
 my_code/color.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.s
 .PHONY : my_code/color.cpp.s
-
-my_code/onb.o: my_code/onb.cpp.o
-.PHONY : my_code/onb.o
-
-# target to build an object file
-my_code/onb.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.o
-.PHONY : my_code/onb.cpp.o
-
-my_code/onb.i: my_code/onb.cpp.i
-.PHONY : my_code/onb.i
-
-# target to preprocess a source file
-my_code/onb.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.i
-.PHONY : my_code/onb.cpp.i
-
-my_code/onb.s: my_code/onb.cpp.s
-.PHONY : my_code/onb.s
-
-# target to generate assembly for a file
-my_code/onb.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/onb.cpp.s
-.PHONY : my_code/onb.cpp.s
 
 my_code/ray.o: my_code/ray.cpp.o
 .PHONY : my_code/ray.o
@@ -1037,6 +1037,9 @@ help:
 	@echo "... my_code/MyScene.o"
 	@echo "... my_code/MyScene.i"
 	@echo "... my_code/MyScene.s"
+	@echo "... my_code/OrthonormalBasis.o"
+	@echo "... my_code/OrthonormalBasis.i"
+	@echo "... my_code/OrthonormalBasis.s"
 	@echo "... my_code/Raytracer.o"
 	@echo "... my_code/Raytracer.i"
 	@echo "... my_code/Raytracer.s"
@@ -1055,9 +1058,6 @@ help:
 	@echo "... my_code/color.o"
 	@echo "... my_code/color.i"
 	@echo "... my_code/color.s"
-	@echo "... my_code/onb.o"
-	@echo "... my_code/onb.i"
-	@echo "... my_code/onb.s"
 	@echo "... my_code/ray.o"
 	@echo "... my_code/ray.i"
 	@echo "... my_code/ray.s"
