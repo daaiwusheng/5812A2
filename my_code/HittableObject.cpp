@@ -31,51 +31,56 @@ bool Translate::boundingBox(double time0, double time1, AABBStructure& outputBox
     return true;
 }
 
-rotate_y::rotate_y(shared_ptr<HittableObject> p, double angle) : theObject(p) {
-    auto radians = degrees_to_radians(angle);
+rotate_y::rotate_y(shared_ptr<HittableObject> _object, double angle) : theObject(_object) {
+    auto radians = degreesToRadians(angle);
     sinTheta = sin(radians);
     cosTheta = cos(radians);
-    ifHaveBox = theObject->boundingBox(0, 1, bbox);
+    ifHaveBox = theObject->boundingBox(0, 1, aabbbox);
 
-    Cartesian3 min( infinity,  infinity,  infinity);
-    Cartesian3 max(-infinity, -infinity, -infinity);
+    Cartesian3 minPoint(infinity, infinity, infinity);
+    Cartesian3 maxPoint(-infinity, -infinity, -infinity);
 
+    //here it's important and tricky, by the three layers loop, we can get the new bounding box
+    //after rotating. we need to check two x, two y and two z.
+    //so we need the three-layer loop. every loop we can get the minimum x and maximum y relatively.
+    //finally, we can get the lower and upper limit points of the bounding box.
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 2; j++) {
             for (int k = 0; k < 2; k++) {
-                auto x = i*bbox.max().x + (1-i)*bbox.min().x;
-                auto y = j*bbox.max().y + (1-j)*bbox.min().y;
-                auto z = k*bbox.max().z + (1-k)*bbox.min().z;
+                auto x = i * aabbbox.max().x + (1 - i) * aabbbox.min().x;
+                auto y = j * aabbbox.max().y + (1 - j) * aabbbox.min().y;
+                auto z = k * aabbbox.max().z + (1 - k) * aabbbox.min().z;
 
-                auto newx = cosTheta * x + sinTheta * z;
-                auto newz = -sinTheta * x + cosTheta * z;
+                auto new_x = cosTheta * x + sinTheta * z;
+                auto new_z = -sinTheta * x + cosTheta * z;
 
-                Cartesian3 tester(newx, y, newz);
+                Cartesian3 candidatePoint(new_x, y, new_z);
 
-                for (int c = 0; c < 3; c++) {
-                    min[c] = fmin(min[c], tester[c]);
-                    max[c] = fmax(max[c], tester[c]);
+                for (int n = 0; n < 3; n++) {
+                    minPoint[n] = fmin(minPoint[n], candidatePoint[n]);
+                    maxPoint[n] = fmax(maxPoint[n], candidatePoint[n]);
                 }
             }
         }
     }
 
-    bbox = AABBStructure(min, max);
+    aabbbox = AABBStructure(minPoint, maxPoint);
 }
 
 bool rotate_y::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec)  {
     auto origin = r.origin();
     auto direction = r.direction();
-
+    //doing the hit test for a rotated object. we also can cheat, like just rotate
+    //the ray.
     origin[0] = cosTheta * r.origin()[0] - sinTheta * r.origin()[2];
     origin[2] = sinTheta * r.origin()[0] + cosTheta * r.origin()[2];
 
     direction[0] = cosTheta * r.direction()[0] - sinTheta * r.direction()[2];
     direction[2] = sinTheta * r.direction()[0] + cosTheta * r.direction()[2];
 
-    ray rotated_r(origin, direction, r.time());
+    ray rotatedRay(origin, direction, r.time());
 
-    if (!theObject->hitTest(rotated_r, t_min, t_max, rec))
+    if (!theObject->hitTest(rotatedRay, t_min, t_max, rec))
         return false;
 
     auto p = rec.p;
@@ -86,15 +91,15 @@ bool rotate_y::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec)
 
     normal[0] = cosTheta * rec.normal[0] + sinTheta * rec.normal[2];
     normal[2] = -sinTheta * rec.normal[0] + cosTheta * rec.normal[2];
-
+    //when we store the hit point p and normal, we need to rotate them.
     rec.p = p;
-    rec.setFaceNormal(rotated_r, normal);
+    rec.setFaceNormal(rotatedRay, normal);
 
     return true;
 }
 
 bool rotate_y::boundingBox(double time0, double time1, AABBStructure &outputBox) {
-    outputBox = bbox;
+    outputBox = aabbbox;
     return ifHaveBox;
 }
 
@@ -103,7 +108,8 @@ bool flipAFace::hitTest(const ray &r, double t_min, double t_max, HitRecord &rec
 
     if (!theObject->hitTest(r, t_min, t_max, rec))
         return false;
-
+    //easy to explain, in graphics, the direction is determined by the direction of the normal.
+    //so we just need to set if the current face is the front face.
     rec.frontFace = !rec.frontFace;
     return true;
 }

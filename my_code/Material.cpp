@@ -73,7 +73,7 @@ bool dielectric::scatter(const ray &r_in, const HitRecord &rec, Cartesian3 &atte
     bool cannot_refract = refraction_ratio * sin_theta > 1.0;
     Cartesian3 direction;
 
-    if (cannot_refract || reflectance(cos_theta, refraction_ratio) > random_double())
+    if (cannot_refract || reflectance(cos_theta, refraction_ratio) > randomDouble())
         direction = reflect(unit_direction, rec.normal);
     else
         direction = refract(unit_direction, rec.normal, refraction_ratio);

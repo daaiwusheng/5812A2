@@ -73,8 +73,8 @@ void Raytracer::render()
             for (int i = 0; i < image_width; ++i) {
                 Cartesian3 pixel_color(0, 0, 0);
                 for (int s = 0; s < samples_per_pixel; ++s) {
-                    auto u = (i + random_double()) / (image_width - 1);
-                    auto v = (j + random_double()) / (image_height - 1);
+                    auto u = (i + randomDouble()) / (image_width - 1);
+                    auto v = (j + randomDouble()) / (image_height - 1);
                     ray r = cam->getRay(u, v);
                     pixel_color += ray_color(r, background, world, max_depth);
                 }
@@ -106,7 +106,7 @@ Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, Hitt
     if (!rec.material->scatter(r, rec, albedo, scattered, pdf))
         return emitted;
 
-    auto on_light = Cartesian3(random_double(213,343), 554, random_double(227,332));
+    auto on_light = Cartesian3(randomDoubleInRange(213, 343), 554, randomDoubleInRange(227, 332));
     auto to_light = on_light - rec.p;
     auto distance_squared = to_light.length_squared();
     to_light = unit_vector(to_light);
@@ -183,8 +183,8 @@ void Raytracer::test_render()
             for (int i = 0; i < imageWidth; ++i) {
                 color pixel_color(0, 0, 0);
                 for (int s = 0; s < samplesPerPixel; ++s) {
-                    auto u = (i + random_double()) / (imageWidth - 1);
-                    auto v = (j + random_double()) / (imageHeight - 1);
+                    auto u = (i + randomDoubleInRange()) / (imageWidth - 1);
+                    auto v = (j + randomDouble()) / (imageHeight - 1);
                     ray r = cam.getRay(u, v);
                     pixel_color += ray_color(r, background, world, maxDepth);
                 }

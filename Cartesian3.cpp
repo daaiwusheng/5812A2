@@ -165,11 +165,11 @@ double Cartesian3::length_squared() const {
 }
 
 Cartesian3 Cartesian3::random() {
-    return Cartesian3(random_double(), random_double(), random_double());
+    return Cartesian3(randomDouble(), randomDouble(), randomDouble());
 }
 
 Cartesian3 Cartesian3::random(double min, double max) {
-    return Cartesian3(random_double(min,max), random_double(min,max), random_double(min,max));
+    return Cartesian3(randomDoubleInRange(min, max), randomDoubleInRange(min, max), randomDoubleInRange(min, max));
 }
 
 bool Cartesian3::near_zero() const {
@@ -257,15 +257,15 @@ Cartesian3 refract(const Cartesian3 &uv, const Cartesian3 &n, double etai_over_e
 
 Cartesian3 randomInUnitDisk() {
     while (true) {
-        auto p = Cartesian3(random_double(-1,1), random_double(-1,1), 0);
+        auto p = Cartesian3(randomDoubleInRange(-1, 1), randomDoubleInRange(-1, 1), 0);
         if (p.length_squared() >= 1) continue;
         return p;
     }
 }
 
 Cartesian3 randomCosineDirection() {
-    auto r1 = random_double();
-    auto r2 = random_double();
+    auto r1 = randomDouble();
+    auto r2 = randomDouble();
     auto z = sqrt(1-r2);
 
     auto phi = 2*pi*r1;

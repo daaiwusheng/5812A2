@@ -55,7 +55,7 @@ public:
 
 class rotate_y : public HittableObject {
 public:
-    rotate_y(shared_ptr<HittableObject> p, double angle);
+    rotate_y(shared_ptr<HittableObject> _object, double angle);
 
     virtual bool hitTest(
             const ray& r, double t_min, double t_max, HitRecord& rec) override;
@@ -67,10 +67,11 @@ public:
     double sinTheta;
     double cosTheta;
     bool ifHaveBox;
-    AABBStructure bbox;
+    AABBStructure aabbbox;
 };
 
-
+//in cornell box, we need the area light sending rays down.
+//so we need flip the face, then we can build this tool class.
 class flipAFace : public HittableObject {
 public:
     flipAFace(shared_ptr<HittableObject> p) : theObject(p) {}
