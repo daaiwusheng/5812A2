@@ -6,25 +6,25 @@
 #include "headers.h"
 #include "utility.h"
 
-solid_color::solid_color()
+solidColor::solidColor()
 {
 
 }
 
-solid_color::solid_color(Cartesian3 c) : color_value(c)
+solidColor::solidColor(Cartesian3 color) : colorValue(color)
 {
 
 }
 
-solid_color::solid_color(double red, double green, double blue)
-        : solid_color(Cartesian3(red,green,blue))
+solidColor::solidColor(double red, double green, double blue)
+        : solidColor(Cartesian3(red, green, blue))
         {
 
         }
 
-Cartesian3 solid_color::value(double u, double v, const Cartesian3 &p) const
+Cartesian3 solidColor::value(double u, double v, const Cartesian3 &p) const
 {
-    return color_value;
+    return colorValue;
 }
 
 

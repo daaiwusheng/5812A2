@@ -17,17 +17,17 @@ public:
 };
 
 // just give a solid color as the texture.
-class solid_color : public texture {
+class solidColor : public texture {
 public:
-    solid_color();
-    solid_color(Cartesian3 c);
+    solidColor();
+    solidColor(Cartesian3 color);
 
-    solid_color(double red, double green, double blue);
+    solidColor(double red, double green, double blue);
 
     virtual Cartesian3 value(double u, double v, const Cartesian3& p) const override;
 
 private:
-    Cartesian3 color_value;
+    Cartesian3 colorValue;
 };
 
 #endif //RAYTRACERENDERWINDOWRELEASE_TEXTURE_H

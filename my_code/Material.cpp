@@ -22,7 +22,7 @@ Cartesian3 Material::emits(const Ray &ray_in, const HitRecord &rec, double u, do
     return Cartesian3(0,0,0);
 }
 
-LambertianMaterial::LambertianMaterial(const Cartesian3 &a_color) : albedo(make_shared<solid_color>(a_color)) {
+LambertianMaterial::LambertianMaterial(const Cartesian3 &a_color) : albedo(make_shared<solidColor>(a_color)) {
 
 }
 
@@ -100,7 +100,7 @@ DiffuseLightMaterial::DiffuseLightMaterial(shared_ptr<texture> a_texture) : emit
 
 }
 
-DiffuseLightMaterial::DiffuseLightMaterial(Cartesian3 a_color) : emitMaterial(make_shared<solid_color>(a_color)) {
+DiffuseLightMaterial::DiffuseLightMaterial(Cartesian3 a_color) : emitMaterial(make_shared<solidColor>(a_color)) {
 
 }
 
