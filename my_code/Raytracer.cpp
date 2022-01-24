@@ -78,7 +78,7 @@ void Raytracer::render()
                     ray r = cam->getRay(u, v);
                     pixel_color += ray_color(r, background, world, max_depth);
                 }
-                RGBAValue current_color = get_color(pixel_color, samples_per_pixel);
+                RGBAValue current_color = getColor(pixel_color, samples_per_pixel);
                 frameBuffer[j][i] = current_color;
             }
         }
@@ -188,7 +188,7 @@ void Raytracer::test_render()
                     ray r = cam.getRay(u, v);
                     pixel_color += ray_color(r, background, world, max_depth);
                 }
-                RGBAValue current_color = get_color(pixel_color, samples_per_pixel);
+                RGBAValue current_color = getColor(pixel_color, samples_per_pixel);
                 frameBuffer[j][i] = current_color;
             }
         }
