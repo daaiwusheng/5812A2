@@ -36,16 +36,16 @@ void Raytracer::render()
     if (renderParameters->sceneType != CORNEL_BOX)
     {
         //渲染康奈尔box
-        cornellBox cornel_box = cornellBox();
-        image_width = cornel_box.image_width;
-        image_height = cornel_box.image_height;
+        CornellBox cornel_box = CornellBox();
+        image_width = cornel_box.imageWidth;
+        image_height = cornel_box.imageHeight;
 
         background = cornel_box.background;
-        max_depth = cornel_box.max_depth;
-        samples_per_pixel = cornel_box.max_depth;
-        world = cornel_box.cornell_box();
-        cam = std::make_shared<Camera>(cornel_box.lookfrom, cornel_box.lookat, cornel_box.vup, cornel_box.vfov,
-                  cornel_box.aspect_ratio, cornel_box.aperture, cornel_box.dist_to_focus, cornel_box.time0, cornel_box.time1);
+        max_depth = cornel_box.maxDepth;
+        samples_per_pixel = cornel_box.maxDepth;
+        world = cornel_box.getCornellBox();
+        cam = std::make_shared<Camera>(cornel_box.lookFrom, cornel_box.lookAt, cornel_box.vup, cornel_box.verticalFieldOfView,
+                                       cornel_box.aspectRatio, cornel_box.aperture, cornel_box.distToFocus, cornel_box.time0, cornel_box.time1);
     }
     else{
         //渲染默认的mesh 和 纹理
@@ -145,56 +145,56 @@ void Raytracer::test_render()
     fileTextureMap.open("/Users/wangyu/Downloads/test_assignment_2.ppm");
 
     // Image
-    const auto aspect_ratio = 1.0 / 1.0;
-    const int image_width = 600;
-    const int image_height = static_cast<int>(image_width / aspect_ratio);
-    const int samples_per_pixel = 100;
-    const int max_depth = 50;
+    const auto aspectRatio = 1.0 / 1.0;
+    const int imageWidth = 600;
+    const int imageHeight = static_cast<int>(imageWidth / aspectRatio);
+    const int samplesPerPixel = 100;
+    const int maxDepth = 50;
 
 
 
     // World
-    auto world = cornell_box();
+    auto world = getCornellBox();
     color background(0,0,0);
     // Camera
-    point3 lookfrom(278, 278, -800);
-    point3 lookat(278, 278, 0);
+    point3 lookFrom(278, 278, -800);
+    point3 lookAt(278, 278, 0);
     vec3 vup(0, 1, 0);
-    auto dist_to_focus = 10.0;
+    auto distToFocus = 10.0;
     auto aperture = 0.0;
-    auto vfov = 40.0;
+    auto verticalFieldOfView = 40.0;
     auto time0 = 0.0;
     auto time1 = 1.0;
 
-    fileTextureMap << "P3\n " << image_width << " " << image_height << " " << "\n255" << std::endl;
+    fileTextureMap << "P3\n " << imageWidth << " " << imageHeight << " " << "\n255" << std::endl;
 
-    Camera cam(lookfrom, lookat, vup, vfov, aspect_ratio, aperture, dist_to_focus, time0, time1);
+    Camera cam(lookFrom, lookAt, vup, verticalFieldOfView, aspectRatio, aperture, distToFocus, time0, time1);
     // Render
 
 
     omp_set_num_threads(8);
-    frameBuffer.Resize(image_width,image_height);
+    frameBuffer.Resize(imageWidth,imageHeight);
 
 //#pragma omp parallel
     {
 //#pragma omp for
-        for (int j = image_height - 1; j >= 0; --j) {
+        for (int j = imageHeight - 1; j >= 0; --j) {
             std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
-            for (int i = 0; i < image_width; ++i) {
+            for (int i = 0; i < imageWidth; ++i) {
                 color pixel_color(0, 0, 0);
-                for (int s = 0; s < samples_per_pixel; ++s) {
-                    auto u = (i + random_double()) / (image_width - 1);
-                    auto v = (j + random_double()) / (image_height - 1);
+                for (int s = 0; s < samplesPerPixel; ++s) {
+                    auto u = (i + random_double()) / (imageWidth - 1);
+                    auto v = (j + random_double()) / (imageHeight - 1);
                     ray r = cam.getRay(u, v);
-                    pixel_color += ray_color(r, background, world, max_depth);
+                    pixel_color += ray_color(r, background, world, maxDepth);
                 }
-                RGBAValue current_color = getColor(pixel_color, samples_per_pixel);
+                RGBAValue current_color = getColor(pixel_color, samplesPerPixel);
                 frameBuffer[j][i] = current_color;
             }
         }
     }
-    for (int j = image_height - 1; j >= 0; --j) {
-        for (int i = 0; i < image_width; ++i) {
+    for (int j = imageHeight - 1; j >= 0; --j) {
+        for (int i = 0; i < imageWidth; ++i) {
             std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
             RGBAValue current_color = frameBuffer[j][i];
             fileTextureMap <<static_cast<int>(current_color.red) << ' '

@@ -7,16 +7,21 @@
 #include "Box.h"
 #include "Sphere.h"
 
-cornellBox::cornellBox() {
+CornellBox::CornellBox() {
     background = Cartesian3(0,0,0);
-    lookfrom = Cartesian3(278, 278, -800);
-    lookat = Cartesian3(278, 278, 0);
+    lookFrom = Cartesian3(278, 278, -800);
+    lookAt = Cartesian3(278, 278, 0);
     vup = Cartesian3(0, 1, 0);
 }
 
-HittableList cornellBox::cornell_box() {
+/***
+ * via this function, we can get objects that constructs the cornell box
+ * @return
+ */
+HittableList CornellBox::getCornellBox() {
     HittableList objects;
-
+    //one area light, five planes, two boxes
+    //we use different material to determine the color of objects.
     auto red   = make_shared<lambertian>(Cartesian3(.65, .05, .05));
     auto white = make_shared<lambertian>(Cartesian3(.73, .73, .73));
     auto green = make_shared<lambertian>(Cartesian3(.12, .45, .15));
