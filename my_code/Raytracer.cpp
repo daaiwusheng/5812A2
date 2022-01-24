@@ -98,7 +98,7 @@ Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, Hitt
 
     ray scattered;
     Cartesian3 attenuation;
-    Cartesian3 emitted = rec.material->emitted(r, rec, rec.u, rec.v, rec.p);
+    Cartesian3 emitted = rec.material->emits(r, rec, rec.u, rec.v, rec.p);
 
     double pdf;
     Cartesian3 albedo;
@@ -125,7 +125,7 @@ Cartesian3 Raytracer::ray_color(const ray& r, const Cartesian3& background, Hitt
 
     return
            emitted
-           + albedo * rec.material->scattering_pdf(r, rec, scattered)
+           + albedo * rec.material->scattering_proDenF(r, rec, scattered)
            * ray_color(scattered, background, world, depth-1) / pdf;
 
 }

@@ -17,10 +17,10 @@ MyOwnScene::MyOwnScene() {
 HittableList MyOwnScene::getMyOwnScene() {
     HittableList objects;
 
-    auto red   = make_shared<lambertian>(Cartesian3(.65, .05, .05));
-    auto white = make_shared<lambertian>(Cartesian3(.73, .73, .73));
-    auto green = make_shared<lambertian>(Cartesian3(.12, .45, .15));
-    auto light = make_shared<diffuse_light>(Cartesian3(15, 15, 15));
+    auto red   = make_shared<LambertianMaterial>(Cartesian3(.65, .05, .05));
+    auto white = make_shared<LambertianMaterial>(Cartesian3(.73, .73, .73));
+    auto green = make_shared<LambertianMaterial>(Cartesian3(.12, .45, .15));
+    auto light = make_shared<DiffuseLightMaterial>(Cartesian3(15, 15, 15));
 
     objects.add(make_shared<yz_rectangle>(0, 555, 0, 555, 555, green));
     objects.add(make_shared<yz_rectangle>(0, 555, 0, 555, 0, red));
@@ -39,7 +39,7 @@ HittableList MyOwnScene::getMyOwnScene() {
     box2 = make_shared<Translate>(box2, Cartesian3(130, 0, 65));
     objects.add(box2);
 
-    auto material2 = make_shared<lambertian>(Cartesian3(0.4, 0.2, 0.1));
+    auto material2 = make_shared<LambertianMaterial>(Cartesian3(0.4, 0.2, 0.1));
     objects.add(make_shared<Sphere>(Cartesian3(160, 225, 165), 60, material2));
 
 

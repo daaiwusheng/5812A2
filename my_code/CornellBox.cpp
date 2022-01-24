@@ -22,10 +22,10 @@ HittableList CornellBox::getCornellBox() {
     HittableList objects;
     //one area light, five planes, two boxes
     //we use different material to determine the color of objectsInScene.
-    auto red   = make_shared<lambertian>(Cartesian3(.65, .05, .05));
-    auto white = make_shared<lambertian>(Cartesian3(.73, .73, .73));
-    auto green = make_shared<lambertian>(Cartesian3(.12, .45, .15));
-    auto light = make_shared<diffuse_light>(Cartesian3(15, 15, 15));
+    auto red   = make_shared<LambertianMaterial>(Cartesian3(.65, .05, .05));
+    auto white = make_shared<LambertianMaterial>(Cartesian3(.73, .73, .73));
+    auto green = make_shared<LambertianMaterial>(Cartesian3(.12, .45, .15));
+    auto light = make_shared<DiffuseLightMaterial>(Cartesian3(15, 15, 15));
 
     objects.add(make_shared<yz_rectangle>(0, 555, 0, 555, 555, green));
     objects.add(make_shared<yz_rectangle>(0, 555, 0, 555, 0, red));
