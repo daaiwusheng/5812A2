@@ -8,21 +8,25 @@
 #include "HittableObject.h"
 #include <vector>
 
+//this class is also a subclass of HittableObject,
+//but it has a container,which can store all hittable objects.
+//Then we can test if one of them is hit by the ray.
+//the key method is hitTest.
+
 class HittableList : public HittableObject {
 public:
     HittableList();
     HittableList(shared_ptr<HittableObject> object);
 
-    void clear();
     void add(shared_ptr<HittableObject> object);
 
     virtual bool hitTest(
             const ray& r, double t_min, double t_max, HitRecord& rec) override;
     virtual bool boundingBox(
-            double time0, double time1, AABBStructure& output_box) override;
+            double time0, double time1, AABBStructure& outputBox) override;
 
 public:
-    std::vector<shared_ptr<HittableObject>> objects;
+    std::vector<shared_ptr<HittableObject>> objectsInScene;
 };
 
 #endif //RAYTRACERENDERWINDOWRELEASE_HITTABLELIST_H

@@ -15,13 +15,13 @@ CornellBox::CornellBox() {
 }
 
 /***
- * via this function, we can get objects that constructs the cornell box
+ * via this function, we can get objectsInScene that constructs the cornell box
  * @return
  */
 HittableList CornellBox::getCornellBox() {
     HittableList objects;
     //one area light, five planes, two boxes
-    //we use different material to determine the color of objects.
+    //we use different material to determine the color of objectsInScene.
     auto red   = make_shared<lambertian>(Cartesian3(.65, .05, .05));
     auto white = make_shared<lambertian>(Cartesian3(.73, .73, .73));
     auto green = make_shared<lambertian>(Cartesian3(.12, .45, .15));

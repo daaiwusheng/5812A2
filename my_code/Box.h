@@ -9,7 +9,7 @@
 #include "aarect.h"
 #include "HittableList.h"
 
-//in real world, we need box, this class if used for defining box objects.
+//in real world, we need box, this class if used for defining box objectsInScene.
 class Box : public HittableObject  {
 public:
     Box() {}

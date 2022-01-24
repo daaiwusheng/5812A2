@@ -14,44 +14,49 @@ HittableList::HittableList(shared_ptr<HittableObject> object)
     add(object);
 }
 
-void HittableList::clear()
-{
-    objects.clear();
-}
-
 void HittableList::add(shared_ptr<HittableObject> object)
 {
-    objects.push_back(object);
+    objectsInScene.push_back(object);
 }
 
 bool HittableList::hitTest(const ray& r, double t_min, double t_max, HitRecord& rec)
 {
-    HitRecord temp_rec;
-    bool hit_anything = false;
-    auto closest_so_far = t_max;
-
-    for (const auto& object : objects) {
-        if (object->hitTest(r, t_min, closest_so_far, temp_rec)) {
-            hit_anything = true;
-            closest_so_far = temp_rec.t;
-            rec = temp_rec;
+    HitRecord tempRecord;
+    bool ifHitAnything = false;
+    auto closest_t = t_max;
+    //the idea is if anyone is hit by the ray, and we will store the t in closest_t.
+    //next loop we will use closest_t as the upper limit. then if the next object is hit,
+    //we can get a new t less than the previous one. if not, we ignore it.
+    //so at the end, we can get the closest object hit by the ray.
+    for (const auto& object : objectsInScene) {
+        if (object->hitTest(r, t_min, closest_t, tempRecord)) {
+            ifHitAnything = true;
+            closest_t = tempRecord.t;
+            rec = tempRecord;
         }
     }
 
-    return hit_anything;
+    return ifHitAnything;
 }
 
-bool HittableList::boundingBox(double time0, double time1, AABBStructure& output_box)
+bool HittableList::boundingBox(double time0, double time1, AABBStructure& outputBox)
 {
-    if (objects.empty()) return false;
+    if (objectsInScene.empty()) return false;
 
-    AABBStructure temp_box;
-    bool first_box = true;
+    AABBStructure tempBox;
+    bool isFirstBox = true;
 
-    for (const auto& object : objects) {
-        if (!object->boundingBox(time0, time1, temp_box)) return false;
-        output_box = first_box ? temp_box : getSurroundingBox(output_box, temp_box);
-        first_box = false;
+    for (const auto& object : objectsInScene) {
+        if (!object->boundingBox(time0, time1, tempBox)) {
+            //in the if statement, every time we can get a bounding box of the current object.
+            //if not we can not use this function, in this programme it's illegal.
+            return false;
+        }
+        //if it is the first time getting in this loop, we just set output Box as the tempBox.
+        //the later loops, we can combine the previous output Box and the tempBox, then
+        //get a bigger box to contain them. that's what we want.
+        outputBox = isFirstBox ? tempBox : getSurroundingBox(outputBox, tempBox);
+        isFirstBox = false;
     }
 
     return true;

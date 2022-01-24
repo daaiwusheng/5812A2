@@ -119,7 +119,7 @@ RenderController::RenderController
     QObject::connect(   renderWindow->showAxesBox,                  SIGNAL(stateChanged(int)),
                         this,                                       SLOT(showAxesCheckChanged(int)));
 
-    // signal for check Box for objects
+    // signal for check Box for objectsInScene
     QObject::connect(   renderWindow->showObjectBox,                SIGNAL(stateChanged(int)),
                         this,                                       SLOT(showObjectCheckChanged(int)));
 
