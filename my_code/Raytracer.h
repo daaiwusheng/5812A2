@@ -13,6 +13,7 @@ class Ray;
 class HittableObject;
 class HittableList;
 
+//the class contain the core functions for render and recursive ray tracing.
 class Raytracer
 {
 public:
@@ -22,8 +23,8 @@ public:
     RenderParameters *renderParameters;
     TexturedObject *texturedObject;
 private:
-    Cartesian3 ray_color(const Ray& r, const Cartesian3& background, HittableList world, int depth);
-    void test_render();
+    Cartesian3 traceRayColor(const Ray& ray, const Cartesian3& background, HittableList currentScene, int depth);
+
 };
 
 

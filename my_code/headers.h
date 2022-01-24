@@ -11,6 +11,6 @@ using std::make_shared;
 
 //scene type
 const std::string CORNEL_BOX = "cornellBox";
-const std::string BALLS = "cornellBoxWithBalls";
+const std::string MYOWNSCENE = "cornellBoxWithBalls";
 
 #endif //RAYTRACERENDERWINDOWRELEASE_HEADERS_H

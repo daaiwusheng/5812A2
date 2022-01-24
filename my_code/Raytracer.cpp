@@ -23,7 +23,8 @@ Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *textured
 
 void Raytracer::render()
 {
-    HittableList world = HittableList();
+    HittableList currentScene = HittableList();
+    //currentScene is used for storing all objects in a scene.
     std::shared_ptr<Camera> cam = std::make_shared<Camera>(Cartesian3(278, 278, -800),
                                                            Cartesian3(278, 278, 0), Cartesian3(0, 1, 0), 40,
                                                            1.0, 0.0, 10.0, 0, 0);
@@ -31,40 +32,35 @@ void Raytracer::render()
     int image_height = 0;
     Cartesian3 background = Cartesian3(0,0,0);
     int max_depth = 1;
-    int samples_per_pixel = 10;
-    //康奈尔box
-    if (renderParameters->sceneType != CORNEL_BOX)
+    int samplesPerPixel = 10;
+    //if sceneType is equal to CORNEL_BOX, then we render cornelBox
+    if (renderParameters->sceneType == CORNEL_BOX || renderParameters->sceneType =="")
     {
-        //渲染康奈尔box
-        CornellBox cornel_box = CornellBox();
-        image_width = cornel_box.imageWidth;
-        image_height = cornel_box.imageHeight;
-
-        background = cornel_box.background;
-        max_depth = cornel_box.maxDepth;
-        samples_per_pixel = cornel_box.maxDepth;
-        world = cornel_box.getCornellBox();
-        cam = std::make_shared<Camera>(cornel_box.lookFrom, cornel_box.lookAt, cornel_box.vup, cornel_box.verticalFieldOfView,
-                                       cornel_box.aspectRatio, cornel_box.aperture, cornel_box.distToFocus, cornel_box.time0, cornel_box.time1);
+        //cornelBox scene is being loaded
+        CornellBox cornelBox = CornellBox();
+        background = cornelBox.background;
+        max_depth = cornelBox.maxDepth;
+        samplesPerPixel = cornelBox.samplesPerPixel;
+        currentScene = cornelBox.getCornellBox();
+        cam = std::make_shared<Camera>(cornelBox.lookFrom, cornelBox.lookAt, cornelBox.vup, cornelBox.verticalFieldOfView,
+                                       cornelBox.aspectRatio, cornelBox.aperture, cornelBox.distToFocus, cornelBox.time0, cornelBox.time1);
     }
-    else{
-        //渲染默认的mesh 和 纹理
+    else if (renderParameters->sceneType == MYOWNSCENE){
+        //render my own scene if the sceneType is equal to MYOWNSCENE
         MyOwnScene myOwnScene = MyOwnScene();
-        image_width = myOwnScene.imageWidth;
-        image_height = myOwnScene.imageHeight;
-
         background = myOwnScene.background;
         max_depth = myOwnScene.maxDepth;
-        samples_per_pixel = myOwnScene.maxDepth;
-        world = myOwnScene.getMyOwnScene();
+        samplesPerPixel = myOwnScene.samplesPerPixel;
+        currentScene = myOwnScene.getMyOwnScene();
         cam = std::make_shared<Camera>(myOwnScene.lookFrom, myOwnScene.lookAt, myOwnScene.vup, myOwnScene.verticalFieldOfView,
                                        myOwnScene.aspectRatio, myOwnScene.aperture, myOwnScene.distToFocus, myOwnScene.time0, myOwnScene.time1);
     }
 
 
-    omp_set_num_threads(8);
+    omp_set_num_threads(8); //set the number of threads
     image_width = frameBuffer.width;
     image_height = frameBuffer.height;
+    //I used omp to do multi-thread
 #pragma omp parallel
     {
 #pragma omp for
@@ -72,13 +68,14 @@ void Raytracer::render()
             std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
             for (int i = 0; i < image_width; ++i) {
                 Cartesian3 pixel_color(0, 0, 0);
-                for (int s = 0; s < samples_per_pixel; ++s) {
+                for (int s = 0; s < samplesPerPixel; ++s) {
+                    //even in one pixel we also need a randomDouble() to sample randomly.
                     auto u = (i + randomDouble()) / (image_width - 1);
                     auto v = (j + randomDouble()) / (image_height - 1);
-                    Ray r = cam->getRay(u, v);
-                    pixel_color += ray_color(r, background, world, max_depth);
+                    Ray r = cam->getRay(u, v); //the ray is from a camera, the view point. then we trace it.
+                    pixel_color += traceRayColor(r, background, currentScene, max_depth);
                 }
-                RGBAValue current_color = getColor(pixel_color, samples_per_pixel);
+                RGBAValue current_color = getColor(pixel_color, samplesPerPixel);//get the average color for a pixel
                 frameBuffer[j][i] = current_color;
             }
         }
@@ -86,124 +83,52 @@ void Raytracer::render()
     std::cerr << "\nDone.\n";
 }
 
-Cartesian3 Raytracer::ray_color(const Ray& r, const Cartesian3& background, HittableList world, int depth) {
+//the recursive ray trace function.
+Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background, HittableList currentScene, int depth) {
     HitRecord rec;
 
-    // If we've exceeded the Ray bounce limit, no more light is gathered.
-    if (depth <= 0)
+    // If we have done more than the Ray bounce limit, we need to stop can return zero color.
+    if (depth <= 0){
         return Cartesian3(0,0,0);
-    // If the Ray hits nothing, return the background color.
-    if (!world.hitTest(r, 0.001, infinity, rec))
+    }
+    // If the ray hits nothing, just return the background color. as it hits the background
+    if (!currentScene.hitTest(ray, 0.001, infinity, rec)) {
         return background;
-
+    }
     Ray scattered;
     Cartesian3 attenuation;
-    Cartesian3 emitted = rec.material->emits(r, rec, rec.u, rec.v, rec.p);
+    Cartesian3 emitted = rec.material->emits(ray, rec, rec.u, rec.v, rec.p);
 
-    double pdf;
+    double currentProDenF;
     Cartesian3 albedo;
 
-    if (!rec.material->scatter(r, rec, albedo, scattered, pdf))
+    if (!rec.material->scatter(ray, rec, albedo, scattered, currentProDenF)) {
+        //if the material does not scatter, then we can say that it is a light source, just
+        //return the emitted value as the light color.
         return emitted;
-
+    }
     auto on_light = Cartesian3(randomDoubleInRange(213, 343), 554, randomDoubleInRange(227, 332));
+    //on_light is the light area of the cornell box.
+    //if the ray can not hit the light area,
+    //then we need to sample a point from the light as the scattered ray in the box.
     auto to_light = on_light - rec.p;
     auto distance_squared = to_light.length_squared();
     to_light = unit_vector(to_light);
 
-    if (dot(to_light, rec.normal) < 0)
-        return emitted;
-
     double light_area = (343-213)*(332-227);
     auto light_cosine = fabs(to_light.y);
-    if (light_cosine < 0.000001)
-        return emitted;
+    //currentProDenF is about math, sorry I can not explain it every detailed.
+    currentProDenF = distance_squared / (light_cosine * light_area);
+    scattered = Ray(rec.p, to_light, ray.time());
 
-    pdf = distance_squared / (light_cosine * light_area);
-    scattered = Ray(rec.p, to_light, r.time());
-
-
+    //the return calculating code is very important. it's the equation of raytracing.
+    //it's an integration of the equation of raytracing.
+    //dividing by currentProDenF is Monte Carlo sampling which can help the integration to be more accurate.
     return
            emitted
-           + albedo * rec.material->scattering_proDenF(r, rec, scattered)
-           * ray_color(scattered, background, world, depth-1) / pdf;
+           + albedo * rec.material->scattering_proDenF(ray, rec, scattered)
+             * traceRayColor(scattered, background, currentScene, depth - 1) / currentProDenF;
 
 }
 
 
-
-
-
-
-
-
-/*
-void Raytracer::test_render()
-{
-
-    std::ofstream fileTextureMap;
-    fileTextureMap.open("/Users/wangyu/Downloads/test_assignment_2.ppm");
-
-    // Image
-    const auto aspectRatio = 1.0 / 1.0;
-    const int imageWidth = 600;
-    const int imageHeight = static_cast<int>(imageWidth / aspectRatio);
-    const int samplesPerPixel = 100;
-    const int maxDepth = 50;
-
-
-
-    // World
-    auto world = getCornellBox();
-    color background(0,0,0);
-    // Camera
-    point3 lookFrom(278, 278, -800);
-    point3 lookAt(278, 278, 0);
-    vec3 vup(0, 1, 0);
-    auto distToFocus = 10.0;
-    auto aperture = 0.0;
-    auto verticalFieldOfView = 40.0;
-    auto time0 = 0.0;
-    auto time1 = 1.0;
-
-    fileTextureMap << "P3\n " << imageWidth << " " << imageHeight << " " << "\n255" << std::endl;
-
-    Camera cam(lookFrom, lookAt, vup, verticalFieldOfView, aspectRatio, aperture, distToFocus, time0, time1);
-    // Render
-
-
-    omp_set_num_threads(8);
-    frameBuffer.Resize(imageWidth,imageHeight);
-
-//#pragma omp parallel
-    {
-//#pragma omp for
-        for (int j = imageHeight - 1; j >= 0; --j) {
-            std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
-            for (int i = 0; i < imageWidth; ++i) {
-                color pixel_color(0, 0, 0);
-                for (int s = 0; s < samplesPerPixel; ++s) {
-                    auto u = (i + randomDoubleInRange()) / (imageWidth - 1);
-                    auto v = (j + randomDouble()) / (imageHeight - 1);
-                    Ray r = cam.getRay(u, v);
-                    pixel_color += ray_color(r, background, world, maxDepth);
-                }
-                RGBAValue current_color = getColor(pixel_color, samplesPerPixel);
-                frameBuffer[j][i] = current_color;
-            }
-        }
-    }
-    for (int j = imageHeight - 1; j >= 0; --j) {
-        for (int i = 0; i < imageWidth; ++i) {
-            std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
-            RGBAValue current_color = frameBuffer[j][i];
-            fileTextureMap <<static_cast<int>(current_color.red) << ' '
-                           <<static_cast<int>(current_color.green) << ' '
-                           <<static_cast<int>(current_color.blue)<< '\n';
-        }
-    }
-
-    fileTextureMap.close();
-    std::cerr << "\nDone.\n";
-}
- */
