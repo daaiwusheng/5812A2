@@ -10,20 +10,20 @@
 
 class MyOwnScene{
 public:
-    const double aspect_ratio = 1.0 / 1.0;
-    const int image_width = 600;
-    const int image_height = static_cast<int>(image_width / aspect_ratio);
-    const int samples_per_pixel = 100;
-    const int max_depth = 50;
+    const double aspectRatio = 1.0 / 1.0;
+    const int imageWidth = 600;
+    const int imageHeight = static_cast<int>(imageWidth / aspectRatio);
+    const int samplesPerPixel = 100; //this is the number of samples from one pixel
+    const int maxDepth = 50; //control the depth of Monte Carlo recursive scattering
 
-    Cartesian3 background;
-    // Camera
-    Cartesian3 lookfrom;
-    Cartesian3 lookat;
+    Cartesian3 background; //background color of the scene
+    //Camera parameters
+    Cartesian3 lookFrom;
+    Cartesian3 lookAt;
     Cartesian3 vup;
-    double dist_to_focus = 10.0;
+    double distToFocus = 10.0;
     double aperture = 0.0;
-    double vfov = 40.0;
+    double verticalFieldOfView = 40.0;
     double time0 = 0.0;
     double time1 = 1.0;
 

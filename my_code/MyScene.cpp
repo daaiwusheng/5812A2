@@ -9,14 +9,20 @@
 
 MyOwnScene::MyOwnScene() {
     background = Cartesian3(0,0,0);
-    lookfrom = Cartesian3(278, 278, -800);
-    lookat = Cartesian3(278, 278, 0);
+    lookFrom = Cartesian3(278, 278, -800);
+    lookAt = Cartesian3(278, 278, 0);
     vup = Cartesian3(0, 1, 0);
 }
 
+/***
+ * via this function, we can get my own scene that constructs the cornell box
+ * @return
+ */
 HittableList MyOwnScene::getMyOwnScene() {
     HittableList objects;
 
+    //one area light, five planes, two boxes
+    //we use different material to determine the color of objectsInScene.
     auto red   = make_shared<LambertianMaterial>(Cartesian3(.65, .05, .05));
     auto white = make_shared<LambertianMaterial>(Cartesian3(.73, .73, .73));
     auto green = make_shared<LambertianMaterial>(Cartesian3(.12, .45, .15));
@@ -39,6 +45,7 @@ HittableList MyOwnScene::getMyOwnScene() {
     box2 = make_shared<Translate>(box2, Cartesian3(130, 0, 65));
     objects.add(box2);
 
+    // add a ball in the cornell box
     auto material2 = make_shared<LambertianMaterial>(Cartesian3(0.4, 0.2, 0.1));
     objects.add(make_shared<Sphere>(Cartesian3(160, 225, 165), 60, material2));
 

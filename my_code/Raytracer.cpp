@@ -50,15 +50,15 @@ void Raytracer::render()
     else{
         //渲染默认的mesh 和 纹理
         MyOwnScene myOwnScene = MyOwnScene();
-        image_width = myOwnScene.image_width;
-        image_height = myOwnScene.image_height;
+        image_width = myOwnScene.imageWidth;
+        image_height = myOwnScene.imageHeight;
 
         background = myOwnScene.background;
-        max_depth = myOwnScene.max_depth;
-        samples_per_pixel = myOwnScene.max_depth;
+        max_depth = myOwnScene.maxDepth;
+        samples_per_pixel = myOwnScene.maxDepth;
         world = myOwnScene.getMyOwnScene();
-        cam = std::make_shared<Camera>(myOwnScene.lookfrom, myOwnScene.lookat, myOwnScene.vup, myOwnScene.vfov,
-                                       myOwnScene.aspect_ratio, myOwnScene.aperture, myOwnScene.dist_to_focus, myOwnScene.time0, myOwnScene.time1);
+        cam = std::make_shared<Camera>(myOwnScene.lookFrom, myOwnScene.lookAt, myOwnScene.vup, myOwnScene.verticalFieldOfView,
+                                       myOwnScene.aspectRatio, myOwnScene.aperture, myOwnScene.distToFocus, myOwnScene.time0, myOwnScene.time1);
     }
 
 
