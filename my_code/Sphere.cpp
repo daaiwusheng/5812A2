@@ -5,38 +5,50 @@
 #include "Sphere.h"
 
 
+Sphere::Sphere() {
 
-bool Sphere::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec)  {
-    Cartesian3 oc = r.origin() - center;
-    auto a = r.direction().length_squared();
-    auto half_b = dot(oc, r.direction());
+}
+Sphere::Sphere(Cartesian3 _center, double r, shared_ptr<Material> _material)
+        : center(_center), radius(r), material(_material) {
+
+}
+
+bool Sphere::hitTest(const Ray& ray, double t_min, double t_max, HitRecord& rec)  {
+    Cartesian3 oc = ray.origin() - center;
+    auto a = ray.direction().length_squared();
+    auto half_b = dot(oc, ray.direction());
     auto c = oc.length_squared() - radius*radius;
 
     auto discriminant = half_b*half_b - a*c;
     if (discriminant < 0) return false;
     auto sqrtd = sqrt(discriminant);
 
-    // Find the nearest root that lies in the acceptable range.
+    // here is important, as we want to get the closest point.
     auto root = (-half_b - sqrtd) / a;
     if (root < t_min || t_max < root) {
+        //if the first root can not satisfy the range.
+        //we need consider the second root.
         root = (-half_b + sqrtd) / a;
         if (root < t_min || t_max < root)
             return false;
     }
 
     rec.t = root;
-    rec.p = r.at(rec.t);
+    rec.p = ray.at(rec.t);
     Cartesian3 outward_normal = (rec.p - center) / radius;
-    rec.setFaceNormal(r, outward_normal);
+    rec.setFaceNormal(ray, outward_normal);
     get_sphere_uv(outward_normal, rec.u, rec.v);
-    rec.material = mat_ptr;
+    rec.material = material;
 
     return true;
 }
 
-bool Sphere::boundingBox(double time0, double time1, AABBStructure& output_box)  {
-    output_box = AABBStructure(
+bool Sphere::boundingBox(double time0, double time1, AABBStructure& outputBox)  {
+    outputBox = AABBStructure(
             center - Cartesian3(radius, radius, radius),
             center + Cartesian3(radius, radius, radius));
     return true;
 }
+
+
+
