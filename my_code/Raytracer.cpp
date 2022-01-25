@@ -15,6 +15,7 @@
 #include "headers.h"
 #include "HittableList.h"
 #include "MyScene.h"
+#include "ProDenFunction.h"
 
 Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *texturedObject) {
     this->renderParameters = renderParameters;
@@ -113,20 +114,10 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
                   * traceRayColor(scattered, background, currentScene, depth - 1);
     }
 
-
-    auto on_light = Cartesian3(randomDoubleInRange(213, 343), 554, randomDoubleInRange(227, 332));
-    //on_light is the light area of the cornell box.
-    //if the ray can not hit the light area,
-    //then we need to sample a point from the light as the scattered ray in the box.
-    auto to_light = on_light - rec.p;
-    auto distance_squared = to_light.length_squared();
-    to_light = unit_vector(to_light);
-
-    double light_area = (343-213)*(332-227);
-    auto light_cosine = fabs(to_light.y);
-    //currentProDenF is about math, sorry I can not explain it every detailed.
-    currentProDenF = distance_squared / (light_cosine * light_area);
-    scattered = Ray(rec.p, to_light, ray.time());
+    double pdf_val;
+    CosineProDenF p(rec.normal);
+    scattered = Ray(rec.p, p.generate(), ray.time());
+    pdf_val = p.value(scattered.direction());
 
     //the return calculating code is very important. it's the equation of raytracing.
     //it's an integration of the equation of raytracing.
@@ -134,7 +125,7 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
     return
            emitted
            + albedo * rec.material->scattering_proDenF(ray, rec, scattered)
-             * traceRayColor(scattered, background, currentScene, depth - 1) / currentProDenF;
+             * traceRayColor(scattered, background, currentScene, depth - 1) / pdf_val;
 
 }
 

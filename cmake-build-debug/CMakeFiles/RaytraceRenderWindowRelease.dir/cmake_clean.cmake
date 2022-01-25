@@ -26,6 +26,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Material.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/MyScene.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.o"
+  "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ProDenFunction.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Ray.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o"
   "CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Sphere.cpp.o"

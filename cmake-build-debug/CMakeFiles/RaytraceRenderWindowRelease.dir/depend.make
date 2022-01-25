@@ -288,6 +288,12 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.o: \
  ../Cartesian3.h \
  ../my_code/OrthonormalBasis.cpp \
  ../my_code/OrthonormalBasis.h
+CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ProDenFunction.cpp.o: \
+ ../Cartesian3.h \
+ ../my_code/OrthonormalBasis.h \
+ ../my_code/ProDenFunction.cpp \
+ ../my_code/ProDenFunction.h \
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Ray.cpp.o: \
  ../Cartesian3.h \
  ../my_code/Ray.cpp \
@@ -308,6 +314,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../my_code/HittableObject.h \
  ../my_code/Material.h \
  ../my_code/MyScene.h \
+ ../my_code/OrthonormalBasis.h \
+ ../my_code/ProDenFunction.h \
  ../my_code/Ray.h \
  ../my_code/Raytracer.cpp \
  ../my_code/Raytracer.h \
@@ -383,5 +391,6 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/texture.cpp.o: \
  ../my_code/texture.h \
  ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/utility.cpp.o: \
+ ../Cartesian3.h \
  ../my_code/utility.cpp \
  ../my_code/utility.h

@@ -6,7 +6,7 @@
 #define RAYTRACERENDERWINDOWRELEASE_UTILITY_H
 
 #include <limits>
-
+#include "../Cartesian3.h"
 
 // Constants
 
@@ -20,5 +20,6 @@ double randomDouble();
 double randomDoubleInRange(double min, double max);
 double clamp(double x, double min, double max);
 int random_int(int min, int max);
+
 
 #endif //RAYTRACERENDERWINDOWRELEASE_UTILITY_H

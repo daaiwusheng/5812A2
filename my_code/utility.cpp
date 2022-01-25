@@ -29,3 +29,4 @@ int random_int(int min, int max) {
     // Returns a random integer in [min,max].
     return static_cast<int>(randomDoubleInRange(min, max + 1));
 }
+

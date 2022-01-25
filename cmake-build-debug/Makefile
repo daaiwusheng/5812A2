@@ -718,6 +718,30 @@ my_code/OrthonormalBasis.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.s
 .PHONY : my_code/OrthonormalBasis.cpp.s
 
+my_code/ProDenFunction.o: my_code/ProDenFunction.cpp.o
+.PHONY : my_code/ProDenFunction.o
+
+# target to build an object file
+my_code/ProDenFunction.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ProDenFunction.cpp.o
+.PHONY : my_code/ProDenFunction.cpp.o
+
+my_code/ProDenFunction.i: my_code/ProDenFunction.cpp.i
+.PHONY : my_code/ProDenFunction.i
+
+# target to preprocess a source file
+my_code/ProDenFunction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ProDenFunction.cpp.i
+.PHONY : my_code/ProDenFunction.cpp.i
+
+my_code/ProDenFunction.s: my_code/ProDenFunction.cpp.s
+.PHONY : my_code/ProDenFunction.s
+
+# target to generate assembly for a file
+my_code/ProDenFunction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RaytraceRenderWindowRelease.dir/build.make CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ProDenFunction.cpp.s
+.PHONY : my_code/ProDenFunction.cpp.s
+
 my_code/Ray.o: my_code/Ray.cpp.o
 .PHONY : my_code/Ray.o
 
@@ -1040,6 +1064,9 @@ help:
 	@echo "... my_code/OrthonormalBasis.o"
 	@echo "... my_code/OrthonormalBasis.i"
 	@echo "... my_code/OrthonormalBasis.s"
+	@echo "... my_code/ProDenFunction.o"
+	@echo "... my_code/ProDenFunction.i"
+	@echo "... my_code/ProDenFunction.s"
 	@echo "... my_code/Ray.o"
 	@echo "... my_code/Ray.i"
 	@echo "... my_code/Ray.s"

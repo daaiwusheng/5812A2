@@ -228,6 +228,12 @@
 			null
 		],
 		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ProDenFunction.h",
+			"MU",
+			"3GW5QA7T5Y/moc_ProDenFunction.cpp",
+			null
+		],
+		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Ray.h",
 			"MU",
 			"3GW5QA7T5Y/moc_Ray.cpp",
@@ -456,6 +462,11 @@
 		],
 		[
 			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/OrthonormalBasis.cpp",
+			"MU",
+			null
+		],
+		[
+			"/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ProDenFunction.cpp",
 			"MU",
 			null
 		],
