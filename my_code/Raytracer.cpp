@@ -96,17 +96,24 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
         return background;
     }
     Ray scattered;
-    Cartesian3 attenuation;
+//    Cartesian3 attenuation;
     Cartesian3 emitted = rec.material->emits(ray, rec, rec.u, rec.v, rec.p);
 
     double currentProDenF;
-    Cartesian3 albedo;
+    Cartesian3 albedo; //the color of the material. just like attenuation.
 
     if (!rec.material->scatter(ray, rec, albedo, scattered, currentProDenF)) {
         //if the material does not scatter, then we can say that it is a light source, just
         //return the emitted value as the light color.
         return emitted;
     }
+
+    if(rec.specular){
+        return albedo
+                  * traceRayColor(scattered, background, currentScene, depth - 1);
+    }
+
+
     auto on_light = Cartesian3(randomDoubleInRange(213, 343), 554, randomDoubleInRange(227, 332));
     //on_light is the light area of the cornell box.
     //if the ray can not hit the light area,

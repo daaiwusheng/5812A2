@@ -10,12 +10,12 @@ double degreesToRadians(double degrees) {
 }
 
 double randomDouble() {
-    // Returns a random real in [0,1).
+    // Returns a random real value in [0,1).
     return rand() / (RAND_MAX + 1.0);
 }
 
 double randomDoubleInRange(double min, double max) {
-    // Returns a random real in [min,max).
+    // Returns a random real value in [min,max).
     return min + (max-min) * randomDouble();
 }
 

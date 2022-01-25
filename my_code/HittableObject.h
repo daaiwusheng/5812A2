@@ -20,7 +20,7 @@ struct HitRecord {
     double u;
     double v;
     bool frontFace; //if the hit face is the front, the value is true.
-
+    bool specular = false;
     inline void setFaceNormal(const Ray& r, const Cartesian3& outwardNormal) {
         frontFace = dot(r.direction(), outwardNormal) < 0;
         //we need the normal of the front face. so we need to inverse it if is not the front face.

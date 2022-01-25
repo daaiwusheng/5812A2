@@ -10,7 +10,7 @@
 #include "utility.h"
 #include "../Cartesian3.h"
 
-bool Material::scatter(const Ray &ray_in, const HitRecord &rec, Cartesian3 &_albedo, Ray &scattered, double &proDenF) const {
+bool Material::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &_albedo, Ray &scattered, double &proDenF) const {
     return false;
 }
 
@@ -30,7 +30,7 @@ LambertianMaterial::LambertianMaterial(shared_ptr<texture> a_texture) : albedo(a
 
 }
 
-bool LambertianMaterial::scatter(const Ray &ray_in, const HitRecord &rec, Cartesian3 &_albedo, Ray &scattered, double &proDenF) const {
+bool LambertianMaterial::scatter(const Ray &ray_in,HitRecord &rec, Cartesian3 &_albedo, Ray &scattered, double &proDenF) const {
     OrthonormalBasis uvw;
     uvw.buildFromNormal(rec.normal);
     auto direction = uvw.local(randomCosineDirection());
@@ -53,7 +53,7 @@ MetalMaterial::MetalMaterial(const Cartesian3 &_albedo, double _fuzzy) : albedo(
 
 }
 
-bool MetalMaterial::scatter(const Ray &ray_in, const HitRecord &rec, Cartesian3 &attenuation, Ray &scattered, double &proDenF) const {
+bool MetalMaterial::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &attenuation, Ray &scattered, double &proDenF) const {
     Cartesian3 reflected = reflect(unit_vector(ray_in.direction()), rec.normal);
     scattered = Ray(rec.p, reflected + fuzz * randomInUnitSphere(), ray_in.time());
     attenuation = albedo;
@@ -66,7 +66,7 @@ DielectricMaterial::DielectricMaterial(double refractionIndex) : factor_ref(refr
 
 }
 
-bool DielectricMaterial::scatter(const Ray &ray_in, const HitRecord &rec, Cartesian3 &attenuation, Ray &scattered, double &proDenF) const {
+bool DielectricMaterial::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &attenuation, Ray &scattered, double &proDenF) const {
     attenuation = Cartesian3(1.0, 1.0, 1.0);
 
     double refraction_ratio = rec.frontFace ? (1.0 / factor_ref) : factor_ref;
@@ -76,17 +76,20 @@ bool DielectricMaterial::scatter(const Ray &ray_in, const HitRecord &rec, Cartes
     double cos_theta = fmin(dot(-1*unit_direction, rec.normal), 1.0);
     double sin_theta = sqrt(1.0 - cos_theta*cos_theta);
 
-    bool cannot_refract = refraction_ratio * sin_theta > 1.0;
+    bool cannotRefract = refraction_ratio * sin_theta > 1.0;
     Cartesian3 direction;
 
-    if (cannot_refract || reflectance(cos_theta, refraction_ratio) > randomDouble())
+    if (cannotRefract || reflectance(cos_theta, refraction_ratio) > randomDouble())
         direction = reflect(unit_direction, rec.normal);
     else
         direction = refract(unit_direction, rec.normal, refraction_ratio);
-
+    rec.specular = true;
     scattered = Ray(rec.p, direction, ray_in.time());
-
     return true;
+}
+
+double DielectricMaterial::scattering_proDenF(const Ray &ray_in, const HitRecord &rec, const Ray &scattered) const {
+    return 0.0;
 }
 
 double DielectricMaterial::reflectance(double cosine, double refIdx) {
@@ -104,7 +107,7 @@ DiffuseLightMaterial::DiffuseLightMaterial(Cartesian3 a_color) : emitMaterial(ma
 
 }
 
-bool DiffuseLightMaterial::scatter(const Ray &ray_in, const HitRecord &rec, Cartesian3 &attenuation, Ray &scattered, double &proDenF) const {
+bool DiffuseLightMaterial::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &attenuation, Ray &scattered, double &proDenF) const {
     return false;
 }
 

@@ -10,6 +10,10 @@
 #include "Material.h"
 #include "TransformTool.h"
 
+//TriangleMesh is also a subclass of HittableObject.
+//this class read triangle mesh data from textureObject. then check if can be hit by a ray.
+//if the triangle mesh is set with a transformation we just need to get the final transform matrix
+//from TransformTool, and use it to multiply the vertices.
 class TriangleMesh : public HittableObject
 {
 public:
@@ -20,7 +24,7 @@ public:
     virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
 
 
-    auto intersectsWithTriangle(const Cartesian3& v0,const Cartesian3& v1,const Cartesian3& v2, const Ray &ray, double minT,double maxT,int32_t index) -> HitRecord &;
+    auto intersectsWithTriangle(const Cartesian3& v0, const Cartesian3& v1, const Cartesian3& v2, const Ray &ray, double t_min, double t_max, int32_t index) -> HitRecord &;
 
 private:
     TexturedObject textureObject;

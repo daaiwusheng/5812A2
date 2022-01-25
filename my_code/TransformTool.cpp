@@ -20,7 +20,7 @@ TransformTool::TransformTool(RenderParameters* renderParameters)
 auto TransformTool::recalculateLocalTransform() -> const Matrix4&
 {
     if (renderParameters->transformHasUpdated){
-        //重新计算
+        //if true, we need recalculate.
         resetAllMatrix();
         localTransform.SetTranslation(position);
         localTransform *= rotationMatrix;
@@ -34,7 +34,7 @@ auto TransformTool::recalculateLocalTransform() -> const Matrix4&
 
 auto TransformTool::resetAllMatrix() -> void
 {
-    //在这里更新所有变化矩阵
+    //here we update all transform data
     //1. scale
     auto scaleFactor = renderParameters->realScale;
     scale.SetScale(scaleFactor,scaleFactor,scaleFactor);

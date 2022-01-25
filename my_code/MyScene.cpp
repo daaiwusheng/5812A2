@@ -46,8 +46,8 @@ HittableList MyOwnScene::getMyOwnScene() {
     objects.add(box2);
 
     // add a ball in the cornell box
-    auto material2 = make_shared<LambertianMaterial>(Cartesian3(0.4, 0.2, 0.1));
-    objects.add(make_shared<Sphere>(Cartesian3(160, 225, 165), 60, material2));
+    auto glass_material = make_shared<DielectricMaterial>(1.5);
+    objects.add(make_shared<Sphere>(Cartesian3(160, 225, 165), 60, glass_material));
 
 
     return objects;

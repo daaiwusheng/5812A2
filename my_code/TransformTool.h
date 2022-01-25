@@ -7,6 +7,10 @@
 
 #include "../RenderParameters.h"
 
+//As all transform parameters are stored in RenderParameters. like rotation and scale.
+//so we only need to hold renderParameters from RenderController, and when transform
+//data have been updated, we set renderParameters.transformHasUpdated = true.
+//then in this class we recalculate the final transform matrix.
 class TransformTool{
 
 public:

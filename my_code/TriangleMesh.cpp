@@ -13,6 +13,7 @@ TriangleMesh::TriangleMesh(const TexturedObject &textureObject, const std::share
 
 bool TriangleMesh::hitTest(const Ray &ray, double t_min, double t_max, HitRecord &rec)  {
     rec.t = INFINITY;
+    //get the transform matrix, because we do not know if transform data were updated.
     auto transformMatrix = transformTool.getTransformMatrix();
     for(auto i = 0;i<textureObject.faceVertices.size() ;i++){
         auto & v = textureObject.faceVertices[i];
@@ -20,7 +21,7 @@ bool TriangleMesh::hitTest(const Ray &ray, double t_min, double t_max, HitRecord
         auto v0 = transformMatrix * textureObject.vertices[v[0]];
         auto v1 = transformMatrix * textureObject.vertices[v[1]];
         auto v2 = transformMatrix * textureObject.vertices[v[2]];
-        //get three vertices.
+        //get and update three vertices.
         HitRecord currentHitRecord;
 
         currentHitRecord = intersectsWithTriangle(v0,v1,v2,ray,t_min,rec.t,i);
@@ -38,50 +39,51 @@ bool TriangleMesh::hitTest(const Ray &ray, double t_min, double t_max, HitRecord
     return false;
 }
 
-auto
-TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1, const Cartesian3 &v2, const Ray &ray,
-                                     double minT, double maxT, int32_t index) -> HitRecord & {
+auto TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3 &v1,
+                                          const Cartesian3 &v2, const Ray &ray,
+                                          double t_min, double t_max, int32_t index) -> HitRecord & {
 
+    //this is about math, and I referred online.
     HitRecord currentRecord;
     currentRecord.t = INFINITY;
 
     auto v0v1 = v1 - v0;
     auto v0v2 = v2 - v0;
     auto pvec = ray.direction().cross(v0v2);
-    float det = v0v1.dot(pvec);
+    float delt = v0v1.dot(pvec);
 
-    // Ray and triangle are parallel if det is close to 0
-    if (std::fabs(det) < 1e-8) return currentRecord;
+    // Ray and triangle are parallel if delt is close to 0
+    if (std::fabs(delt) < 1e-8) return currentRecord;
 
-    float invDet = 1 / det;
+    float inversDelt = 1 / delt;
 
     auto tvec = ray.direction() - v0;
-    auto u = tvec.dot(pvec) * invDet;
+    auto u = tvec.dot(pvec) * inversDelt;
     if (u < 0 || u > 1) {
         return currentRecord;
     }
 
     auto qvec = tvec.cross(v0v1);
-    auto v = ray.direction().dot(qvec) * invDet;
+    auto v = ray.direction().dot(qvec) * inversDelt;
     if (v < 0 || u + v > 1){
         return currentRecord;
     }
 
-    auto t = v0v2.dot(qvec) * invDet;
+    auto t = v0v2.dot(qvec) * inversDelt;
 
-    if(t < maxT && t > minT){
-        auto normal = v0v1.cross(v0v2); // N
+    if(t < t_max && t > t_min){
+        auto normal = v0v1.cross(v0v2); //normal
         currentRecord.t = t;
         currentRecord.normal = normal;
         currentRecord.setFaceNormal(ray, normal);
 
         auto & coords = textureObject.faceTexCoords[index];
-        //get the three corrds in current face.
+        //get the three parameters in current face.
         auto t0 = textureObject.textureCoords[coords[0]];
         auto t1 = textureObject.textureCoords[coords[1]];
         auto t2 = textureObject.textureCoords[coords[2]];
 
-        //barycentric interpolation
+        //barycentric interpolation coordinates
         auto coordinates = (1 - u - v) * t0 + u * t1 + v * t2;
 
         currentRecord.u = coordinates.x;
@@ -105,11 +107,6 @@ bool TriangleMesh::boundingBox(double time0, double time1, AABBStructure &output
                 output_box.max()[i] = v[i];
             }
         }
-//        for(int32_t i = 0;i<3;i++){
-//            if (v[i] > output_box.max()[i]){
-//                output_box.max()[i] = v[i];
-//            }
-//        }
     }
 
     if (output_box.minimum.x<INFINITY || output_box.maximum.x<INFINITY)

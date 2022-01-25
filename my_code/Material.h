@@ -19,7 +19,7 @@ public:
     //1:the scattered Ray, 2:the albedo for calculating the scattering Ray color,
     //3: the proDenF so-called probability density function value of the current scattered Ray.
     virtual bool scatter(
-            const Ray& ray_in, const HitRecord& rec, Cartesian3& _albedo, Ray& scattered, double& proDenF
+            const Ray& ray_in, HitRecord& rec, Cartesian3& _albedo, Ray& scattered, double& proDenF
     )const;
 
     //this function shoulders calculating the probability density function value for material
@@ -41,7 +41,7 @@ public:
     LambertianMaterial(shared_ptr<texture> a_texture);
 
     virtual bool scatter(
-            const Ray& ray_in, const HitRecord& rec, Cartesian3& _albedo, Ray& scattered, double& proDenF
+            const Ray& ray_in, HitRecord& rec, Cartesian3& _albedo, Ray& scattered, double& proDenF
     ) const override;
 
     double scattering_proDenF(
@@ -56,7 +56,7 @@ public:
     MetalMaterial(const Cartesian3& _albedo, double _fuzzy);
 
     virtual bool scatter(
-            const Ray& ray_in, const HitRecord& rec, Cartesian3& attenuation, Ray& scattered, double& proDenF
+            const Ray& ray_in, HitRecord& rec, Cartesian3& attenuation, Ray& scattered, double& proDenF
     ) const override;
 
 public:
@@ -69,8 +69,11 @@ public:
     DielectricMaterial(double refractionIndex);
 
     virtual bool scatter(
-            const Ray& ray_in, const HitRecord& rec, Cartesian3& attenuation, Ray& scattered, double& proDenF
+            const Ray& ray_in, HitRecord& rec, Cartesian3& attenuation, Ray& scattered, double& proDenF
     ) const override;
+    double scattering_proDenF(
+            const Ray& ray_in, const HitRecord& rec, const Ray& scattered
+    ) const;
 
 public:
     double factor_ref; // the Index of Refraction
@@ -84,7 +87,7 @@ public:
     DiffuseLightMaterial(Cartesian3 a_color);
 
     virtual bool scatter(
-            const Ray& ray_in, const HitRecord& rec, Cartesian3& attenuation, Ray& scattered, double& proDenF
+            const Ray& ray_in, HitRecord& rec, Cartesian3& attenuation, Ray& scattered, double& proDenF
     ) const override;
 
     virtual Cartesian3 emits(const Ray& ray_in, const HitRecord& rec, double u, double v,
