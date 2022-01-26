@@ -17,10 +17,7 @@ public:
             double verticalFieldOfView, // the field is in degrees
             double aspectRatio,
             double aperture,
-            double focusDistance,
-            //when we want to model a Camera shutter open/close in a time interval we need this two variables
-            double _time0 = 0,
-            double _time1 = 0
+            double focusDistance
     );
 
     Ray getRay(double _u, double _v) const;
@@ -33,7 +30,6 @@ private:
 
     Cartesian3 u, v, w;
     double lensRadius; //the Camera's lens radius, we also can ignore it. but the tutorial I studied used this.
-    double time0, time1;
 };
 
 

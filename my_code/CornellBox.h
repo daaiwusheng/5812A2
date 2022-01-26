@@ -14,7 +14,7 @@ public:
     const int imageWidth = 600;
     const int imageHeight = static_cast<int>(imageWidth / aspectRatio);
     const int samplesPerPixel = 100; //this is the number of samples from one pixel
-    const int maxDepth = 50; //control the depth of Monte Carlo recursive scattering
+    const int maxDepth = 30; //control the depth of Monte Carlo recursive scattering
 
     Cartesian3 background; //background color
     // Camera parameters
@@ -24,8 +24,6 @@ public:
     double distToFocus = 10.0;
     double aperture = 0.0;
     double verticalFieldOfView = 40.0;
-    double time0 = 0.0;
-    double time1 = 1.0;
 
     CornellBox();
 

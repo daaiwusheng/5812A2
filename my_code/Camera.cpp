@@ -8,7 +8,7 @@
 
 
 Camera::Camera(Cartesian3 lookFrom, Cartesian3 lookAt, Cartesian3 viewUp, double verticalFieldOfView, double aspectRatio, double aperture,
-               double focusDistance, double _time0, double _time1) {
+               double focusDistance) {
     auto theta = degreesToRadians(verticalFieldOfView);
     auto h = tan(theta/2);
     auto viewportHeight = 2.0 * h;
@@ -25,8 +25,7 @@ Camera::Camera(Cartesian3 lookFrom, Cartesian3 lookAt, Cartesian3 viewUp, double
     lowerLeftCorner = origin - horizontal / 2 - vertical / 2 - focusDistance * w;
 
     lensRadius = aperture / 2;
-    time0 = _time0;
-    time1 = _time1;
+
 
 }
 
@@ -37,7 +36,6 @@ Ray Camera::getRay(double _u, double _v) const {
     //the Ray function will be commented in Ray class.
     return Ray(
             origin + offset, //the origin of the Ray need to offset, then we can sample better
-            lowerLeftCorner + _u * horizontal + _v * vertical - origin - offset, //-(origin+offset)
-            randomDoubleInRange(time0, time1)
+            lowerLeftCorner + _u * horizontal + _v * vertical - origin - offset //-(origin+offset)
     );
 }

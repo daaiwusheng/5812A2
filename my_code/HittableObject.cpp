@@ -18,7 +18,7 @@ Cartesian3 HittableObject::random(const Cartesian3 &o) {
 bool Translate::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
     //when we need to move the object, we can cheat. like just move the Ray origin to the
     //opposite direction.
-    Ray moved_ray(r.origin() - offset, r.direction(), r.time());
+    Ray moved_ray(r.origin() - offset, r.direction());
     if (!theObject->hitTest(moved_ray, t_min, t_max, rec))
         return false;
     //but, the hit point we need move to the offset direction. not the opposite.
@@ -87,7 +87,7 @@ bool rotate_y::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec)
     direction[0] = cosTheta * r.direction()[0] - sinTheta * r.direction()[2];
     direction[2] = sinTheta * r.direction()[0] + cosTheta * r.direction()[2];
 
-    Ray rotatedRay(origin, direction, r.time());
+    Ray rotatedRay(origin, direction);
 
     if (!theObject->hitTest(rotatedRay, t_min, t_max, rec))
         return false;

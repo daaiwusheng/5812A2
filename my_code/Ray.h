@@ -11,19 +11,16 @@
 class Ray {
 public:
     Ray();
-    Ray(const Cartesian3& _origin, const Cartesian3& _direction, double time = 0.0);
+    Ray(const Cartesian3& _origin, const Cartesian3& _direction);
 
     Cartesian3 origin() const;
     Cartesian3 direction() const;
-    double time() const;
 
     Cartesian3 at(double t) const;
 
 public:
     Cartesian3 origin_point;
     Cartesian3 dir_vector;
-    double t_move;//this parameter is used for at a time point in a range if the ray is hitting an object.
-    //but I have not finished this.
 };
 
 #endif //RAYTRACERENDERWINDOWRELEASE_RAY_H

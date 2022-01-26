@@ -37,7 +37,7 @@ bool LambertianMaterial::scatter(const Ray &ray_in,HitRecord &rec, Cartesian3 &_
     //for calculating proDenF of the current scattered Ray, we need an
     //orthogonal rectangular coordinate system at the hit point via the normal.
     //how and why we need the proDenF is explained in Raytracer.cpp.
-    scattered = Ray(rec.p, unit_vector(direction), ray_in.time());
+    scattered = Ray(rec.p, unit_vector(direction));
     _albedo = albedo->value(rec.u, rec.v, rec.p);
     proDenF = dot(uvw.w(), scattered.direction()) / pi;
     return true;
@@ -55,7 +55,7 @@ MetalMaterial::MetalMaterial(const Cartesian3 &_albedo, double _fuzzy) : albedo(
 
 bool MetalMaterial::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &attenuation, Ray &scattered, double &proDenF) const {
     Cartesian3 reflected = reflect(unit_vector(ray_in.direction()), rec.normal);
-    scattered = Ray(rec.p, reflected + fuzz * randomInUnitSphere(), ray_in.time());
+    scattered = Ray(rec.p, reflected + fuzz * randomInUnitSphere());
     attenuation = albedo;
     return (dot(scattered.direction(), rec.normal) > 0);
 }
@@ -84,7 +84,7 @@ bool DielectricMaterial::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &
     else
         direction = refract(unit_direction, rec.normal, refraction_ratio);
     rec.specular = true;
-    scattered = Ray(rec.p, direction, ray_in.time());
+    scattered = Ray(rec.p, direction);
     return true;
 }
 

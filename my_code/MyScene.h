@@ -24,8 +24,6 @@ public:
     double distToFocus = 10.0;
     double aperture = 0.0;
     double verticalFieldOfView = 40.0;
-    double time0 = 0.0;
-    double time1 = 1.0;
 
     MyOwnScene();
     HittableList getMyOwnScene();

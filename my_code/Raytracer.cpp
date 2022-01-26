@@ -29,7 +29,7 @@ void Raytracer::render()
     //currentScene is used for storing all objects in a scene.
     std::shared_ptr<Camera> cam = std::make_shared<Camera>(Cartesian3(278, 278, -800),
                                                            Cartesian3(278, 278, 0), Cartesian3(0, 1, 0), 40,
-                                                           1.0, 0.0, 10.0, 0, 0);
+                                                           1.0, 0.0, 10.0);
     int image_width = 0;
     int image_height = 0;
     Cartesian3 background = Cartesian3(0,0,0);
@@ -47,7 +47,7 @@ void Raytracer::render()
         samplesPerPixel = cornelBox.samplesPerPixel;
         currentScene = cornelBox.getCornellBox();
         cam = std::make_shared<Camera>(cornelBox.lookFrom, cornelBox.lookAt, cornelBox.vup, cornelBox.verticalFieldOfView,
-                                       cornelBox.aspectRatio, cornelBox.aperture, cornelBox.distToFocus, cornelBox.time0, cornelBox.time1);
+                                       cornelBox.aspectRatio, cornelBox.aperture, cornelBox.distToFocus);
     }
     else if (renderParameters->sceneType == MYOWNSCENE){
         //render my own scene if the sceneType is equal to MYOWNSCENE
@@ -57,7 +57,7 @@ void Raytracer::render()
         samplesPerPixel = myOwnScene.samplesPerPixel;
         currentScene = myOwnScene.getMyOwnScene();
         cam = std::make_shared<Camera>(myOwnScene.lookFrom, myOwnScene.lookAt, myOwnScene.vup, myOwnScene.verticalFieldOfView,
-                                       myOwnScene.aspectRatio, myOwnScene.aperture, myOwnScene.distToFocus, myOwnScene.time0, myOwnScene.time1);
+                                       myOwnScene.aspectRatio, myOwnScene.aperture, myOwnScene.distToFocus);
     }
 
 
@@ -120,7 +120,7 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
     auto p1 = make_shared<CosineProDenF>(rec.normal);
     mixture_pdf mixed_pdf(p0, p1);
 
-    scattered = Ray(rec.p, mixed_pdf.generate(), ray.time());
+    scattered = Ray(rec.p, mixed_pdf.generate());
     pdf_val = mixed_pdf.value(scattered.direction());
 
     //the return calculating code is very important. it's the equation of raytracing.

@@ -8,8 +8,8 @@ Ray::Ray() {
 
 }
 
-Ray::Ray(const Cartesian3 &_origin, const Cartesian3 &_direction, double time)
-        : origin_point(_origin), dir_vector(_direction), t_move(time)
+Ray::Ray(const Cartesian3 &_origin, const Cartesian3 &_direction)
+        : origin_point(_origin), dir_vector(_direction)
 {
 
 }
@@ -20,10 +20,6 @@ Cartesian3 Ray::origin() const {
 
 Cartesian3 Ray::direction() const {
     return dir_vector;
-}
-
-double Ray::time() const {
-    return t_move;
 }
 
 Cartesian3 Ray::at(double t) const {
