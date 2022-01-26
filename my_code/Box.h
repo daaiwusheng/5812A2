@@ -12,7 +12,7 @@
 //in real world, we need box, this class if used for defining box objectsInScene.
 class Box : public HittableObject  {
 public:
-    Box() {}
+    Box();
     Box(const Cartesian3& p0, const Cartesian3& p1, shared_ptr<Material> material);
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;

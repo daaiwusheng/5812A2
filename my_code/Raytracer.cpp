@@ -105,31 +105,32 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
 
     double currentProDenF;
     Cartesian3 albedo; //the color of the material. just like attenuation.
-    double pdf_val;
+    double proDenF_value;
     if (!rec.material->scatter(ray, rec, albedo, scattered, currentProDenF)) {
         //if the material does not scatter, then we can say that it is a light source, just
         //return the emitted value as the light color.
         return emitted;
     }
 
-    if(rec.specular){
+    if(rec.is_specular){
         return albedo * traceRayColor(scattered, background, currentScene,lights,depth - 1);
     }
 
-    auto p0 = make_shared<hittable_pdf>(lights, rec.p);
-    auto p1 = make_shared<CosineProDenF>(rec.normal);
-    mixture_pdf mixed_pdf(p0, p1);
+    auto proDenF_0 = make_shared<hittableProDenF>(lights, rec.p);
+    auto proDenF_1 = make_shared<CosineProDenF>(rec.normal);
+    //here we combine two probability density value, this can help us to get a better probability density value.
+    CombineProDenF combineProDenF(proDenF_0, proDenF_1);
 
-    scattered = Ray(rec.p, mixed_pdf.generate());
-    pdf_val = mixed_pdf.value(scattered.direction());
+    scattered = Ray(rec.p, combineProDenF.generate()); //from the hit point, generate the ray with the probability density value
+    proDenF_value = combineProDenF.value(scattered.direction());
 
     //the return calculating code is very important. it's the equation of raytracing.
     //it's an integration of the equation of raytracing.
-    //dividing by currentProDenF is Monte Carlo sampling which can help the integration to be more accurate.
+    //dividing by proDenF_value is Monte Carlo sampling which can help the integration to be more accurate.
     return
            emitted
            + albedo * rec.material->scattering_proDenF(ray, rec, scattered)
-             * traceRayColor(scattered, background, currentScene,lights, depth - 1) / pdf_val;
+             * traceRayColor(scattered, background, currentScene,lights, depth - 1) / proDenF_value;
 
 }
 

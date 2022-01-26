@@ -10,6 +10,8 @@
 #include "OrthonormalBasis.h"
 #include "HittableObject.h"
 
+//in this file, we define some probability density functions. they can be used for Monte Carlo recursive scattering.
+//honestly, this knowledge I referred online.
 class ProDenF {
 public:
     virtual ~ProDenF();
@@ -30,22 +32,22 @@ public:
 };
 
 
-class hittable_pdf : public ProDenF {
+class hittableProDenF : public ProDenF {
 public:
-    hittable_pdf(shared_ptr<HittableObject> p, const Cartesian3& origin);
+    hittableProDenF(shared_ptr<HittableObject> p, const Cartesian3& _origin);
 
     virtual double value(const Cartesian3& direction) const override;
 
     virtual Cartesian3 generate() const override;
 
 public:
-    Cartesian3 o;
-    shared_ptr<HittableObject> ptr;
+    Cartesian3 origin;
+    shared_ptr<HittableObject> hittableObject;
 };
 
-class mixture_pdf : public ProDenF {
+class CombineProDenF : public ProDenF {
 public:
-    mixture_pdf(shared_ptr<ProDenF> p0, shared_ptr<ProDenF> p1);
+    CombineProDenF(shared_ptr<ProDenF> p0, shared_ptr<ProDenF> p1);
 
     virtual double value(const Cartesian3& direction) const override;
 

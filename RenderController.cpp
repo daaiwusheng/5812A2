@@ -87,11 +87,11 @@ RenderController::RenderController
     QObject::connect(   renderWindow->diffuseLightSlider,           SIGNAL(valueChanged(int)),
                         this,                                       SLOT(diffuseLightChanged(int)));
 
-    // signal for specular lighting change
+    // signal for is_specular lighting change
     QObject::connect(   renderWindow->specularLightSlider,          SIGNAL(valueChanged(int)),
                         this,                                       SLOT(specularLightChanged(int)));
 
-    // signal for specular exponent change
+    // signal for is_specular exponent change
     QObject::connect(   renderWindow->specularExponentSlider,       SIGNAL(valueChanged(int)),
                         this,                                       SLOT(specularExponentChanged(int)));
 
@@ -262,7 +262,7 @@ void RenderController::diffuseLightChanged(int value)
     renderWindow->ResetInterface();
     } // RenderController::diffuseLightChanged()
 
-// slot for responding to specular albedo slider
+// slot for responding to is_specular albedo slider
 void RenderController::specularLightChanged(int value)
     { // RenderController::specularLightChanged()
     // reset the value (slider ticks are 1/100 each)
@@ -278,7 +278,7 @@ void RenderController::specularLightChanged(int value)
     renderWindow->ResetInterface();
     } // RenderController::specularLightChanged()
 
-// slot for responding to specular exponent slider
+// slot for responding to is_specular exponent slider
 void RenderController::specularExponentChanged(int value)
     { // RenderController::specularExponentChanged()
     // reset the value (slider ticks are 1/100 each)

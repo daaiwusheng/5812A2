@@ -83,7 +83,7 @@ bool DielectricMaterial::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &
         direction = reflect(unit_direction, rec.normal);
     else
         direction = refract(unit_direction, rec.normal, refraction_ratio);
-    rec.specular = true;
+    rec.is_specular = true;
     scattered = Ray(rec.p, direction);
     return true;
 }

@@ -14,8 +14,7 @@ class xy_rectangle : public HittableObject {
 public:
     xy_rectangle();
 
-    xy_rectangle(double _x0, double _x1, double _y0, double _y1, double _z,
-                 shared_ptr<Material> _material);;
+    xy_rectangle(double _x0, double _x1, double _y0, double _y1, double _z, shared_ptr<Material> _material);
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
@@ -31,8 +30,7 @@ class xz_rectangle : public HittableObject {
 public:
     xz_rectangle();
 
-    xz_rectangle(double _x0, double _x1, double _z0, double _z1, double _y,
-                 shared_ptr<Material> _material);;
+    xz_rectangle(double _x0, double _x1, double _z0, double _z1, double _y, shared_ptr<Material> _material);
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 

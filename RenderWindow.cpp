@@ -210,7 +210,7 @@ void RenderWindow::ResetInterface()
     specularLightSlider ->setMaximum            ((int) (LIGHTING_MAX                                * PARAMETER_SCALING));
     specularLightSlider ->setValue              ((int) (renderParameters -> specular                * PARAMETER_SCALING));
     
-    // specular exponent slider is a logarithmic scale, so we want a narrow range
+    // is_specular exponent slider is a logarithmic scale, so we want a narrow range
     specularExponentSlider  ->setMinimum        ((int) (SPECULAR_EXPONENT_LOG_MIN                   * PARAMETER_SCALING));
     specularExponentSlider  ->setMaximum        ((int) (SPECULAR_EXPONENT_LOG_MAX                   * PARAMETER_SCALING));
     specularExponentSlider  ->setValue          ((int) (log10(renderParameters -> specularExponent) * PARAMETER_SCALING));

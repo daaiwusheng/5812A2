@@ -20,10 +20,8 @@ public:
 
     void add(shared_ptr<HittableObject> object);
 
-    virtual bool hitTest(
-            const Ray& r, double t_min, double t_max, HitRecord& rec) override;
-    virtual bool boundingBox(
-            double time0, double time1, AABBStructure& outputBox) override;
+    virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
+    virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
 
 public:
     std::vector<shared_ptr<HittableObject>> objectsInScene;

@@ -4,6 +4,7 @@
 
 #include "Box.h"
 
+Box::Box() {}
 
 Box::Box(const Cartesian3& p0, const Cartesian3& p1, shared_ptr<Material> material) {
     boxMin = p0;
@@ -32,3 +33,5 @@ bool Box::boundingBox(double time0, double time1, AABBStructure &outputBox) {
     outputBox = AABBStructure(boxMin, boxMax);
     return true;
 }
+
+

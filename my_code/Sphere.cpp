@@ -37,7 +37,7 @@ bool Sphere::hitTest(const Ray& ray, double t_min, double t_max, HitRecord& rec)
     rec.p = ray.at(rec.t);
     Cartesian3 outward_normal = (rec.p - center) / radius;
     rec.setFaceNormal(ray, outward_normal);
-    get_sphere_uv(outward_normal, rec.u, rec.v);
+    getSphere_uv(outward_normal, rec.u, rec.v);
     rec.material = material;
 
     return true;
@@ -48,6 +48,15 @@ bool Sphere::boundingBox(double time0, double time1, AABBStructure& outputBox)  
             center - Cartesian3(radius, radius, radius),
             center + Cartesian3(radius, radius, radius));
     return true;
+}
+
+void Sphere::getSphere_uv(const Cartesian3 &p, double &u, double &v) {
+
+    auto theta = acos(-p.y);
+    auto phi = atan2(-p.z, p.x) + pi;
+
+    u = phi / (2*pi);
+    v = theta / pi;
 }
 
 

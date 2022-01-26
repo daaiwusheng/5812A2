@@ -21,28 +21,28 @@ Cartesian3 CosineProDenF::generate() const {
     return uvw.local(randomCosineDirection());
 }
 
-hittable_pdf::hittable_pdf(shared_ptr<HittableObject> p, const Cartesian3 &origin) : ptr(p), o(origin) {
+hittableProDenF::hittableProDenF(shared_ptr<HittableObject> p, const Cartesian3 &_origin) : hittableObject(p), origin(_origin) {
 
 }
 
-double hittable_pdf::value(const Cartesian3 &direction) const {
-    return ptr->pdf_value(o, direction);
+double hittableProDenF::value(const Cartesian3 &direction) const {
+    return hittableObject->pdf_value(origin, direction);
 }
 
-Cartesian3 hittable_pdf::generate() const {
-    return ptr->random(o);
+Cartesian3 hittableProDenF::generate() const {
+    return hittableObject->random(origin);
 }
 
-mixture_pdf::mixture_pdf(shared_ptr<ProDenF> p0, shared_ptr<ProDenF> p1) {
+CombineProDenF::CombineProDenF(shared_ptr<ProDenF> p0, shared_ptr<ProDenF> p1) {
     p[0] = p0;
     p[1] = p1;
 }
 
-double mixture_pdf::value(const Cartesian3 &direction) const {
+double CombineProDenF::value(const Cartesian3 &direction) const {
     return 0.5 * p[0]->value(direction) + 0.5 *p[1]->value(direction);
 }
 
-Cartesian3 mixture_pdf::generate() const {
+Cartesian3 CombineProDenF::generate() const {
     if (randomDouble() < 0.5)
         return p[0]->generate();
     else

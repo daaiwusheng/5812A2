@@ -15,6 +15,9 @@ Cartesian3 HittableObject::random(const Cartesian3 &o) {
     return Cartesian3(1, 0, 0);
 }
 
+Translate::Translate(shared_ptr<HittableObject> p, const Cartesian3 &displacement)
+        : theObject(p), offset(displacement) {}
+
 bool Translate::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
     //when we need to move the object, we can cheat. like just move the Ray origin to the
     //opposite direction.
@@ -39,6 +42,8 @@ bool Translate::boundingBox(double time0, double time1, AABBStructure& outputBox
 
     return true;
 }
+
+
 
 rotate_y::rotate_y(shared_ptr<HittableObject> _object, double angle) : theObject(_object) {
     auto radians = degreesToRadians(angle);
@@ -112,6 +117,7 @@ bool rotate_y::boundingBox(double time0, double time1, AABBStructure &outputBox)
     return ifHaveBox;
 }
 
+flipAFace::flipAFace(shared_ptr<HittableObject> p) : theObject(p) {}
 
 bool flipAFace::hitTest(const Ray &r, double t_min, double t_max, HitRecord &rec) {
 
@@ -126,5 +132,7 @@ bool flipAFace::hitTest(const Ray &r, double t_min, double t_max, HitRecord &rec
 bool flipAFace::boundingBox(double time0, double time1, AABBStructure &outputBox) {
     return theObject->boundingBox(time0, time1, outputBox);
 }
+
+
 
 

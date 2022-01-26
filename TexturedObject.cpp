@@ -333,9 +333,9 @@ void TexturedObject::Render(RenderParameters *renderParameters)
 
     // emissive glow from theObject
     float emissiveColour[4];
-    // default ambient / diffuse / specular colour
+    // default ambient / diffuse / is_specular colour
     float surfaceColour[4] = { 0.7, 0.7, 0.7, 1.0 };
-    // specular shininess
+    // is_specular shininess
     float shininess[4];
     // copy the intensity into RGB channels
     emissiveColour[0]   = emissiveColour[1] = emissiveColour[2] = renderParameters->emissive;
@@ -353,7 +353,7 @@ void TexturedObject::Render(RenderParameters *renderParameters)
     specularColour[0]        = specularColour[1]      = specularColour[2]      = renderParameters->specular;
     specularColour[3]        = 1.0; // alpha
 
-    // set the shininess from the specular exponent
+    // set the shininess from the is_specular exponent
     shininess[0]        = shininess[1]      = shininess[2]      = renderParameters->specularExponent;
     shininess[3]        = 1.0; // alpha
 

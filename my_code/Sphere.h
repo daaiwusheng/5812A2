@@ -18,8 +18,7 @@ public:
     Sphere();
     Sphere(Cartesian3 _center, double r, shared_ptr<Material> _material);;
 
-    virtual bool hitTest(
-            const Ray& ray, double t_min, double t_max, HitRecord& rec) override;
+    virtual bool hitTest(const Ray& ray, double t_min, double t_max, HitRecord& rec) override;
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
 
 public:
@@ -29,14 +28,7 @@ public:
 
 
 private:
-    static void get_sphere_uv(const Cartesian3& p, double& u, double& v) {
-
-        auto theta = acos(-p.y);
-        auto phi = atan2(-p.z, p.x) + pi;
-
-        u = phi / (2*pi);
-        v = theta / pi;
-    }
+    static void getSphere_uv(const Cartesian3& p, double& u, double& v);
 
 };
 

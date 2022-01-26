@@ -20,7 +20,7 @@ struct HitRecord {
     double u;
     double v;
     bool frontFace; //if the hit face is the front, the value is true.
-    bool specular = false;
+    bool is_specular = false; //if the current point is a specular point.
     inline void setFaceNormal(const Ray& r, const Cartesian3& outwardNormal) {
         frontFace = dot(r.direction(), outwardNormal) < 0;
         //we need the normal of the front face. so we need to inverse it if is not the front face.
@@ -42,11 +42,9 @@ public:
 //please see the details in .cpp.
 class Translate : public HittableObject {
 public:
-    Translate(shared_ptr<HittableObject> p, const Cartesian3& displacement)
-            : theObject(p), offset(displacement) {}
+    Translate(shared_ptr<HittableObject> p, const Cartesian3& displacement);
 
-    virtual bool hitTest(
-            const Ray& r, double t_min, double t_max, HitRecord& rec) override;
+    virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
 
@@ -60,8 +58,7 @@ class rotate_y : public HittableObject {
 public:
     rotate_y(shared_ptr<HittableObject> _object, double angle);
 
-    virtual bool hitTest(
-            const Ray& r, double t_min, double t_max, HitRecord& rec) override;
+    virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
 
@@ -77,10 +74,9 @@ public:
 //so we need flip the face, then we can build this tool class.
 class flipAFace : public HittableObject {
 public:
-    flipAFace(shared_ptr<HittableObject> p) : theObject(p) {}
+    flipAFace(shared_ptr<HittableObject> p);
 
-    virtual bool hitTest(
-            const Ray& r, double t_min, double t_max, HitRecord& rec)  override;
+    virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec)  override;
 
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
 
