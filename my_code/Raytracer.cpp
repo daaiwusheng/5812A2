@@ -117,9 +117,12 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
                   * traceRayColor(scattered, background, currentScene,lights,depth - 1);
     }
 
-    hittable_pdf light_pdf(lights, rec.p);
-    scattered = Ray(rec.p, light_pdf.generate(), ray.time());
-    pdf_val = light_pdf.value(scattered.direction());
+    auto p0 = make_shared<hittable_pdf>(lights, rec.p);
+    auto p1 = make_shared<CosineProDenF>(rec.normal);
+    mixture_pdf mixed_pdf(p0, p1);
+
+    scattered = Ray(rec.p, mixed_pdf.generate(), ray.time());
+    pdf_val = mixed_pdf.value(scattered.direction());
 
     //the return calculating code is very important. it's the equation of raytracing.
     //it's an integration of the equation of raytracing.

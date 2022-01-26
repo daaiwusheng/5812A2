@@ -43,4 +43,16 @@ public:
     shared_ptr<HittableObject> ptr;
 };
 
+class mixture_pdf : public ProDenF {
+public:
+    mixture_pdf(shared_ptr<ProDenF> p0, shared_ptr<ProDenF> p1);
+
+    virtual double value(const Cartesian3& direction) const override;
+
+    virtual Cartesian3 generate() const override;
+
+public:
+    shared_ptr<ProDenF> p[2];
+};
+
 #endif //RAYTRACERENDERWINDOWRELEASE_PRODENFUNCTION_H
