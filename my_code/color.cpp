@@ -10,6 +10,10 @@ RGBAValue getColor(Cartesian3 pixelColor, int samplesPerPixel) {
     auto g = pixelColor.get_y();
     auto b = pixelColor.get_z();
 
+    if (r != r) r = 0.0;
+    if (g != g) g = 0.0;
+    if (b != b) b = 0.0;
+
     // get the average color by dividing the color by the number of samples and using gamma-correct as gamma=2.0.
     auto scale = 1.0 / samplesPerPixel;
     r = sqrt(scale * r);

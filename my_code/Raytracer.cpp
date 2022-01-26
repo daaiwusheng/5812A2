@@ -113,8 +113,7 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
     }
 
     if(rec.specular){
-        return albedo
-                  * traceRayColor(scattered, background, currentScene,lights,depth - 1);
+        return albedo * traceRayColor(scattered, background, currentScene,lights,depth - 1);
     }
 
     auto p0 = make_shared<hittable_pdf>(lights, rec.p);
