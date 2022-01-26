@@ -20,3 +20,15 @@ double CosineProDenF::value(const Cartesian3 &direction) const {
 Cartesian3 CosineProDenF::generate() const {
     return uvw.local(randomCosineDirection());
 }
+
+hittable_pdf::hittable_pdf(shared_ptr<HittableObject> p, const Cartesian3 &origin) : ptr(p), o(origin) {
+
+}
+
+double hittable_pdf::value(const Cartesian3 &direction) const {
+    return ptr->pdf_value(o, direction);
+}
+
+Cartesian3 hittable_pdf::generate() const {
+    return ptr->random(o);
+}

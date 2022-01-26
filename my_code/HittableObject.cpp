@@ -6,6 +6,15 @@
 #include "utility.h"
 #include "../Cartesian3.h"
 
+
+double HittableObject::pdf_value(const Cartesian3 &o, const Cartesian3 &v) {
+    return 0.0;
+}
+
+Cartesian3 HittableObject::random(const Cartesian3 &o) {
+    return Cartesian3(1, 0, 0);
+}
+
 bool Translate::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
     //when we need to move the object, we can cheat. like just move the Ray origin to the
     //opposite direction.
@@ -117,3 +126,5 @@ bool flipAFace::hitTest(const Ray &r, double t_min, double t_max, HitRecord &rec
 bool flipAFace::boundingBox(double time0, double time1, AABBStructure &outputBox) {
     return theObject->boundingBox(time0, time1, outputBox);
 }
+
+

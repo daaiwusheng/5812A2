@@ -127,6 +127,8 @@ utility.h
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
 OrthonormalBasis.h
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/OrthonormalBasis.h
+HittableObject.h
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/HittableObject.h
 
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Ray.h
 ../Cartesian3.h
@@ -161,6 +163,8 @@ MyScene.h
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/MyScene.h
 ProDenFunction.h
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ProDenFunction.h
+aarect.h
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.h
 
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h
 ../Cartesian3.h
@@ -171,6 +175,10 @@ ProDenFunction.h
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RenderParameters.h
 ../TexturedObject.h
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/TexturedObject.h
+
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.h
+HittableObject.h
+/Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/HittableObject.h
 
 /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.h
 ../Cartesian3.h

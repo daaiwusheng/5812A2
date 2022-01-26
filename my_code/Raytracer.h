@@ -23,7 +23,7 @@ public:
     RenderParameters *renderParameters;
     TexturedObject *texturedObject;
 private:
-    Cartesian3 traceRayColor(const Ray& ray, const Cartesian3& background, HittableList currentScene, int depth);
+    Cartesian3 traceRayColor(const Ray& ray, const Cartesian3& background, HittableList currentScene,std::shared_ptr<HittableObject>& lights,int depth);
 
 };
 

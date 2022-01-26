@@ -290,9 +290,17 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.o: \
  ../my_code/OrthonormalBasis.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ProDenFunction.cpp.o: \
  ../Cartesian3.h \
+ ../RGBAValue.h \
+ ../my_code/AABBStructure.h \
+ ../my_code/HittableObject.h \
+ ../my_code/Material.h \
  ../my_code/OrthonormalBasis.h \
  ../my_code/ProDenFunction.cpp \
  ../my_code/ProDenFunction.h \
+ ../my_code/Ray.h \
+ ../my_code/color.h \
+ ../my_code/headers.h \
+ ../my_code/texture.h \
  ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Ray.cpp.o: \
  ../Cartesian3.h \
@@ -319,6 +327,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o: \
  ../my_code/Ray.h \
  ../my_code/Raytracer.cpp \
  ../my_code/Raytracer.h \
+ ../my_code/aarect.h \
  ../my_code/color.h \
  ../my_code/headers.h \
  ../my_code/texture.h \
@@ -375,7 +384,8 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o: \
  ../my_code/aarect.h \
  ../my_code/color.h \
  ../my_code/headers.h \
- ../my_code/texture.h
+ ../my_code/texture.h \
+ ../my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o: \
  ../Cartesian3.h \
  ../RGBAValue.h \

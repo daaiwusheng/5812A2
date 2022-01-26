@@ -38,6 +38,10 @@ public:
 
     virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
 
+    virtual double pdf_value(const Cartesian3& origin, const Cartesian3& v) override;
+
+    virtual Cartesian3 random(const Cartesian3& origin) override;
+
 public:
     shared_ptr<Material> material;
     double x0, x1, z0, z1, y;

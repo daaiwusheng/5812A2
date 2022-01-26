@@ -16,6 +16,7 @@
 #include "HittableList.h"
 #include "MyScene.h"
 #include "ProDenFunction.h"
+#include "aarect.h"
 
 Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *texturedObject) {
     this->renderParameters = renderParameters;
@@ -34,6 +35,8 @@ void Raytracer::render()
     Cartesian3 background = Cartesian3(0,0,0);
     int max_depth = 1;
     int samplesPerPixel = 10;
+    shared_ptr<HittableObject> lights =
+            make_shared<xz_rectangle>(213, 343, 227, 332, 554, shared_ptr<Material>());
     //if sceneType is equal to CORNEL_BOX, then we render cornelBox
     if (renderParameters->sceneType == CORNEL_BOX || renderParameters->sceneType =="")
     {
@@ -74,7 +77,7 @@ void Raytracer::render()
                     auto u = (i + randomDouble()) / (image_width - 1);
                     auto v = (j + randomDouble()) / (image_height - 1);
                     Ray r = cam->getRay(u, v); //the ray is from a camera, the view point. then we trace it.
-                    pixel_color += traceRayColor(r, background, currentScene, max_depth);
+                    pixel_color += traceRayColor(r, background, currentScene,lights,max_depth);
                 }
                 RGBAValue current_color = getColor(pixel_color, samplesPerPixel);//get the average color for a pixel
                 frameBuffer[j][i] = current_color;
@@ -85,7 +88,7 @@ void Raytracer::render()
 }
 
 //the recursive ray trace function.
-Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background, HittableList currentScene, int depth) {
+Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background, HittableList currentScene,shared_ptr<HittableObject>& lights, int depth) {
     HitRecord rec;
 
     // If we have done more than the Ray bounce limit, we need to stop can return zero color.
@@ -102,7 +105,7 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
 
     double currentProDenF;
     Cartesian3 albedo; //the color of the material. just like attenuation.
-
+    double pdf_val;
     if (!rec.material->scatter(ray, rec, albedo, scattered, currentProDenF)) {
         //if the material does not scatter, then we can say that it is a light source, just
         //return the emitted value as the light color.
@@ -111,13 +114,12 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
 
     if(rec.specular){
         return albedo
-                  * traceRayColor(scattered, background, currentScene, depth - 1);
+                  * traceRayColor(scattered, background, currentScene,lights,depth - 1);
     }
 
-    double pdf_val;
-    CosineProDenF p(rec.normal);
-    scattered = Ray(rec.p, p.generate(), ray.time());
-    pdf_val = p.value(scattered.direction());
+    hittable_pdf light_pdf(lights, rec.p);
+    scattered = Ray(rec.p, light_pdf.generate(), ray.time());
+    pdf_val = light_pdf.value(scattered.direction());
 
     //the return calculating code is very important. it's the equation of raytracing.
     //it's an integration of the equation of raytracing.
@@ -125,7 +127,7 @@ Cartesian3 Raytracer::traceRayColor(const Ray& ray, const Cartesian3& background
     return
            emitted
            + albedo * rec.material->scattering_proDenF(ray, rec, scattered)
-             * traceRayColor(scattered, background, currentScene, depth - 1) / pdf_val;
+             * traceRayColor(scattered, background, currentScene,lights, depth - 1) / pdf_val;
 
 }
 

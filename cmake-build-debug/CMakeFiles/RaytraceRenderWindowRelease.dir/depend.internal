@@ -290,9 +290,17 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/OrthonormalBasis.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/OrthonormalBasis.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/ProDenFunction.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Cartesian3.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RGBAValue.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/AABBStructure.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/HittableObject.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Material.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/OrthonormalBasis.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ProDenFunction.cpp
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/ProDenFunction.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Ray.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/headers.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/texture.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Ray.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Cartesian3.h
@@ -319,6 +327,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/Raytracer.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Ray.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.cpp
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/Raytracer.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/aarect.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/headers.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/texture.h
@@ -376,6 +385,7 @@ CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/aarect.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/color.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/headers.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/texture.h
+ /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/my_code/utility.h
 CMakeFiles/RaytraceRenderWindowRelease.dir/my_code/color.cpp.o
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/Cartesian3.h
  /Users/wangyu/Desktop/利兹上课资料/9月份学期/图形学两门课/5812/RaytraceRenderWindowRelease/RGBAValue.h

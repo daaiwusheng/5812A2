@@ -4,7 +4,7 @@
 
 #include "aarect.h"
 #include "../Cartesian3.h"
-
+#include "utility.h"
 //in this file, I only comments xz_rectangle, as they other two are the same.
 
 xz_rectangle::xz_rectangle() {
@@ -44,6 +44,23 @@ bool xz_rectangle::boundingBox(double time0, double time1, AABBStructure &output
     // dimension a small number.
     output_box = AABBStructure(Cartesian3(x0, y - 0.0001, z0), Cartesian3(x1, y + 0.0001, z1));
     return true;
+}
+
+double xz_rectangle::pdf_value(const Cartesian3 &origin, const Cartesian3 &v) {
+    HitRecord rec;
+    if (!this->hitTest(Ray(origin, v), 0.001, infinity, rec))
+        return 0;
+
+    auto area = (x1-x0)*(z1-z0);
+    auto distance_squared = rec.t * rec.t * v.length_squared();
+    auto cosine = fabs(dot(v, rec.normal) / v.length());
+
+    return distance_squared / (cosine * area);
+}
+
+Cartesian3 xz_rectangle::random(const Cartesian3 &origin) {
+    auto random_point = Cartesian3(randomDoubleInRange(x0,x1), y, randomDoubleInRange(z0,z1));
+    return random_point - origin;
 }
 
 xy_rectangle::xy_rectangle() {

@@ -8,6 +8,7 @@
 #include "../Cartesian3.h"
 #include "utility.h"
 #include "OrthonormalBasis.h"
+#include "HittableObject.h"
 
 class ProDenF {
 public:
@@ -28,5 +29,18 @@ public:
     OrthonormalBasis uvw;
 };
 
+
+class hittable_pdf : public ProDenF {
+public:
+    hittable_pdf(shared_ptr<HittableObject> p, const Cartesian3& origin);
+
+    virtual double value(const Cartesian3& direction) const override;
+
+    virtual Cartesian3 generate() const override;
+
+public:
+    Cartesian3 o;
+    shared_ptr<HittableObject> ptr;
+};
 
 #endif //RAYTRACERENDERWINDOWRELEASE_PRODENFUNCTION_H

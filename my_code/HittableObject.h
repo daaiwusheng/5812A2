@@ -33,6 +33,9 @@ class HittableObject {
 public:
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) = 0;
     virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) = 0;
+    virtual double pdf_value(const Cartesian3& o, const Cartesian3& v);
+
+    virtual Cartesian3 random(const Cartesian3& o);
 };
 
 //the Translate class is a tool when we want to translate an object in our scene.
