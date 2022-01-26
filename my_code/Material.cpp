@@ -44,7 +44,7 @@ bool LambertianMaterial::scatter(const Ray &ray_in,HitRecord &rec, Cartesian3 &_
 }
 
 double LambertianMaterial::scattering_proDenF(const Ray &ray_in, const HitRecord &rec, const Ray &scattered) const {
-    //this is about math, honestly I refer online.
+    //this is about math, honestly I refered this knowledge online.
     auto cosine = dot(rec.normal, unit_vector(scattered.direction()));
     return cosine < 0 ? 0 : cosine/pi;
 }

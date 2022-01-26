@@ -43,7 +43,7 @@ auto TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3
                                           const Cartesian3 &v2, const Ray &ray,
                                           double t_min, double t_max, int32_t index) -> HitRecord & {
 
-    //this is about math, and I referred online.
+    //this is about math, and I referred this knowledge online.
     HitRecord currentRecord;
     currentRecord.t = INFINITY;
 
