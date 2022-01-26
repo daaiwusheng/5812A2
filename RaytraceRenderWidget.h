@@ -27,6 +27,7 @@
 #include "TexturedObject.h"
 #include "RenderParameters.h"
 #include "my_code/Raytracer.h"
+#include <memory>
 
 // class for a render widget with arcball linked to an external arcball widget
 class RaytraceRenderWidget : public QOpenGLWidget										
@@ -42,9 +43,10 @@ class RaytraceRenderWidget : public QOpenGLWidget
 	// An image to use as a framebuffer
     RGBAImage frameBuffer;
 
-    std::shared_ptr<Raytracer> raytracer;
+
 
 	public:
+    std::shared_ptr<Raytracer> raytracer;
 	// constructor
 	RaytraceRenderWidget
 			(

@@ -94,7 +94,7 @@ auto TriangleMesh::intersectsWithTriangle(const Cartesian3 &v0, const Cartesian3
     return currentRecord;
 }
 
-bool TriangleMesh::boundingBox(double time0, double time1, AABBStructure &output_box)
+bool TriangleMesh::boundingBox(AABBStructure &output_box)
 {
     output_box = AABBStructure(Cartesian3(INFINITY,INFINITY,INFINITY),Cartesian3(-INFINITY,-INFINITY,-INFINITY));
     for(auto &v : textureObject.vertices){

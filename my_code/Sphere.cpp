@@ -3,7 +3,7 @@
 //
 
 #include "Sphere.h"
-
+#include <cmath>
 
 Sphere::Sphere() {
 
@@ -43,7 +43,7 @@ bool Sphere::hitTest(const Ray& ray, double t_min, double t_max, HitRecord& rec)
     return true;
 }
 
-bool Sphere::boundingBox(double time0, double time1, AABBStructure& outputBox)  {
+bool Sphere::boundingBox(AABBStructure& outputBox)  {
     outputBox = AABBStructure(
             center - Cartesian3(radius, radius, radius),
             center + Cartesian3(radius, radius, radius));
@@ -52,8 +52,8 @@ bool Sphere::boundingBox(double time0, double time1, AABBStructure& outputBox)  
 
 void Sphere::getSphere_uv(const Cartesian3 &p, double &u, double &v) {
 
-    auto theta = acos(-p.y);
-    auto phi = atan2(-p.z, p.x) + pi;
+    auto theta = std::acos(-p.y);
+    auto phi = std::atan2(-p.z, p.x) + pi;
 
     u = phi / (2*pi);
     v = theta / pi;

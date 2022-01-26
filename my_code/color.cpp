@@ -4,6 +4,7 @@
 
 #include "color.h"
 #include "utility.h"
+#include <cmath>
 
 RGBAValue getColor(Cartesian3 pixelColor, int samplesPerPixel) {
     auto r = pixelColor.get_x();

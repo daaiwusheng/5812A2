@@ -5,7 +5,7 @@
 #include "HittableObject.h"
 #include "utility.h"
 #include "../Cartesian3.h"
-
+#include <cmath>
 
 double HittableObject::pdf_value(const Cartesian3 &o, const Cartesian3 &v) {
     return 0.0;
@@ -31,8 +31,8 @@ bool Translate::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec
     return true;
 }
 
-bool Translate::boundingBox(double time0, double time1, AABBStructure& outputBox) {
-    if (!theObject->boundingBox(time0, time1, outputBox))
+bool Translate::boundingBox( AABBStructure& outputBox) {
+    if (!theObject->boundingBox(outputBox))
         return false;
     // as we need to move the object. we just need to move the bounding box by the
     // upper and lower limits.
@@ -49,7 +49,7 @@ rotate_y::rotate_y(shared_ptr<HittableObject> _object, double angle) : theObject
     auto radians = degreesToRadians(angle);
     sinTheta = sin(radians);
     cosTheta = cos(radians);
-    ifHaveBox = theObject->boundingBox(0, 1, aabbbox);
+    ifHaveBox = theObject->boundingBox(aabbbox);
 
     Cartesian3 minPoint(infinity, infinity, infinity);
     Cartesian3 maxPoint(-infinity, -infinity, -infinity);
@@ -112,7 +112,7 @@ bool rotate_y::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec)
     return true;
 }
 
-bool rotate_y::boundingBox(double time0, double time1, AABBStructure &outputBox) {
+bool rotate_y::boundingBox(AABBStructure &outputBox) {
     outputBox = aabbbox;
     return ifHaveBox;
 }
@@ -129,8 +129,8 @@ bool flipAFace::hitTest(const Ray &r, double t_min, double t_max, HitRecord &rec
     return true;
 }
 
-bool flipAFace::boundingBox(double time0, double time1, AABBStructure &outputBox) {
-    return theObject->boundingBox(time0, time1, outputBox);
+bool flipAFace::boundingBox(AABBStructure &outputBox) {
+    return theObject->boundingBox(outputBox);
 }
 
 

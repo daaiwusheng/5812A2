@@ -4,13 +4,13 @@
 
 #include "Camera.h"
 #include "utility.h"
-
+#include <cmath>
 
 
 Camera::Camera(Cartesian3 lookFrom, Cartesian3 lookAt, Cartesian3 viewUp, double verticalFieldOfView, double aspectRatio, double aperture,
                double focusDistance) {
     auto theta = degreesToRadians(verticalFieldOfView);
-    auto h = tan(theta/2);
+    auto h = std::tan(theta/2);
     auto viewportHeight = 2.0 * h;
     auto viewportWidth = aspectRatio * viewportHeight;
 

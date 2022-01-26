@@ -23,6 +23,9 @@
 #include "Matrix4.h"
 #include "Quaternion.h"
 #include <cmath>
+#include <limits>
+#include <algorithm>
+#include <memory.h>
 
 // constructor - default to the zero matrix
 Matrix4::Matrix4()

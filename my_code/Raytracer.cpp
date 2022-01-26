@@ -17,6 +17,7 @@
 #include "MyScene.h"
 #include "ProDenFunction.h"
 #include "aarect.h"
+#include <cmath>
 
 Raytracer::Raytracer(RenderParameters *renderParameters,TexturedObject *texturedObject) {
     this->renderParameters = renderParameters;

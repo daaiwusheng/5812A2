@@ -19,7 +19,7 @@ public:
     Sphere(Cartesian3 _center, double r, shared_ptr<Material> _material);;
 
     virtual bool hitTest(const Ray& ray, double t_min, double t_max, HitRecord& rec) override;
-    virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
+    virtual bool boundingBox(AABBStructure& outputBox) override;
 
 public:
     Cartesian3 center;

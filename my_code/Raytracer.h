@@ -9,6 +9,8 @@
 #include "../RGBAImage.h"
 #include "../RenderParameters.h"
 #include "../TexturedObject.h"
+#include <memory>
+
 class Ray;
 class HittableObject;
 class HittableList;

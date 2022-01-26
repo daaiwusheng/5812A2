@@ -5,6 +5,7 @@
 #include "TransformTool.h"
 #include "../Quaternion.h"
 #include "../Matrix4.h"
+#include <cmath>
 
 TransformTool::TransformTool() {
 

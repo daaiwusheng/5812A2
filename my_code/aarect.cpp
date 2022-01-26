@@ -5,6 +5,7 @@
 #include "aarect.h"
 #include "../Cartesian3.h"
 #include "utility.h"
+#include <cmath>
 //in this file, I only comments xz_rectangle, as they other two are the same.
 
 xz_rectangle::xz_rectangle() {
@@ -39,7 +40,7 @@ bool xz_rectangle::hitTest(const Ray& r, double t_min, double t_max, HitRecord& 
 }
 
 
-bool xz_rectangle::boundingBox(double time0, double time1, AABBStructure &output_box) {
+bool xz_rectangle::boundingBox(AABBStructure &output_box) {
     // The bounding Box can not have zero width in each dimension, so add the Y
     // dimension a small number.
     output_box = AABBStructure(Cartesian3(x0, y - 0.0001, z0), Cartesian3(x1, y + 0.0001, z1));
@@ -90,7 +91,7 @@ bool xy_rectangle::hitTest(const Ray& r, double t_min, double t_max, HitRecord& 
     return true;
 }
 
-bool xy_rectangle::boundingBox(double time0, double time1, AABBStructure &output_box) {
+bool xy_rectangle::boundingBox(AABBStructure &output_box) {
     output_box = AABBStructure(Cartesian3(x0, y0, z - 0.0001), Cartesian3(x1, y1, z + 0.0001));
     return true;
 }
@@ -122,7 +123,7 @@ bool yz_rectangle::hitTest(const Ray& r, double t_min, double t_max, HitRecord& 
     return true;
 }
 
-bool yz_rectangle::boundingBox(double time0, double time1, AABBStructure &output_box) {
+bool yz_rectangle::boundingBox(AABBStructure &output_box) {
     output_box = AABBStructure(Cartesian3(x - 0.0001, y0, z0), Cartesian3(x + 0.0001, y1, z1));
     return true;
 }

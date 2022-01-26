@@ -18,7 +18,7 @@ public:
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
-    virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
+    virtual bool boundingBox(AABBStructure& output_box) override;
 
 public:
     shared_ptr<Material> material;
@@ -34,7 +34,7 @@ public:
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
-    virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
+    virtual bool boundingBox(AABBStructure& output_box) override;
 
     virtual double pdf_value(const Cartesian3& origin, const Cartesian3& v) override;
 
@@ -56,7 +56,7 @@ public:
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
-    virtual bool boundingBox(double time0, double time1, AABBStructure& output_box) override;
+    virtual bool boundingBox(AABBStructure& output_box) override;
 
 public:
     shared_ptr<Material> material;

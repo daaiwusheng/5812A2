@@ -32,7 +32,7 @@ struct HitRecord {
 class HittableObject {
 public:
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) = 0;
-    virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) = 0;
+    virtual bool boundingBox(AABBStructure& outputBox) = 0;
     virtual double pdf_value(const Cartesian3& o, const Cartesian3& v);
 
     virtual Cartesian3 random(const Cartesian3& o);
@@ -46,7 +46,7 @@ public:
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
-    virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
+    virtual bool boundingBox( AABBStructure& outputBox) override;
 
 public:
     shared_ptr<HittableObject> theObject;
@@ -60,7 +60,7 @@ public:
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
-    virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
+    virtual bool boundingBox(AABBStructure& outputBox) override;
 
 public:
     shared_ptr<HittableObject> theObject;
@@ -78,7 +78,7 @@ public:
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec)  override;
 
-    virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
+    virtual bool boundingBox( AABBStructure& outputBox) override;
 
 public:
     shared_ptr<HittableObject> theObject;

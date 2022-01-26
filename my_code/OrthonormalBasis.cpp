@@ -3,6 +3,7 @@
 //
 
 #include "OrthonormalBasis.h"
+#include <cmath>
 
 OrthonormalBasis::OrthonormalBasis()
 {
@@ -12,7 +13,7 @@ OrthonormalBasis::OrthonormalBasis()
 void OrthonormalBasis::buildFromNormal(const Cartesian3& n) {
     axis[2] = unit_vector(n); //guarantee the axis[2] is a unit vector.
     //if w().x>0.9, it means the w.x is 1, so we need build a vector that y is 1.
-    Cartesian3 a = (fabs(w().x) > 0.9) ? Cartesian3(0,1,0) : Cartesian3(1,0,0);
+    Cartesian3 a = (std::fabs(w().x) > 0.9) ? Cartesian3(0,1,0) : Cartesian3(1,0,0);
     axis[1] = unit_vector(cross(w(), a));
     axis[0] = cross(w(), v());
 }

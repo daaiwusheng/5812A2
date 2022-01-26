@@ -39,7 +39,7 @@ bool HittableList::hitTest(const Ray& r, double t_min, double t_max, HitRecord& 
     return ifHitAnything;
 }
 
-bool HittableList::boundingBox(double time0, double time1, AABBStructure& outputBox)
+bool HittableList::boundingBox(AABBStructure& outputBox)
 {
     if (objectsInScene.empty()) return false;
 
@@ -47,7 +47,7 @@ bool HittableList::boundingBox(double time0, double time1, AABBStructure& output
     bool isFirstBox = true;
 
     for (const auto& object : objectsInScene) {
-        if (!object->boundingBox(time0, time1, tempBox)) {
+        if (!object->boundingBox(tempBox)) {
             //in the if statement, every time we can get a bounding box of the current theObject.
             //if not we can not use this function, in this programme it's illegal.
             return false;

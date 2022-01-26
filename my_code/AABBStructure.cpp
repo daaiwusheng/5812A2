@@ -3,6 +3,7 @@
 //
 
 #include "AABBStructure.h"
+#include <cmath>
 
 AABBStructure::AABBStructure()
 {
@@ -69,13 +70,13 @@ Cartesian3 AABBStructure::max() const
 AABBStructure getSurroundingBox(AABBStructure box0, AABBStructure box1) {
     //the result Box is contain box0 and box1,in order to do this, we just need
     //to get the smallest and the biggest point of these two boxes.
-    Cartesian3 small(fmin(box0.min().get_x(), box1.min().get_x()),
-                 fmin(box0.min().get_y(), box1.min().get_y()),
-                 fmin(box0.min().get_z(), box1.min().get_z()));
+    Cartesian3 small(std::fmin(box0.min().get_x(), box1.min().get_x()),
+                     std::fmin(box0.min().get_y(), box1.min().get_y()),
+                     std::fmin(box0.min().get_z(), box1.min().get_z()));
 
-    Cartesian3 big(fmax(box0.max().get_x(), box1.max().get_x()),
-               fmax(box0.max().get_y(), box1.max().get_y()),
-               fmax(box0.max().get_z(), box1.max().get_z()));
+    Cartesian3 big(std::fmax(box0.max().get_x(), box1.max().get_x()),
+                   std::fmax(box0.max().get_y(), box1.max().get_y()),
+                   std::fmax(box0.max().get_z(), box1.max().get_z()));
 
     return AABBStructure(small, big);
 }

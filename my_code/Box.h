@@ -17,7 +17,7 @@ public:
 
     virtual bool hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) override;
 
-    virtual bool boundingBox(double time0, double time1, AABBStructure& outputBox) override;
+    virtual bool boundingBox(AABBStructure& outputBox) override;
 
 public:
     // for a box, we only need to know the minimum and maximum points, then we can build a box.

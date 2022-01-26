@@ -28,7 +28,7 @@ bool Box::hitTest(const Ray& r, double t_min, double t_max, HitRecord& rec) {
     return sides.hitTest(r, t_min, t_max, rec);
 }
 
-bool Box::boundingBox(double time0, double time1, AABBStructure &outputBox) {
+bool Box::boundingBox(AABBStructure &outputBox) {
     //build the bounding box, I explain how to build it in AABBStructure/
     outputBox = AABBStructure(boxMin, boxMax);
     return true;

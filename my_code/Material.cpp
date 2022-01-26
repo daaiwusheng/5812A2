@@ -9,6 +9,7 @@
 #include "headers.h"
 #include "utility.h"
 #include "../Cartesian3.h"
+#include <cmath>
 
 bool Material::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &_albedo, Ray &scattered, double &proDenF) const {
     return false;
@@ -73,8 +74,8 @@ bool DielectricMaterial::scatter(const Ray &ray_in, HitRecord &rec, Cartesian3 &
 
     Cartesian3 unit_direction = unit_vector(ray_in.direction());
 
-    double cos_theta = fmin(dot(-1*unit_direction, rec.normal), 1.0);
-    double sin_theta = sqrt(1.0 - cos_theta*cos_theta);
+    double cos_theta = std::fmin(dot(-1*unit_direction, rec.normal), 1.0);
+    double sin_theta = std::sqrt(1.0 - cos_theta*cos_theta);
 
     bool cannotRefract = refraction_ratio * sin_theta > 1.0;
     Cartesian3 direction;
