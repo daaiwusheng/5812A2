@@ -75,7 +75,8 @@ void RaytraceRenderWidget::paintGL()
     glClear(GL_COLOR_BUFFER_BIT);
 
     // and display the image
-    glDrawPixels(frameBuffer.width, frameBuffer.height, GL_RGBA, GL_UNSIGNED_BYTE, frameBuffer.block);
+    glDrawPixels(raytracer->frameBuffer.width, raytracer->frameBuffer.height, GL_RGBA, GL_UNSIGNED_BYTE, raytracer->frameBuffer.block);
+
     } // RaytraceRenderWidget::paintGL()
     
     // routine that generates the image
@@ -83,7 +84,6 @@ void RaytraceRenderWidget::Raytrace()
     { // RaytraceRenderWidget::Raytrace()
 	// This is where you will invoke your raytracing
     raytracer->render();
-    frameBuffer = RGBAImage(raytracer->frameBuffer);
     update();
     } // RaytraceRenderWidget::Raytrace()
     

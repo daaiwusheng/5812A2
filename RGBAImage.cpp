@@ -82,6 +82,10 @@ bool RGBAImage::Resize(long Width, long Height)
     height = Height;
     width = Width;
 
+    for (int row = 0; row < height; row++)
+        for (int col = 0; col < width; col++)
+            (*this)[row][col] = RGBAValue(0,0,0);
+
     // done
     return true;
     } // Resize()
