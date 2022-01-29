@@ -13,7 +13,7 @@ public:
     const double aspectRatio = 1.0 / 1.0;
     const int imageWidth = 600;
     const int imageHeight = static_cast<int>(imageWidth / aspectRatio);
-    const int samplesPerPixel = 100; //this is the number of samples from one pixel
+    const int samplesPerPixel = 1000; //this is the number of samples from one pixel
     const int maxDepth = 50; //control the depth of Monte Carlo recursive scattering
 
     Cartesian3 background; //background color of the scene
